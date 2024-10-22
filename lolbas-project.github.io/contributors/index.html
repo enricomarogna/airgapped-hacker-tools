@@ -1,0 +1,561 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="utf-8">
+    <title>Contributors | LOLBAS</title>
+    <link rel="icon" href="/assets/favicon.png">
+    <link rel="stylesheet" href="/assets/style.css" type="text/css">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0, maximum-scale=5.0, user-scalable=yes">
+    <script async defer src="https://buttons.github.io/buttons.js"></script>
+    <script async src="/assets/mitre_attack.js"></script>
+</head>
+<body>
+    <a href="https://github.com/LOLBAS-Project/LOLBAS" class="github-corner" aria-label="View source on Github"><svg width="80" height="80" viewBox="0 0 250 250" style="fill:#151513; color:#fff; position: absolute; top: 0; border: 0; right: 0;" aria-hidden="true"><path d="M0,0 L115,115 L130,115 L142,142 L250,250 L250,0 Z"></path><path d="M128.3,109.0 C113.8,99.7 119.0,89.6 119.0,89.6 C122.0,82.7 120.5,78.6 120.5,78.6 C119.2,72.0 123.4,76.3 123.4,76.3 C127.3,80.9 125.5,87.3 125.5,87.3 C122.9,97.6 130.6,101.9 134.4,103.2" fill="currentColor" style="transform-origin: 130px 106px;" class="octo-arm"></path><path d="M115.0,115.0 C114.9,115.1 118.7,116.5 119.8,115.4 L133.7,101.6 C136.9,99.2 139.9,98.4 142.2,98.6 C133.8,88.0 127.5,74.4 143.8,58.0 C148.5,53.4 154.0,51.2 159.7,51.0 C160.3,49.4 163.2,43.6 171.4,40.1 C171.4,40.1 176.1,42.5 178.8,56.2 C183.1,58.6 187.2,61.8 190.9,65.4 C194.5,69.0 197.7,73.2 200.1,77.6 C213.8,80.2 216.3,84.9 216.3,84.9 C212.7,93.1 206.9,96.0 205.4,96.6 C205.1,102.4 203.0,107.8 198.3,112.5 C181.9,128.9 168.3,122.5 157.7,114.1 C157.9,116.9 156.7,120.9 152.7,124.9 L141.0,136.5 C139.8,137.7 141.6,141.9 141.8,141.8 Z" fill="currentColor" class="octo-body"></path></svg></a><style>.github-corner:hover .octo-arm{animation:octocat-wave 560ms ease-in-out}@keyframes octocat-wave{0%,100%{transform:rotate(0)}20%,60%{transform:rotate(-25deg)}40%,80%{transform:rotate(10deg)}}@media (max-width:500px){.github-corner:hover .octo-arm{animation:none}.github-corner .octo-arm{animation:octocat-wave 560ms ease-in-out}}</style>
+    <h1><a href="/">..</a> /Contributors<div class="github-buttons">
+        <a class="github-button" href="https://github.com/LOLBAS-Project/LOLBAS" data-icon="octicon-star" data-show-count="true" aria-label="Star LOLBAS-Project/LOLBAS on GitHub">Star</a>
+    </div>
+</h1>
+
+
+<script>
+    async function findGitHubContributors() {
+        const PATTERN = /<([^>]+)>; rel="next"/
+        let next_page = 'https://api.github.com/repos/LOLBAS-project/LOLBAS/contributors?anon=false';
+        while(next_page){
+            let githubApi = await fetch(next_page)
+            next_page = (PATTERN.exec(githubApi.headers.get("link")) || [null, null])[1];
+
+            let contributors = await (githubApi).json();
+            contributors.forEach(function (contributor) {
+                var div = document.createElement('div');
+                div.innerHTML = '<a href="https://github.com/' + contributor['login'] + '"><img src="https://avatars.githubusercontent.com/u/' + contributor['id'] + '?s=16&v=4" alt="Avatar of ' + contributor['login'] + '" class="external-favicon"></a> <a href="https://github.com/LOLBAS-project/LOLBAS/commits?author=' + contributor['login'] + '">' + contributor['login'] + '</a>';
+                document.getElementById("contributors").appendChild(div);
+            });
+        }
+    }
+    findGitHubContributors();
+</script>
+
+<p>We thank everyone who has contributed to this project via our <a href="https://www.github.com/LOLBAS-Project/LOLBAS">GitHub repository</a>:</p>
+<div id="contributors"></div>
+<p>We are also grateful to all who provided resources, such as research articles, blogs, and documentation, that enabled the creation of new entries for this project:</p>
+<p>
+<table id="bin-table">
+    <thead>
+        <tr>
+            <th style="width:80%">Website</th>
+            <th style="width:20%">Number of references</th>
+        </tr>
+    </thead>
+    <tbody><tr>
+                <td><img src="https://icons.duckduckgo.com/ip3/docs.microsoft.com.ico" class="external-favicon" alt="Favicon of docs.microsoft.com"> <a href="https://docs.microsoft.com">docs.microsoft.com</a></td>
+                <td>24</td>
+            </tr><tr>
+                <td><img src="https://icons.duckduckgo.com/ip3/oddvar.moe.ico" class="external-favicon" alt="Favicon of oddvar.moe"> <a href="https://oddvar.moe">oddvar.moe</a></td>
+                <td>21</td>
+            </tr><tr>
+                <td><img src="https://icons.duckduckgo.com/ip3/bohops.com.ico" class="external-favicon" alt="Favicon of bohops.com"> <a href="https://bohops.com">bohops.com</a></td>
+                <td>19</td>
+            </tr><tr>
+                <td><img src="https://icons.duckduckgo.com/ip3/twitter.com.ico" class="external-favicon" alt="Favicon of twitter.com"> <a href="https://twitter.com/bohops">twitter.com/bohops</a></td>
+                <td>14</td>
+            </tr><tr>
+                <td><img src="https://icons.duckduckgo.com/ip3/twitter.com.ico" class="external-favicon" alt="Favicon of twitter.com"> <a href="https://twitter.com/pabraeken">twitter.com/pabraeken</a></td>
+                <td>14</td>
+            </tr><tr>
+                <td><img src="https://icons.duckduckgo.com/ip3/gist.github.com.ico" class="external-favicon" alt="Favicon of gist.github.com"> <a href="https://gist.github.com/api0cradle">gist.github.com/api0cradle</a></td>
+                <td>11</td>
+            </tr><tr>
+                <td><img src="https://icons.duckduckgo.com/ip3/hexacorn.com.ico" class="external-favicon" alt="Favicon of hexacorn.com"> <a href="https://hexacorn.com">hexacorn.com</a></td>
+                <td>11</td>
+            </tr><tr>
+                <td><img src="https://icons.duckduckgo.com/ip3/learn.microsoft.com.ico" class="external-favicon" alt="Favicon of learn.microsoft.com"> <a href="https://learn.microsoft.com">learn.microsoft.com</a></td>
+                <td>9</td>
+            </tr><tr>
+                <td><img src="https://icons.duckduckgo.com/ip3/twitter.com.ico" class="external-favicon" alt="Favicon of twitter.com"> <a href="https://twitter.com/nas_bench">twitter.com/nas_bench</a></td>
+                <td>9</td>
+            </tr><tr>
+                <td><img src="https://icons.duckduckgo.com/ip3/windows10dll.nirsoft.net.ico" class="external-favicon" alt="Favicon of windows10dll.nirsoft.net"> <a href="https://windows10dll.nirsoft.net">windows10dll.nirsoft.net</a></td>
+                <td>9</td>
+            </tr><tr>
+                <td><img src="https://icons.duckduckgo.com/ip3/pentestlab.blog.ico" class="external-favicon" alt="Favicon of pentestlab.blog"> <a href="https://pentestlab.blog">pentestlab.blog</a></td>
+                <td>8</td>
+            </tr><tr>
+                <td><img src="https://icons.duckduckgo.com/ip3/medium.com.ico" class="external-favicon" alt="Favicon of medium.com"> <a href="https://medium.com/@reegun">medium.com/@reegun</a></td>
+                <td>7</td>
+            </tr><tr>
+                <td><img src="https://icons.duckduckgo.com/ip3/twitter.com.ico" class="external-favicon" alt="Favicon of twitter.com"> <a href="https://twitter.com/0gtweet">twitter.com/0gtweet</a></td>
+                <td>7</td>
+            </tr><tr>
+                <td><img src="https://icons.duckduckgo.com/ip3/youtube.com.ico" class="external-favicon" alt="Favicon of youtube.com"> <a href="https://youtube.com">youtube.com</a></td>
+                <td>7</td>
+            </tr><tr>
+                <td><img src="https://icons.duckduckgo.com/ip3/enigma0x3.net.ico" class="external-favicon" alt="Favicon of enigma0x3.net"> <a href="https://enigma0x3.net">enigma0x3.net</a></td>
+                <td>6</td>
+            </tr><tr>
+                <td><img src="https://icons.duckduckgo.com/ip3/github.com.ico" class="external-favicon" alt="Favicon of github.com"> <a href="https://github.com/redcanaryco">github.com/redcanaryco</a></td>
+                <td>6</td>
+            </tr><tr>
+                <td><img src="https://icons.duckduckgo.com/ip3/twitter.com.ico" class="external-favicon" alt="Favicon of twitter.com"> <a href="https://twitter.com/mrd0x">twitter.com/mrd0x</a></td>
+                <td>6</td>
+            </tr><tr>
+                <td><img src="https://icons.duckduckgo.com/ip3/twitter.com.ico" class="external-favicon" alt="Favicon of twitter.com"> <a href="https://twitter.com/oddvarmoe">twitter.com/oddvarmoe</a></td>
+                <td>6</td>
+            </tr><tr>
+                <td><img src="https://icons.duckduckgo.com/ip3/twitter.com.ico" class="external-favicon" alt="Favicon of twitter.com"> <a href="https://twitter.com/reegun21">twitter.com/reegun21</a></td>
+                <td>6</td>
+            </tr><tr>
+                <td><img src="https://icons.duckduckgo.com/ip3/gist.github.com.ico" class="external-favicon" alt="Favicon of gist.github.com"> <a href="https://gist.github.com/bohops">gist.github.com/bohops</a></td>
+                <td>5</td>
+            </tr><tr>
+                <td><img src="https://icons.duckduckgo.com/ip3/github.com.ico" class="external-favicon" alt="Favicon of github.com"> <a href="https://github.com/lolbas-project">github.com/lolbas-project</a></td>
+                <td>5</td>
+            </tr><tr>
+                <td><img src="https://icons.duckduckgo.com/ip3/twitter.com.ico" class="external-favicon" alt="Favicon of twitter.com"> <a href="https://twitter.com/hexacorn">twitter.com/hexacorn</a></td>
+                <td>5</td>
+            </tr><tr>
+                <td><img src="https://icons.duckduckgo.com/ip3/twitter.com.ico" class="external-favicon" alt="Favicon of twitter.com"> <a href="https://twitter.com/subtee">twitter.com/subtee</a></td>
+                <td>5</td>
+            </tr><tr>
+                <td><img src="https://icons.duckduckgo.com/ip3/gist.github.com.ico" class="external-favicon" alt="Favicon of gist.github.com"> <a href="https://gist.github.com/nicktyrer">gist.github.com/nicktyrer</a></td>
+                <td>4</td>
+            </tr><tr>
+                <td><img src="https://icons.duckduckgo.com/ip3/twitter.com.ico" class="external-favicon" alt="Favicon of twitter.com"> <a href="https://twitter.com/eral4m">twitter.com/eral4m</a></td>
+                <td>4</td>
+            </tr><tr>
+                <td><img src="https://icons.duckduckgo.com/ip3/twitter.com.ico" class="external-favicon" alt="Favicon of twitter.com"> <a href="https://twitter.com/harr0ey">twitter.com/harr0ey</a></td>
+                <td>4</td>
+            </tr><tr>
+                <td><img src="https://icons.duckduckgo.com/ip3/twitter.com.ico" class="external-favicon" alt="Favicon of twitter.com"> <a href="https://twitter.com/kylehanslovan">twitter.com/kylehanslovan</a></td>
+                <td>4</td>
+            </tr><tr>
+                <td><img src="https://icons.duckduckgo.com/ip3/twitter.com.ico" class="external-favicon" alt="Favicon of twitter.com"> <a href="https://twitter.com/mattifestation">twitter.com/mattifestation</a></td>
+                <td>4</td>
+            </tr><tr>
+                <td><img src="https://icons.duckduckgo.com/ip3/twitter.com.ico" class="external-favicon" alt="Favicon of twitter.com"> <a href="https://twitter.com/notwhickey">twitter.com/notwhickey</a></td>
+                <td>4</td>
+            </tr><tr>
+                <td><img src="https://icons.duckduckgo.com/ip3/evi1cg.me.ico" class="external-favicon" alt="Favicon of evi1cg.me"> <a href="https://evi1cg.me">evi1cg.me</a></td>
+                <td>3</td>
+            </tr><tr>
+                <td><img src="https://icons.duckduckgo.com/ip3/fireeye.com.ico" class="external-favicon" alt="Favicon of fireeye.com"> <a href="https://fireeye.com">fireeye.com</a></td>
+                <td>3</td>
+            </tr><tr>
+                <td><img src="https://icons.duckduckgo.com/ip3/gist.github.com.ico" class="external-favicon" alt="Favicon of gist.github.com"> <a href="https://gist.github.com/mattifestation">gist.github.com/mattifestation</a></td>
+                <td>3</td>
+            </tr><tr>
+                <td><img src="https://icons.duckduckgo.com/ip3/github.com.ico" class="external-favicon" alt="Favicon of github.com"> <a href="https://github.com/api0cradle">github.com/api0cradle</a></td>
+                <td>3</td>
+            </tr><tr>
+                <td><img src="https://icons.duckduckgo.com/ip3/github.com.ico" class="external-favicon" alt="Favicon of github.com"> <a href="https://github.com/enigma0x3">github.com/enigma0x3</a></td>
+                <td>3</td>
+            </tr><tr>
+                <td><img src="https://icons.duckduckgo.com/ip3/posts.specterops.io.ico" class="external-favicon" alt="Favicon of posts.specterops.io"> <a href="https://posts.specterops.io">posts.specterops.io</a></td>
+                <td>3</td>
+            </tr><tr>
+                <td><img src="https://icons.duckduckgo.com/ip3/ss64.com.ico" class="external-favicon" alt="Favicon of ss64.com"> <a href="https://ss64.com">ss64.com</a></td>
+                <td>3</td>
+            </tr><tr>
+                <td><img src="https://icons.duckduckgo.com/ip3/stackoverflow.com.ico" class="external-favicon" alt="Favicon of stackoverflow.com"> <a href="https://stackoverflow.com">stackoverflow.com</a></td>
+                <td>3</td>
+            </tr><tr>
+                <td><img src="https://icons.duckduckgo.com/ip3/twitter.com.ico" class="external-favicon" alt="Favicon of twitter.com"> <a href="https://twitter.com/dissectmalware">twitter.com/dissectmalware</a></td>
+                <td>3</td>
+            </tr><tr>
+                <td><img src="https://icons.duckduckgo.com/ip3/twitter.com.ico" class="external-favicon" alt="Favicon of twitter.com"> <a href="https://twitter.com/egre55">twitter.com/egre55</a></td>
+                <td>3</td>
+            </tr><tr>
+                <td><img src="https://icons.duckduckgo.com/ip3/twitter.com.ico" class="external-favicon" alt="Favicon of twitter.com"> <a href="https://twitter.com/elliotkillick">twitter.com/elliotkillick</a></td>
+                <td>3</td>
+            </tr><tr>
+                <td><img src="https://icons.duckduckgo.com/ip3/twitter.com.ico" class="external-favicon" alt="Favicon of twitter.com"> <a href="https://twitter.com/moriarty_meng">twitter.com/moriarty_meng</a></td>
+                <td>3</td>
+            </tr><tr>
+                <td><img src="https://icons.duckduckgo.com/ip3/twitter.com.ico" class="external-favicon" alt="Favicon of twitter.com"> <a href="https://twitter.com/nicktyrer">twitter.com/nicktyrer</a></td>
+                <td>3</td>
+            </tr><tr>
+                <td><img src="https://icons.duckduckgo.com/ip3/dtm.uk.ico" class="external-favicon" alt="Favicon of dtm.uk"> <a href="https://dtm.uk">dtm.uk</a></td>
+                <td>2</td>
+            </tr><tr>
+                <td><img src="https://icons.duckduckgo.com/ip3/freddiebarrsmith.com.ico" class="external-favicon" alt="Favicon of freddiebarrsmith.com"> <a href="https://freddiebarrsmith.com">freddiebarrsmith.com</a></td>
+                <td>2</td>
+            </tr><tr>
+                <td><img src="https://icons.duckduckgo.com/ip3/github.com.ico" class="external-favicon" alt="Favicon of github.com"> <a href="https://github.com/moookitty">github.com/moookitty</a></td>
+                <td>2</td>
+            </tr><tr>
+                <td><img src="https://icons.duckduckgo.com/ip3/github.com.ico" class="external-favicon" alt="Favicon of github.com"> <a href="https://github.com/sailay1996">github.com/sailay1996</a></td>
+                <td>2</td>
+            </tr><tr>
+                <td><img src="https://icons.duckduckgo.com/ip3/mrd0x.com.ico" class="external-favicon" alt="Favicon of mrd0x.com"> <a href="https://mrd0x.com">mrd0x.com</a></td>
+                <td>2</td>
+            </tr><tr>
+                <td><img src="https://icons.duckduckgo.com/ip3/slideshare.net.ico" class="external-favicon" alt="Favicon of slideshare.net"> <a href="https://slideshare.net/enigma0x3">slideshare.net/enigma0x3</a></td>
+                <td>2</td>
+            </tr><tr>
+                <td><img src="https://icons.duckduckgo.com/ip3/twitter.com.ico" class="external-favicon" alt="Favicon of twitter.com"> <a href="https://twitter.com/0rbz_">twitter.com/0rbz_</a></td>
+                <td>2</td>
+            </tr><tr>
+                <td><img src="https://icons.duckduckgo.com/ip3/twitter.com.ico" class="external-favicon" alt="Favicon of twitter.com"> <a href="https://twitter.com/_felamos">twitter.com/_felamos</a></td>
+                <td>2</td>
+            </tr><tr>
+                <td><img src="https://icons.duckduckgo.com/ip3/twitter.com.ico" class="external-favicon" alt="Favicon of twitter.com"> <a href="https://twitter.com/_st0pp3r_">twitter.com/_st0pp3r_</a></td>
+                <td>2</td>
+            </tr><tr>
+                <td><img src="https://icons.duckduckgo.com/ip3/twitter.com.ico" class="external-favicon" alt="Favicon of twitter.com"> <a href="https://twitter.com/countuponsec">twitter.com/countuponsec</a></td>
+                <td>2</td>
+            </tr><tr>
+                <td><img src="https://icons.duckduckgo.com/ip3/twitter.com.ico" class="external-favicon" alt="Favicon of twitter.com"> <a href="https://twitter.com/elceef">twitter.com/elceef</a></td>
+                <td>2</td>
+            </tr><tr>
+                <td><img src="https://icons.duckduckgo.com/ip3/twitter.com.ico" class="external-favicon" alt="Favicon of twitter.com"> <a href="https://twitter.com/gn3mes1s">twitter.com/gn3mes1s</a></td>
+                <td>2</td>
+            </tr><tr>
+                <td><img src="https://icons.duckduckgo.com/ip3/twitter.com.ico" class="external-favicon" alt="Favicon of twitter.com"> <a href="https://twitter.com/monoxgas">twitter.com/monoxgas</a></td>
+                <td>2</td>
+            </tr><tr>
+                <td><img src="https://icons.duckduckgo.com/ip3/twitter.com.ico" class="external-favicon" alt="Favicon of twitter.com"> <a href="https://twitter.com/philiptsukerman">twitter.com/philiptsukerman</a></td>
+                <td>2</td>
+            </tr><tr>
+                <td><img src="https://icons.duckduckgo.com/ip3/twitter.com.ico" class="external-favicon" alt="Favicon of twitter.com"> <a href="https://twitter.com/sblmsrsn">twitter.com/sblmsrsn</a></td>
+                <td>2</td>
+            </tr><tr>
+                <td><img src="https://icons.duckduckgo.com/ip3/twitter.com.ico" class="external-favicon" alt="Favicon of twitter.com"> <a href="https://twitter.com/vysecurity">twitter.com/vysecurity</a></td>
+                <td>2</td>
+            </tr><tr>
+                <td><img src="https://icons.duckduckgo.com/ip3/twitter.com.ico" class="external-favicon" alt="Favicon of twitter.com"> <a href="https://twitter.com/yeyint_mth">twitter.com/yeyint_mth</a></td>
+                <td>2</td>
+            </tr><tr>
+                <td><img src="https://icons.duckduckgo.com/ip3/activecyber.us.ico" class="external-favicon" alt="Favicon of activecyber.us"> <a href="https://activecyber.us">activecyber.us</a></td>
+                <td>1</td>
+            </tr><tr>
+                <td><img src="https://icons.duckduckgo.com/ip3/adsecurity.org.ico" class="external-favicon" alt="Favicon of adsecurity.org"> <a href="https://adsecurity.org">adsecurity.org</a></td>
+                <td>1</td>
+            </tr><tr>
+                <td><img src="https://icons.duckduckgo.com/ip3/asafety.fr.ico" class="external-favicon" alt="Favicon of asafety.fr"> <a href="https://asafety.fr">asafety.fr</a></td>
+                <td>1</td>
+            </tr><tr>
+                <td><img src="https://icons.duckduckgo.com/ip3/attack.mitre.org.ico" class="external-favicon" alt="Favicon of attack.mitre.org"> <a href="https://attack.mitre.org">attack.mitre.org</a></td>
+                <td>1</td>
+            </tr><tr>
+                <td><img src="https://icons.duckduckgo.com/ip3/badoption.eu.ico" class="external-favicon" alt="Favicon of badoption.eu"> <a href="https://badoption.eu">badoption.eu</a></td>
+                <td>1</td>
+            </tr><tr>
+                <td><img src="https://icons.duckduckgo.com/ip3/binar-x79.com.ico" class="external-favicon" alt="Favicon of binar-x79.com"> <a href="https://binar-x79.com">binar-x79.com</a></td>
+                <td>1</td>
+            </tr><tr>
+                <td><img src="https://icons.duckduckgo.com/ip3/blackhillsinfosec.com.ico" class="external-favicon" alt="Favicon of blackhillsinfosec.com"> <a href="https://blackhillsinfosec.com">blackhillsinfosec.com</a></td>
+                <td>1</td>
+            </tr><tr>
+                <td><img src="https://icons.duckduckgo.com/ip3/blog.3or.de.ico" class="external-favicon" alt="Favicon of blog.3or.de"> <a href="https://blog.3or.de">blog.3or.de</a></td>
+                <td>1</td>
+            </tr><tr>
+                <td><img src="https://icons.duckduckgo.com/ip3/blog.conscioushacker.io.ico" class="external-favicon" alt="Favicon of blog.conscioushacker.io"> <a href="https://blog.conscioushacker.io">blog.conscioushacker.io</a></td>
+                <td>1</td>
+            </tr><tr>
+                <td><img src="https://icons.duckduckgo.com/ip3/blog.thecybersecuritytutor.com.ico" class="external-favicon" alt="Favicon of blog.thecybersecuritytutor.com"> <a href="https://blog.thecybersecuritytutor.com">blog.thecybersecuritytutor.com</a></td>
+                <td>1</td>
+            </tr><tr>
+                <td><img src="https://icons.duckduckgo.com/ip3/blue-prints.blog.ico" class="external-favicon" alt="Favicon of blue-prints.blog"> <a href="https://blue-prints.blog">blue-prints.blog</a></td>
+                <td>1</td>
+            </tr><tr>
+                <td><img src="https://icons.duckduckgo.com/ip3/cmatskas.com.ico" class="external-favicon" alt="Favicon of cmatskas.com"> <a href="https://cmatskas.com">cmatskas.com</a></td>
+                <td>1</td>
+            </tr><tr>
+                <td><img src="https://icons.duckduckgo.com/ip3/code.visualstudio.com.ico" class="external-favicon" alt="Favicon of code.visualstudio.com"> <a href="https://code.visualstudio.com">code.visualstudio.com</a></td>
+                <td>1</td>
+            </tr><tr>
+                <td><img src="https://icons.duckduckgo.com/ip3/contextis.com.ico" class="external-favicon" alt="Favicon of contextis.com"> <a href="https://contextis.com">contextis.com</a></td>
+                <td>1</td>
+            </tr><tr>
+                <td><img src="https://icons.duckduckgo.com/ip3/ctus.io.ico" class="external-favicon" alt="Favicon of ctus.io"> <a href="https://ctus.io">ctus.io</a></td>
+                <td>1</td>
+            </tr><tr>
+                <td><img src="https://icons.duckduckgo.com/ip3/cybereason.com.ico" class="external-favicon" alt="Favicon of cybereason.com"> <a href="https://cybereason.com">cybereason.com</a></td>
+                <td>1</td>
+            </tr><tr>
+                <td><img src="https://icons.duckduckgo.com/ip3/cybersyndicates.com.ico" class="external-favicon" alt="Favicon of cybersyndicates.com"> <a href="https://cybersyndicates.com">cybersyndicates.com</a></td>
+                <td>1</td>
+            </tr><tr>
+                <td><img src="https://icons.duckduckgo.com/ip3/darkoperator.com.ico" class="external-favicon" alt="Favicon of darkoperator.com"> <a href="https://darkoperator.com">darkoperator.com</a></td>
+                <td>1</td>
+            </tr><tr>
+                <td><img src="https://icons.duckduckgo.com/ip3/daveaglick.com.ico" class="external-favicon" alt="Favicon of daveaglick.com"> <a href="https://daveaglick.com">daveaglick.com</a></td>
+                <td>1</td>
+            </tr><tr>
+                <td><img src="https://icons.duckduckgo.com/ip3/dfironthemountain.wordpress.com.ico" class="external-favicon" alt="Favicon of dfironthemountain.wordpress.com"> <a href="https://dfironthemountain.wordpress.com">dfironthemountain.wordpress.com</a></td>
+                <td>1</td>
+            </tr><tr>
+                <td><img src="https://icons.duckduckgo.com/ip3/elliotonsecurity.com.ico" class="external-favicon" alt="Favicon of elliotonsecurity.com"> <a href="https://elliotonsecurity.com">elliotonsecurity.com</a></td>
+                <td>1</td>
+            </tr><tr>
+                <td><img src="https://icons.duckduckgo.com/ip3/exploit-monday.com.ico" class="external-favicon" alt="Favicon of exploit-monday.com"> <a href="https://exploit-monday.com">exploit-monday.com</a></td>
+                <td>1</td>
+            </tr><tr>
+                <td><img src="https://icons.duckduckgo.com/ip3/forcepoint.com.ico" class="external-favicon" alt="Favicon of forcepoint.com"> <a href="https://forcepoint.com">forcepoint.com</a></td>
+                <td>1</td>
+            </tr><tr>
+                <td><img src="https://icons.duckduckgo.com/ip3/fortynorthsecurity.com.ico" class="external-favicon" alt="Favicon of fortynorthsecurity.com"> <a href="https://fortynorthsecurity.com">fortynorthsecurity.com</a></td>
+                <td>1</td>
+            </tr><tr>
+                <td><img src="https://icons.duckduckgo.com/ip3/gist.github.com.ico" class="external-favicon" alt="Favicon of gist.github.com"> <a href="https://gist.github.com/havoc3-3">gist.github.com/havoc3-3</a></td>
+                <td>1</td>
+            </tr><tr>
+                <td><img src="https://icons.duckduckgo.com/ip3/gist.githubusercontent.com.ico" class="external-favicon" alt="Favicon of gist.githubusercontent.com"> <a href="https://gist.githubusercontent.com">gist.githubusercontent.com</a></td>
+                <td>1</td>
+            </tr><tr>
+                <td><img src="https://icons.duckduckgo.com/ip3/github.com.ico" class="external-favicon" alt="Favicon of github.com"> <a href="https://github.com/3gstudent">github.com/3gstudent</a></td>
+                <td>1</td>
+            </tr><tr>
+                <td><img src="https://icons.duckduckgo.com/ip3/github.com.ico" class="external-favicon" alt="Favicon of github.com"> <a href="https://github.com/cn33liz">github.com/cn33liz</a></td>
+                <td>1</td>
+            </tr><tr>
+                <td><img src="https://icons.duckduckgo.com/ip3/github.com.ico" class="external-favicon" alt="Favicon of github.com"> <a href="https://github.com/dim0x69">github.com/dim0x69</a></td>
+                <td>1</td>
+            </tr><tr>
+                <td><img src="https://icons.duckduckgo.com/ip3/github.com.ico" class="external-favicon" alt="Favicon of github.com"> <a href="https://github.com/fireeye">github.com/fireeye</a></td>
+                <td>1</td>
+            </tr><tr>
+                <td><img src="https://icons.duckduckgo.com/ip3/github.com.ico" class="external-favicon" alt="Favicon of github.com"> <a href="https://github.com/hfiref0x">github.com/hfiref0x</a></td>
+                <td>1</td>
+            </tr><tr>
+                <td><img src="https://icons.duckduckgo.com/ip3/github.com.ico" class="external-favicon" alt="Favicon of github.com"> <a href="https://github.com/huntresslabs">github.com/huntresslabs</a></td>
+                <td>1</td>
+            </tr><tr>
+                <td><img src="https://icons.duckduckgo.com/ip3/github.com.ico" class="external-favicon" alt="Favicon of github.com"> <a href="https://github.com/luxnobulishit">github.com/luxnobulishit</a></td>
+                <td>1</td>
+            </tr><tr>
+                <td><img src="https://icons.duckduckgo.com/ip3/github.com.ico" class="external-favicon" alt="Favicon of github.com"> <a href="https://github.com/matthewdemaske">github.com/matthewdemaske</a></td>
+                <td>1</td>
+            </tr><tr>
+                <td><img src="https://icons.duckduckgo.com/ip3/github.com.ico" class="external-favicon" alt="Favicon of github.com"> <a href="https://github.com/microsoft">github.com/microsoft</a></td>
+                <td>1</td>
+            </tr><tr>
+                <td><img src="https://icons.duckduckgo.com/ip3/github.com.ico" class="external-favicon" alt="Favicon of github.com"> <a href="https://github.com/microsoftdocs">github.com/microsoftdocs</a></td>
+                <td>1</td>
+            </tr><tr>
+                <td><img src="https://icons.duckduckgo.com/ip3/github.com.ico" class="external-favicon" alt="Favicon of github.com"> <a href="https://github.com/ronniesalomonsen">github.com/ronniesalomonsen</a></td>
+                <td>1</td>
+            </tr><tr>
+                <td><img src="https://icons.duckduckgo.com/ip3/github.com.ico" class="external-favicon" alt="Favicon of github.com"> <a href="https://github.com/timwhitez">github.com/timwhitez</a></td>
+                <td>1</td>
+            </tr><tr>
+                <td><img src="https://icons.duckduckgo.com/ip3/github.com.ico" class="external-favicon" alt="Favicon of github.com"> <a href="https://github.com/vysec">github.com/vysec</a></td>
+                <td>1</td>
+            </tr><tr>
+                <td><img src="https://icons.duckduckgo.com/ip3/github.com.ico" class="external-favicon" alt="Favicon of github.com"> <a href="https://github.com/woanware">github.com/woanware</a></td>
+                <td>1</td>
+            </tr><tr>
+                <td><img src="https://icons.duckduckgo.com/ip3/gtfobins.github.io.ico" class="external-favicon" alt="Favicon of gtfobins.github.io"> <a href="https://gtfobins.github.io">gtfobins.github.io</a></td>
+                <td>1</td>
+            </tr><tr>
+                <td><img src="https://icons.duckduckgo.com/ip3/ijustwannared.team.ico" class="external-favicon" alt="Favicon of ijustwannared.team"> <a href="https://ijustwannared.team">ijustwannared.team</a></td>
+                <td>1</td>
+            </tr><tr>
+                <td><img src="https://icons.duckduckgo.com/ip3/isc.sans.edu.ico" class="external-favicon" alt="Favicon of isc.sans.edu"> <a href="https://isc.sans.edu">isc.sans.edu</a></td>
+                <td>1</td>
+            </tr><tr>
+                <td><img src="https://icons.duckduckgo.com/ip3/jstnk9.github.io.ico" class="external-favicon" alt="Favicon of jstnk9.github.io"> <a href="https://jstnk9.github.io">jstnk9.github.io</a></td>
+                <td>1</td>
+            </tr><tr>
+                <td><img src="https://icons.duckduckgo.com/ip3/l--k.uk.ico" class="external-favicon" alt="Favicon of l--k.uk"> <a href="https://l--k.uk">l--k.uk</a></td>
+                <td>1</td>
+            </tr><tr>
+                <td><img src="https://icons.duckduckgo.com/ip3/labofapenetrationtester.com.ico" class="external-favicon" alt="Favicon of labofapenetrationtester.com"> <a href="https://labofapenetrationtester.com">labofapenetrationtester.com</a></td>
+                <td>1</td>
+            </tr><tr>
+                <td><img src="https://icons.duckduckgo.com/ip3/labs.sentinelone.com.ico" class="external-favicon" alt="Favicon of labs.sentinelone.com"> <a href="https://labs.sentinelone.com">labs.sentinelone.com</a></td>
+                <td>1</td>
+            </tr><tr>
+                <td><img src="https://icons.duckduckgo.com/ip3/liberty-shell.com.ico" class="external-favicon" alt="Favicon of liberty-shell.com"> <a href="https://liberty-shell.com">liberty-shell.com</a></td>
+                <td>1</td>
+            </tr><tr>
+                <td><img src="https://icons.duckduckgo.com/ip3/lists.samba.org.ico" class="external-favicon" alt="Favicon of lists.samba.org"> <a href="https://lists.samba.org">lists.samba.org</a></td>
+                <td>1</td>
+            </tr><tr>
+                <td><img src="https://icons.duckduckgo.com/ip3/medium.com.ico" class="external-favicon" alt="Favicon of medium.com"> <a href="https://medium.com/@0xamit">medium.com/@0xamit</a></td>
+                <td>1</td>
+            </tr><tr>
+                <td><img src="https://icons.duckduckgo.com/ip3/medium.com.ico" class="external-favicon" alt="Favicon of medium.com"> <a href="https://medium.com/@bank_security">medium.com/@bank_security</a></td>
+                <td>1</td>
+            </tr><tr>
+                <td><img src="https://icons.duckduckgo.com/ip3/medium.com.ico" class="external-favicon" alt="Favicon of medium.com"> <a href="https://medium.com/@esnesenon">medium.com/@esnesenon</a></td>
+                <td>1</td>
+            </tr><tr>
+                <td><img src="https://icons.duckduckgo.com/ip3/medium.com.ico" class="external-favicon" alt="Favicon of medium.com"> <a href="https://medium.com/@malfuzzer">medium.com/@malfuzzer</a></td>
+                <td>1</td>
+            </tr><tr>
+                <td><img src="https://icons.duckduckgo.com/ip3/medium.com.ico" class="external-favicon" alt="Favicon of medium.com"> <a href="https://medium.com/@mr-0range">medium.com/@mr-0range</a></td>
+                <td>1</td>
+            </tr><tr>
+                <td><img src="https://icons.duckduckgo.com/ip3/medium.com.ico" class="external-favicon" alt="Favicon of medium.com"> <a href="https://medium.com/r3d-buck3t">medium.com/r3d-buck3t</a></td>
+                <td>1</td>
+            </tr><tr>
+                <td><img src="https://icons.duckduckgo.com/ip3/modexp.wordpress.com.ico" class="external-favicon" alt="Favicon of modexp.wordpress.com"> <a href="https://modexp.wordpress.com">modexp.wordpress.com</a></td>
+                <td>1</td>
+            </tr><tr>
+                <td><img src="https://icons.duckduckgo.com/ip3/nasbench.medium.com.ico" class="external-favicon" alt="Favicon of nasbench.medium.com"> <a href="https://nasbench.medium.com">nasbench.medium.com</a></td>
+                <td>1</td>
+            </tr><tr>
+                <td><img src="https://icons.duckduckgo.com/ip3/netwrix.com.ico" class="external-favicon" alt="Favicon of netwrix.com"> <a href="https://netwrix.com">netwrix.com</a></td>
+                <td>1</td>
+            </tr><tr>
+                <td><img src="https://icons.duckduckgo.com/ip3/offsec.almond.consulting.ico" class="external-favicon" alt="Favicon of offsec.almond.consulting"> <a href="https://offsec.almond.consulting">offsec.almond.consulting</a></td>
+                <td>1</td>
+            </tr><tr>
+                <td><img src="https://icons.duckduckgo.com/ip3/pearsonhighered.com.ico" class="external-favicon" alt="Favicon of pearsonhighered.com"> <a href="https://pearsonhighered.com">pearsonhighered.com</a></td>
+                <td>1</td>
+            </tr><tr>
+                <td><img src="https://icons.duckduckgo.com/ip3/peew.pw.ico" class="external-favicon" alt="Favicon of peew.pw"> <a href="https://peew.pw">peew.pw</a></td>
+                <td>1</td>
+            </tr><tr>
+                <td><img src="https://icons.duckduckgo.com/ip3/phpied.com.ico" class="external-favicon" alt="Favicon of phpied.com"> <a href="https://phpied.com">phpied.com</a></td>
+                <td>1</td>
+            </tr><tr>
+                <td><img src="https://icons.duckduckgo.com/ip3/pure.security.ico" class="external-favicon" alt="Favicon of pure.security"> <a href="https://pure.security">pure.security</a></td>
+                <td>1</td>
+            </tr><tr>
+                <td><img src="https://icons.duckduckgo.com/ip3/pureid.io.ico" class="external-favicon" alt="Favicon of pureid.io"> <a href="https://pureid.io">pureid.io</a></td>
+                <td>1</td>
+            </tr><tr>
+                <td><img src="https://icons.duckduckgo.com/ip3/redcanary.com.ico" class="external-favicon" alt="Favicon of redcanary.com"> <a href="https://redcanary.com">redcanary.com</a></td>
+                <td>1</td>
+            </tr><tr>
+                <td><img src="https://icons.duckduckgo.com/ip3/room362.com.ico" class="external-favicon" alt="Favicon of room362.com"> <a href="https://room362.com">room362.com</a></td>
+                <td>1</td>
+            </tr><tr>
+                <td><img src="https://icons.duckduckgo.com/ip3/saulpanders.github.io.ico" class="external-favicon" alt="Favicon of saulpanders.github.io"> <a href="https://saulpanders.github.io">saulpanders.github.io</a></td>
+                <td>1</td>
+            </tr><tr>
+                <td><img src="https://icons.duckduckgo.com/ip3/secureworks.com.ico" class="external-favicon" alt="Favicon of secureworks.com"> <a href="https://secureworks.com">secureworks.com</a></td>
+                <td>1</td>
+            </tr><tr>
+                <td><img src="https://icons.duckduckgo.com/ip3/securityboulevard.com.ico" class="external-favicon" alt="Favicon of securityboulevard.com"> <a href="https://securityboulevard.com">securityboulevard.com</a></td>
+                <td>1</td>
+            </tr><tr>
+                <td><img src="https://icons.duckduckgo.com/ip3/slideshare.net.ico" class="external-favicon" alt="Favicon of slideshare.net"> <a href="https://slideshare.net/chrisgates">slideshare.net/chrisgates</a></td>
+                <td>1</td>
+            </tr><tr>
+                <td><img src="https://icons.duckduckgo.com/ip3/social.technet.microsoft.com.ico" class="external-favicon" alt="Favicon of social.technet.microsoft.com"> <a href="https://social.technet.microsoft.com">social.technet.microsoft.com</a></td>
+                <td>1</td>
+            </tr><tr>
+                <td><img src="https://icons.duckduckgo.com/ip3/subt0x11.blogspot.no.ico" class="external-favicon" alt="Favicon of subt0x11.blogspot.no"> <a href="https://subt0x11.blogspot.no">subt0x11.blogspot.no</a></td>
+                <td>1</td>
+            </tr><tr>
+                <td><img src="https://icons.duckduckgo.com/ip3/support.microsoft.com.ico" class="external-favicon" alt="Favicon of support.microsoft.com"> <a href="https://support.microsoft.com">support.microsoft.com</a></td>
+                <td>1</td>
+            </tr><tr>
+                <td><img src="https://icons.duckduckgo.com/ip3/sushant747.gitbooks.io.ico" class="external-favicon" alt="Favicon of sushant747.gitbooks.io"> <a href="https://sushant747.gitbooks.io">sushant747.gitbooks.io</a></td>
+                <td>1</td>
+            </tr><tr>
+                <td><img src="https://icons.duckduckgo.com/ip3/trustwave.com.ico" class="external-favicon" alt="Favicon of trustwave.com"> <a href="https://trustwave.com">trustwave.com</a></td>
+                <td>1</td>
+            </tr><tr>
+                <td><img src="https://icons.duckduckgo.com/ip3/twitter.com.ico" class="external-favicon" alt="Favicon of twitter.com"> <a href="https://twitter.com/0xamit">twitter.com/0xamit</a></td>
+                <td>1</td>
+            </tr><tr>
+                <td><img src="https://icons.duckduckgo.com/ip3/twitter.com.ico" class="external-favicon" alt="Favicon of twitter.com"> <a href="https://twitter.com/0xboku">twitter.com/0xboku</a></td>
+                <td>1</td>
+            </tr><tr>
+                <td><img src="https://icons.duckduckgo.com/ip3/twitter.com.ico" class="external-favicon" alt="Favicon of twitter.com"> <a href="https://twitter.com/ajpc500">twitter.com/ajpc500</a></td>
+                <td>1</td>
+            </tr><tr>
+                <td><img src="https://icons.duckduckgo.com/ip3/twitter.com.ico" class="external-favicon" alt="Favicon of twitter.com"> <a href="https://twitter.com/ankit_anubhav">twitter.com/ankit_anubhav</a></td>
+                <td>1</td>
+            </tr><tr>
+                <td><img src="https://icons.duckduckgo.com/ip3/twitter.com.ico" class="external-favicon" alt="Favicon of twitter.com"> <a href="https://twitter.com/bopin2020">twitter.com/bopin2020</a></td>
+                <td>1</td>
+            </tr><tr>
+                <td><img src="https://icons.duckduckgo.com/ip3/twitter.com.ico" class="external-favicon" alt="Favicon of twitter.com"> <a href="https://twitter.com/bryon_">twitter.com/bryon_</a></td>
+                <td>1</td>
+            </tr><tr>
+                <td><img src="https://icons.duckduckgo.com/ip3/twitter.com.ico" class="external-favicon" alt="Favicon of twitter.com"> <a href="https://twitter.com/checkymander">twitter.com/checkymander</a></td>
+                <td>1</td>
+            </tr><tr>
+                <td><img src="https://icons.duckduckgo.com/ip3/twitter.com.ico" class="external-favicon" alt="Favicon of twitter.com"> <a href="https://twitter.com/cyber_sorcery">twitter.com/cyber_sorcery</a></td>
+                <td>1</td>
+            </tr><tr>
+                <td><img src="https://icons.duckduckgo.com/ip3/twitter.com.ico" class="external-favicon" alt="Favicon of twitter.com"> <a href="https://twitter.com/cyberraiju">twitter.com/cyberraiju</a></td>
+                <td>1</td>
+            </tr><tr>
+                <td><img src="https://icons.duckduckgo.com/ip3/twitter.com.ico" class="external-favicon" alt="Favicon of twitter.com"> <a href="https://twitter.com/embee_research">twitter.com/embee_research</a></td>
+                <td>1</td>
+            </tr><tr>
+                <td><img src="https://icons.duckduckgo.com/ip3/twitter.com.ico" class="external-favicon" alt="Favicon of twitter.com"> <a href="https://twitter.com/falsneg">twitter.com/falsneg</a></td>
+                <td>1</td>
+            </tr><tr>
+                <td><img src="https://icons.duckduckgo.com/ip3/twitter.com.ico" class="external-favicon" alt="Favicon of twitter.com"> <a href="https://twitter.com/hexcorn">twitter.com/hexcorn</a></td>
+                <td>1</td>
+            </tr><tr>
+                <td><img src="https://icons.duckduckgo.com/ip3/twitter.com.ico" class="external-favicon" alt="Favicon of twitter.com"> <a href="https://twitter.com/ihack4falafel">twitter.com/ihack4falafel</a></td>
+                <td>1</td>
+            </tr><tr>
+                <td><img src="https://icons.duckduckgo.com/ip3/twitter.com.ico" class="external-favicon" alt="Favicon of twitter.com"> <a href="https://twitter.com/infosecn1nja">twitter.com/infosecn1nja</a></td>
+                <td>1</td>
+            </tr><tr>
+                <td><img src="https://icons.duckduckgo.com/ip3/twitter.com.ico" class="external-favicon" alt="Favicon of twitter.com"> <a href="https://twitter.com/itsreallynick">twitter.com/itsreallynick</a></td>
+                <td>1</td>
+            </tr><tr>
+                <td><img src="https://icons.duckduckgo.com/ip3/twitter.com.ico" class="external-favicon" alt="Favicon of twitter.com"> <a href="https://twitter.com/johnlatwc">twitter.com/johnlatwc</a></td>
+                <td>1</td>
+            </tr><tr>
+                <td><img src="https://icons.duckduckgo.com/ip3/twitter.com.ico" class="external-favicon" alt="Favicon of twitter.com"> <a href="https://twitter.com/manuelberrueta">twitter.com/manuelberrueta</a></td>
+                <td>1</td>
+            </tr><tr>
+                <td><img src="https://icons.duckduckgo.com/ip3/twitter.com.ico" class="external-favicon" alt="Favicon of twitter.com"> <a href="https://twitter.com/mohammadaskar2">twitter.com/mohammadaskar2</a></td>
+                <td>1</td>
+            </tr><tr>
+                <td><img src="https://icons.duckduckgo.com/ip3/twitter.com.ico" class="external-favicon" alt="Favicon of twitter.com"> <a href="https://twitter.com/moo_hax">twitter.com/moo_hax</a></td>
+                <td>1</td>
+            </tr><tr>
+                <td><img src="https://icons.duckduckgo.com/ip3/twitter.com.ico" class="external-favicon" alt="Favicon of twitter.com"> <a href="https://twitter.com/mr_0rng">twitter.com/mr_0rng</a></td>
+                <td>1</td>
+            </tr><tr>
+                <td><img src="https://icons.duckduckgo.com/ip3/twitter.com.ico" class="external-favicon" alt="Favicon of twitter.com"> <a href="https://twitter.com/mrun1k0d3r">twitter.com/mrun1k0d3r</a></td>
+                <td>1</td>
+            </tr><tr>
+                <td><img src="https://icons.duckduckgo.com/ip3/twitter.com.ico" class="external-favicon" alt="Favicon of twitter.com"> <a href="https://twitter.com/nickvangilder">twitter.com/nickvangilder</a></td>
+                <td>1</td>
+            </tr><tr>
+                <td><img src="https://icons.duckduckgo.com/ip3/twitter.com.ico" class="external-favicon" alt="Favicon of twitter.com"> <a href="https://twitter.com/notmedic">twitter.com/notmedic</a></td>
+                <td>1</td>
+            </tr><tr>
+                <td><img src="https://icons.duckduckgo.com/ip3/twitter.com.ico" class="external-favicon" alt="Favicon of twitter.com"> <a href="https://twitter.com/ntsetdefault">twitter.com/ntsetdefault</a></td>
+                <td>1</td>
+            </tr><tr>
+                <td><img src="https://icons.duckduckgo.com/ip3/twitter.com.ico" class="external-favicon" alt="Favicon of twitter.com"> <a href="https://twitter.com/orange_8361">twitter.com/orange_8361</a></td>
+                <td>1</td>
+            </tr><tr>
+                <td><img src="https://icons.duckduckgo.com/ip3/twitter.com.ico" class="external-favicon" alt="Favicon of twitter.com"> <a href="https://twitter.com/oulusoyum">twitter.com/oulusoyum</a></td>
+                <td>1</td>
+            </tr><tr>
+                <td><img src="https://icons.duckduckgo.com/ip3/twitter.com.ico" class="external-favicon" alt="Favicon of twitter.com"> <a href="https://twitter.com/splinter_code">twitter.com/splinter_code</a></td>
+                <td>1</td>
+            </tr><tr>
+                <td><img src="https://icons.duckduckgo.com/ip3/twitter.com.ico" class="external-favicon" alt="Favicon of twitter.com"> <a href="https://twitter.com/vakninhai">twitter.com/vakninhai</a></td>
+                <td>1</td>
+            </tr><tr>
+                <td><img src="https://icons.duckduckgo.com/ip3/twitter.com.ico" class="external-favicon" alt="Favicon of twitter.com"> <a href="https://twitter.com/vector_sec">twitter.com/vector_sec</a></td>
+                <td>1</td>
+            </tr><tr>
+                <td><img src="https://icons.duckduckgo.com/ip3/twitter.com.ico" class="external-favicon" alt="Favicon of twitter.com"> <a href="https://twitter.com/wietze">twitter.com/wietze</a></td>
+                <td>1</td>
+            </tr><tr>
+                <td><img src="https://icons.duckduckgo.com/ip3/twitter.com.ico" class="external-favicon" alt="Favicon of twitter.com"> <a href="https://twitter.com/yosignals">twitter.com/yosignals</a></td>
+                <td>1</td>
+            </tr><tr>
+                <td><img src="https://icons.duckduckgo.com/ip3/vxug.fakedoma.in.ico" class="external-favicon" alt="Favicon of vxug.fakedoma.in"> <a href="https://vxug.fakedoma.in">vxug.fakedoma.in</a></td>
+                <td>1</td>
+            </tr></tbody>
+</table>
+
+    <script>
+        // add permalink on headings
+        document.querySelectorAll('h2').forEach((heading) => {
+            const link = document.createElement('a');
+            link.className = 'permalink';
+            link.href = `#${heading.id}`;
+            heading.appendChild(link);
+        });
+    </script>
+</body>
+</html>
