@@ -5,11 +5,14 @@
 ### Comandi utili
 
 ```bash
-# Avvia il server locale
-bundle exec jekyll serve
+# Installa le dipendenze
+bundle install
 
 # Genera il sito
 bundle exec jekyll build
+
+# Avvia il server locale
+bundle exec jekyll serve
 
 # Genera il sito e lo serve
 bundle exec jekyll serve --livereload
