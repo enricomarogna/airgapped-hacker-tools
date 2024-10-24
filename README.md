@@ -145,6 +145,36 @@ Per convertirli in MDBook è necessario:
     $1
     ```
 
+#### CODE TITLE
+- Regex per individuare gli `code title` e modificare come da esempio:
+
+    ```
+        {% code title="Using Windows" %}
+            ```bash
+            Get-DomainUser -PreauthNotRequired -verbose #List vuln users using PowerView
+            ```
+        {% endcode %}
+    ```
+
+    in
+
+    ```
+        `Using Windows`
+        ```bash
+        Get-DomainUser -PreauthNotRequired -verbose #List vuln users using PowerView
+        ```
+    ```
+
+    Regex vsc:
+    ```
+    \{%[\s]*code[\s]+title="([^"]+)"[\s]*%\}\n([\s\S]*?)\n\{%[\s]*endcode[\s]*%\}
+    ```
+
+    E stringa per la sostituzione
+    ```
+    `$1`
+    $2
+    ```
 
 #### EMBEDED
 
@@ -169,6 +199,30 @@ Per convertirli in MDBook è necessario:
     E stringa per la sostituzione
     ```
     <a href="$1" class="embed-url">$1</a>
+    ```
+
+#### PAGE-REF
+- Regex per individuare gli `page-ref` e modificare come da esempio:
+
+    ```markdown
+    {% page-ref page="browser-artifacts.md" %}
+    ```
+
+    in
+
+    ```markdown
+    <a href="browser-artifacts.md" class="page-ref">browser-artifacts.md</a>
+    ```
+
+    Regex per la ricerca tramite VSCode
+
+    ```
+    \{%[\s]*page-ref[\s]+page="([^"]+)"[\s]*%\}
+    ``` 
+
+    E stringa per la sostituzione
+    ```
+    <a href="$1" class="page-ref">$1</a>
     ```
 
 #### HINT
