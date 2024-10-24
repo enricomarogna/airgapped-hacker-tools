@@ -1,12 +1,17 @@
 # Airgaped Hacker Tools
 
-## Jekyll
-
 ### Elenco siti
 
-- gtfobins.github.io
-- lolbas-project.github.io
-- wadcoms.github.io
+| Sito | Framework |
+| --- | --- |
+| book.hacktricks.xyz | MDBook (Gitbook) |
+| gtfobins.github.io | Jekyll |
+| lolbas-project.github.io | Jekyll |
+| wadcoms.github.io | Jekyll |
+| weakpass.com | - |
+| www.revshells.com | - |
+
+## Jekyll
 
 ### Comandi utili
 
@@ -25,6 +30,16 @@ bundle exec jekyll serve --livereload
 ```
 
 ## MDBook
+
+### Comandi utili
+
+```bash
+# Genera il libro
+mdbook build
+
+# Genera il libro e lo serve
+mdbook serve
+```
 
 ### Tema custom
 
@@ -410,16 +425,6 @@ Per convertirli in MDBook è necessario:
     ```
     [$1]($2)
     ```
-
-### Comandi utili
-
-```bash
-# Genera il libro
-mdbook build
-
-# Genera il libro e lo serve
-mdbook serve
-```
 
 ## Verifica dei file
 
