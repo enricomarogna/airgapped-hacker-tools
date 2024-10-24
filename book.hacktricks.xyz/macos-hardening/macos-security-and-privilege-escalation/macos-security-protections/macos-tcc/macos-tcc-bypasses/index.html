@@ -343,7 +343,7 @@ Now, if you try to use the env variable `MTL_DUMP_PIPELINES_TO_JSON_FILE` apps w
 <h2 id="by-nfshomedirectory"><a class="header" href="#by-nfshomedirectory">By <strong>NFSHomeDirectory</strong></a></h2>
 <p>TCC uses a database in the user's HOME folder to control access to resources specific to the user at <strong>$HOME/Library/Application Support/com.apple.TCC/TCC.db</strong>.<br />
 Therefore, if the user manages to restart TCC with a $HOME env variable pointing to a <strong>different folder</strong>, the user could create a new TCC database in <strong>/Library/Application Support/com.apple.TCC/TCC.db</strong> and trick TCC to grant any TCC permission to any app.</p>
-<div class='notice notice-success'><b>SUCCESS</b><br/>
+<div class='notice notice-success'>
 Note that Apple uses the setting stored within the user's profile in the **`NFSHomeDirectory`** attribute for the **value of `$HOME`**, so if you compromise an application with permissions to modify this value (**`kTCCServiceSystemPolicySysAdminFiles`**), you can **weaponize** this option with a TCC bypass.
 </div>
 <h3 id="cve-20209934---tcc-1"><a class="header" href="#cve-20209934---tcc-1"><a href="./#c19b">CVE-2020–9934 - TCC</a> <a href="#c19b" id="c19b"></a></a></h3>

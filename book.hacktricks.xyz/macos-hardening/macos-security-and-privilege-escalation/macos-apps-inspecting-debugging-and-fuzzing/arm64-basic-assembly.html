@@ -175,18 +175,6 @@
                 <div id="content" class="content">
                     <main>
                         <h1 id="introduction-to-arm64v8"><a class="header" href="#introduction-to-arm64v8">Introduction to ARM64v8</a></h1>
-<div class='notice notice-success'><b>SUCCESS</b><br/>
-Learn & practice AWS Hacking:<img src="../../../.gitbook/assets/arte.png" alt="" data-size="line">[**HackTricks Training AWS Red Team Expert (ARTE)**](https://training.hacktricks.xyz/courses/arte)<img src="../../../.gitbook/assets/arte.png" alt="" data-size="line">\
-Learn & practice GCP Hacking: <img src="../../../.gitbook/assets/grte.png" alt="" data-size="line">[**HackTricks Training GCP Red Team Expert (GRTE)**<img src="../../../.gitbook/assets/grte.png" alt="" data-size="line">](https://training.hacktricks.xyz/courses/grte)
-<details>
-<summary>Support HackTricks</summary>
-<ul>
-<li>Check the <a href="https://github.com/sponsors/carlospolop"><strong>subscription plans</strong></a>!</li>
-<li><strong>Join the</strong> 💬 <a href="https://discord.gg/hRep4RUj7f"><strong>Discord group</strong></a> or the <a href="https://t.me/peass"><strong>telegram group</strong></a> or <strong>follow</strong> us on <strong>Twitter</strong> 🐦 <a href="https://twitter.com/hacktricks_live"><strong>@hacktricks_live</strong></a><strong>.</strong></li>
-<li><strong>Share hacking tricks by submitting PRs to the</strong> <a href="https://github.com/carlospolop/hacktricks"><strong>HackTricks</strong></a> and <a href="https://github.com/carlospolop/hacktricks-cloud"><strong>HackTricks Cloud</strong></a> github repos.</li>
-</ul>
-</details>
-</div>
 <h2 id="exception-levels---el-arm64v8"><a class="header" href="#exception-levels---el-arm64v8"><strong>Exception Levels - EL (ARM64v8)</strong></a></h2>
 <p>In ARMv8 architecture, execution levels, known as Exception Levels (ELs), define the privilege level and capabilities of the execution environment. There are four exception levels, ranging from EL0 to EL3, each serving a different purpose:</p>
 <ol>
@@ -639,7 +627,7 @@ dyldex -e libsystem_kernel.dylib /System/Volumes/Preboot/Cryptexes/OS/System/Lib
 dyldex -e libsystem_kernel.dylib /System/Library/Caches/com.apple.dyld/dyld_shared_cache_arm64
 </code></pre>
 <p>Note that <strong>Ida</strong> and <strong>Ghidra</strong> can also decompile <strong>specific dylibs</strong> from the cache just by passing the cache.</p>
-<div class='notice notice-success'><b>SUCCESS</b><br/>
+<div class='notice notice-success'>
 Sometimes it's easier to check the **decompiled** code from **`libsystem_kernel.dylib`** **than** checking the **source code** because the code of several syscalls (BSD and Mach) are generated via scripts (check comments in the source code) while in the dylib you can find what is being called.
 </div>
 <h3 id="machdep-calls"><a class="header" href="#machdep-calls">machdep calls</a></h3>
@@ -672,7 +660,7 @@ Sometimes it's easier to check the **decompiled** code from **`libsystem_kernel.
 whoami
 )
 </code></pre>
-<div class='notice notice-success'><b>SUCCESS</b><br/>
+<div class='notice notice-success'>
 Setting the env variable **`NSObjCMessageLoggingEnabled=1`** it's possible to log when this function is called in a file like `/tmp/msgSends-pid`.
 <p>Moreover, setting <strong><code>OBJC_HELP=1</code></strong> and calling any binary you can see other environment variables you could use to <strong>log</strong> when certain Objc-C actions occurs.</p>
 </div>
@@ -1056,18 +1044,6 @@ call_execve:
     mov  x16, #59
     svc  #0x1337
 </code></pre>
-<div class='notice notice-success'><b>SUCCESS</b><br/>
-Learn & practice AWS Hacking:<img src="../../../.gitbook/assets/arte.png" alt="" data-size="line">[**HackTricks Training AWS Red Team Expert (ARTE)**](https://training.hacktricks.xyz/courses/arte)<img src="../../../.gitbook/assets/arte.png" alt="" data-size="line">\
-Learn & practice GCP Hacking: <img src="../../../.gitbook/assets/grte.png" alt="" data-size="line">[**HackTricks Training GCP Red Team Expert (GRTE)**<img src="../../../.gitbook/assets/grte.png" alt="" data-size="line">](https://training.hacktricks.xyz/courses/grte)
-<details>
-<summary>Support HackTricks</summary>
-<ul>
-<li>Check the <a href="https://github.com/sponsors/carlospolop"><strong>subscription plans</strong></a>!</li>
-<li><strong>Join the</strong> 💬 <a href="https://discord.gg/hRep4RUj7f"><strong>Discord group</strong></a> or the <a href="https://t.me/peass"><strong>telegram group</strong></a> or <strong>follow</strong> us on <strong>Twitter</strong> 🐦 <a href="https://twitter.com/hacktricks_live"><strong>@hacktricks_live</strong></a><strong>.</strong></li>
-<li><strong>Share hacking tricks by submitting PRs to the</strong> <a href="https://github.com/carlospolop/hacktricks"><strong>HackTricks</strong></a> and <a href="https://github.com/carlospolop/hacktricks-cloud"><strong>HackTricks Cloud</strong></a> github repos.</li>
-</ul>
-</details>
-</div>
 
                     </main>
 

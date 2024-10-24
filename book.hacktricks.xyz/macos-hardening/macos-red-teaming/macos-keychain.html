@@ -175,18 +175,6 @@
                 <div id="content" class="content">
                     <main>
                         <h1 id="macos-keychain"><a class="header" href="#macos-keychain">macOS Keychain</a></h1>
-<div class='notice notice-success'><b>SUCCESS</b><br/>
-Learn & practice AWS Hacking:<img src="../../.gitbook/assets/arte.png" alt="" data-size="line">[**HackTricks Training AWS Red Team Expert (ARTE)**](https://training.hacktricks.xyz/courses/arte)<img src="../../.gitbook/assets/arte.png" alt="" data-size="line">\
-Learn & practice GCP Hacking: <img src="../../.gitbook/assets/grte.png" alt="" data-size="line">[**HackTricks Training GCP Red Team Expert (GRTE)**<img src="../../.gitbook/assets/grte.png" alt="" data-size="line">](https://training.hacktricks.xyz/courses/grte)
-<details>
-<summary>Support HackTricks</summary>
-<ul>
-<li>Check the <a href="https://github.com/sponsors/carlospolop"><strong>subscription plans</strong></a>!</li>
-<li><strong>Join the</strong> 💬 <a href="https://discord.gg/hRep4RUj7f"><strong>Discord group</strong></a> or the <a href="https://t.me/peass"><strong>telegram group</strong></a> or <strong>follow</strong> us on <strong>Twitter</strong> 🐦 <a href="https://twitter.com/hacktricks_live"><strong>@hacktricks_live</strong></a><strong>.</strong></li>
-<li><strong>Share hacking tricks by submitting PRs to the</strong> <a href="https://github.com/carlospolop/hacktricks"><strong>HackTricks</strong></a> and <a href="https://github.com/carlospolop/hacktricks-cloud"><strong>HackTricks Cloud</strong></a> github repos.</li>
-</ul>
-</details>
-</div>
 <h2 id="main-keychains"><a class="header" href="#main-keychains">Main Keychains</a></h2>
 <ul>
 <li>The <strong>User Keychain</strong> (<code>~/Library/Keychains/login.keychain-db</code>), which is used to store <strong>user-specific credentials</strong> like application passwords, internet passwords, user-generated certificates, network passwords, and user-generated public/private keys.</li>
@@ -258,7 +246,7 @@ security set-generic-password-parition-list -s "test service" -a "test acount" -
 security dump-keychain ~/Library/Keychains/login.keychain-db
 </code></pre>
 <h3 id="apis"><a class="header" href="#apis">APIs</a></h3>
-<div class='notice notice-success'><b>SUCCESS</b><br/>
+<div class='notice notice-success'>
 The **keychain enumeration and dumping** of secrets that **won't generate a prompt** can be done with the tool [**LockSmith**](https://github.com/its-a-feature/LockSmith)
 <p>Other API endpoints can be found in <a href="https://opensource.apple.com/source/libsecurity_keychain/libsecurity_keychain-55017/lib/SecKeychain.h.auto.html"><strong>SecKeyChain.h</strong></a> source code.</p>
 </div>
@@ -331,18 +319,6 @@ Therefore, if there is **1 application listed**, you need to **inject code in th
 <ul>
 <li><a href="https://www.youtube.com/watch?v=jKE1ZW33JpY"><strong>#OBTS v5.0: "Lock Picking the macOS Keychain" - Cody Thomas</strong></a></li>
 </ul>
-<div class='notice notice-success'><b>SUCCESS</b><br/>
-Learn & practice AWS Hacking:<img src="../../.gitbook/assets/arte.png" alt="" data-size="line">[**HackTricks Training AWS Red Team Expert (ARTE)**](https://training.hacktricks.xyz/courses/arte)<img src="../../.gitbook/assets/arte.png" alt="" data-size="line">\
-Learn & practice GCP Hacking: <img src="../../.gitbook/assets/grte.png" alt="" data-size="line">[**HackTricks Training GCP Red Team Expert (GRTE)**<img src="../../.gitbook/assets/grte.png" alt="" data-size="line">](https://training.hacktricks.xyz/courses/grte)
-<details>
-<summary>Support HackTricks</summary>
-<ul>
-<li>Check the <a href="https://github.com/sponsors/carlospolop"><strong>subscription plans</strong></a>!</li>
-<li><strong>Join the</strong> 💬 <a href="https://discord.gg/hRep4RUj7f"><strong>Discord group</strong></a> or the <a href="https://t.me/peass"><strong>telegram group</strong></a> or <strong>follow</strong> us on <strong>Twitter</strong> 🐦 <a href="https://twitter.com/hacktricks_live"><strong>@hacktricks_live</strong></a><strong>.</strong></li>
-<li><strong>Share hacking tricks by submitting PRs to the</strong> <a href="https://github.com/carlospolop/hacktricks"><strong>HackTricks</strong></a> and <a href="https://github.com/carlospolop/hacktricks-cloud"><strong>HackTricks Cloud</strong></a> github repos.</li>
-</ul>
-</details>
-</div>
 
                     </main>
 

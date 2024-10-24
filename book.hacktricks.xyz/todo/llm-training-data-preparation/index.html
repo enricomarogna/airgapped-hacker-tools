@@ -180,51 +180,51 @@
 <p>You should start by reading this post for some basic concepts you should know about:</p>
 <p><a href="0.-basic-llm-concepts.html">0.-basic-llm-concepts.md</a></p>
 <h2 id="1-tokenization"><a class="header" href="#1-tokenization">1. Tokenization</a></h2>
-<div class='notice notice-success'><b>SUCCESS</b><br/>
+<div class='notice notice-success'>
 The goal of this initial phase is very simple: <b>Divide the input in tokens (ids) in some way that makes sense</b>.
 </div>
 <p><a href="1.-tokenizing.html">1.-tokenizing.md</a></p>
 <h2 id="2-data-sampling"><a class="header" href="#2-data-sampling">2. Data Sampling</a></h2>
-<div class='notice notice-success'><b>SUCCESS</b><br/>
+<div class='notice notice-success'>
 The goal of this second phase is very simple: <b>Sample the input data and prepare it for the training phase usually by separating the dataset into sentences of a specific length and generating also the expected response.</b>
 </div>
 <p><a href="2.-data-sampling.html">2.-data-sampling.md</a></p>
 <h2 id="3-token-embeddings"><a class="header" href="#3-token-embeddings">3. Token Embeddings</a></h2>
-<div class='notice notice-success'><b>SUCCESS</b><br/>
+<div class='notice notice-success'>
 The goal of this third phase is very simple: <b>Assign each of the previous tokens in the vocabulary a vector of the desired dimensions to train the model.</b> Each word in the vocabulary will a point in a space of X dimensions.\
 Note that initially the position of each word in the space is just initialised "randomly" and these positions are trainable parameters (will be improved during the training).
 <p>Moreover, during the token embedding <b>another layer of embeddings is created</b> which represents (in this case) the <b>absolute possition of the word in the training sentence</b>. This way a word in different positions in the sentence will have a different representation (meaning).</p>
 </div>
 <p><a href="3.-token-embeddings.html">3.-token-embeddings.md</a></p>
 <h2 id="4-attention-mechanisms"><a class="header" href="#4-attention-mechanisms">4. Attention Mechanisms</a></h2>
-<div class='notice notice-success'><b>SUCCESS</b><br/>
+<div class='notice notice-success'>
 The goal of this fourth phase is very simple: <b>Apply some attetion mechanisms</b>. These are going to be a lot of <b>repeated layers</b> that are going to <b>capture the relation of a word in the vocabulary with its neighbours in the current sentence being used to train the LLM</b>.\
 A lot of layers are used for this, so a lot of trainable parameters are going to be capturing this information.
 </div>
 <p><a href="4.-attention-mechanisms.html">4.-attention-mechanisms.md</a></p>
 <h2 id="5-llm-architecture"><a class="header" href="#5-llm-architecture">5. LLM Architecture</a></h2>
-<div class='notice notice-success'><b>SUCCESS</b><br/>
+<div class='notice notice-success'>
 The goal of this fifth phase is very simple: <b>Develop the architecture of the full LLM</b>. Put everything together, apply all the layers and create all the functions to generate text or transform text to IDs and backwards.
 <p>This architecture will be used for both, training and predicting text after it was trained.</p>
 </div>
 <p><a href="5.-llm-architecture.html">5.-llm-architecture.md</a></p>
 <h2 id="6-pre-training--loading-models"><a class="header" href="#6-pre-training--loading-models">6. Pre-training &amp; Loading models</a></h2>
-<div class='notice notice-success'><b>SUCCESS</b><br/>
+<div class='notice notice-success'>
 The goal of this sixth phase is very simple: <b>Train the model from scratch</b>. For this the previous LLM architecture will be used with some loops going over the data sets using the defined loss functions and optimizer to train all the parameters of the model.
 </div>
 <p><a href="6.-pre-training-and-loading-models.html">6.-pre-training-and-loading-models.md</a></p>
 <h2 id="70-lora-improvements-in-fine-tuning"><a class="header" href="#70-lora-improvements-in-fine-tuning">7.0. LoRA Improvements in fine-tuning</a></h2>
-<div class='notice notice-success'><b>SUCCESS</b><br/>
+<div class='notice notice-success'>
 The use of <b>LoRA reduce a lot the computation</b> needed to <b>fine tune</b> already trained models.
 </div>
 <p><a href="7.0.-lora-improvements-in-fine-tuning.html">7.0.-lora-improvements-in-fine-tuning.md</a></p>
 <h2 id="71-fine-tuning-for-classification"><a class="header" href="#71-fine-tuning-for-classification">7.1. Fine-Tuning for Classification</a></h2>
-<div class='notice notice-success'><b>SUCCESS</b><br/>
+<div class='notice notice-success'>
 The goal of this section is to show how to fine-tune an already pre-trained model so instead of generating new text the LLM will select give the <b>probabilities of the given text being categorized in each of the given categories</b> (like if a text is spam or not).
 </div>
 <p><a href="7.1.-fine-tuning-for-classification.html">7.1.-fine-tuning-for-classification.md</a></p>
 <h2 id="72-fine-tuning-to-follow-instructions"><a class="header" href="#72-fine-tuning-to-follow-instructions">7.2. Fine-Tuning to follow instructions</a></h2>
-<div class='notice notice-success'><b>SUCCESS</b><br/>
+<div class='notice notice-success'>
 The goal of this section is to show how to <b>fine-tune an already pre-trained model to follow instructions</b> rather than just generating text, for example, responding to tasks as a chat bot.
 </div>
 <p><a href="7.2.-fine-tuning-to-follow-instructions.html">7.2.-fine-tuning-to-follow-instructions.md</a></p>

@@ -252,12 +252,12 @@ dyldex -l [dyld_shared_cache_path] # List libraries
 dyldex_all [dyld_shared_cache_path] # Extract all
 # More options inside the readme
 </code></pre>
-<div class='notice notice-success'><b>SUCCESS</b><br/>
+<div class='notice notice-success'>
 Note that even if `dyld_shared_cache_util` tool doesn't work, you can pass the **shared dyld binary to Hopper** and Hopper will be able to identify all the libraries and let you **select which one** you want to investigate:
 </div>
 <figure><img src="../../../.gitbook/assets/image (1152).png" alt="" width="563"><figcaption></figcaption></figure>
 <p>Some extractors won't work as dylibs are prelinked with hard coded addresses in therefore they might be jumping to unknown addresses</p>
-<div class='notice notice-success'><b>SUCCESS</b><br/>
+<div class='notice notice-success'>
 It's also possible to download the Shared Library Cache of other \*OS devices in macos by using an emulator in Xcode. They will be downloaded inside: ls `$HOME/Library/Developer/Xcode/<*>OS\ DeviceSupport/<version>/Symbols/System/Library/Caches/com.apple.dyld/`, like:`$HOME/Library/Developer/Xcode/iOS\ DeviceSupport/14.1\ (18A8395)/Symbols/System/Library/Caches/com.apple.dyld/dyld_shared_cache_arm64`
 </div>
 <h3 id="mapping-slc"><a class="header" href="#mapping-slc">Mapping SLC</a></h3>

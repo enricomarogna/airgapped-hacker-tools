@@ -175,18 +175,6 @@
                 <div id="content" class="content">
                     <main>
                         <h1 id="macos-sandbox"><a class="header" href="#macos-sandbox">macOS Sandbox</a></h1>
-<div class='notice notice-success'><b>SUCCESS</b><br/>
-Learn & practice AWS Hacking:<img src="../../../../.gitbook/assets/arte.png" alt="" data-size="line">[**HackTricks Training AWS Red Team Expert (ARTE)**](https://training.hacktricks.xyz/courses/arte)<img src="../../../../.gitbook/assets/arte.png" alt="" data-size="line">\
-Learn & practice GCP Hacking: <img src="../../../../.gitbook/assets/grte.png" alt="" data-size="line">[**HackTricks Training GCP Red Team Expert (GRTE)**<img src="../../../../.gitbook/assets/grte.png" alt="" data-size="line">](https://training.hacktricks.xyz/courses/grte)
-<details>
-<summary>Support HackTricks</summary>
-<ul>
-<li>Check the <a href="https://github.com/sponsors/carlospolop"><strong>subscription plans</strong></a>!</li>
-<li><strong>Join the</strong> 💬 <a href="https://discord.gg/hRep4RUj7f"><strong>Discord group</strong></a> or the <a href="https://t.me/peass"><strong>telegram group</strong></a> or <strong>follow</strong> us on <strong>Twitter</strong> 🐦 <a href="https://twitter.com/hacktricks_live"><strong>@hacktricks_live</strong></a><strong>.</strong></li>
-<li><strong>Share hacking tricks by submitting PRs to the</strong> <a href="https://github.com/carlospolop/hacktricks"><strong>HackTricks</strong></a> and <a href="https://github.com/carlospolop/hacktricks-cloud"><strong>HackTricks Cloud</strong></a> github repos.</li>
-</ul>
-</details>
-</div>
 <h2 id="basic-information"><a class="header" href="#basic-information">Basic Information</a></h2>
 <p>MacOS Sandbox (initially called Seatbelt) <strong>limits applications</strong> running inside the sandbox to the <strong>allowed actions specified in the Sandbox profile</strong> the app is running with. This helps to ensure that <strong>the application will be accessing only expected resources</strong>.</p>
 <p>Any app with the <strong>entitlement</strong> <strong><code>com.apple.security.app-sandbox</code></strong> will be executed inside the sandbox. <strong>Apple binaries</strong> are usually executed inside a Sandbox, and all applications from the <strong>App Store have that entitlement</strong>. So several applications will be executed inside the sandbox.</p>
@@ -304,7 +292,7 @@ Everything created/modified by a Sandboxed application will get the **quarantine
     (global-name "com.apple.analyticsd")
 )
 </code></pre>
-<div class='notice notice-success'><b>SUCCESS</b><br/>
+<div class='notice notice-success'>
 Check this [**research**](https://reverse.put.as/2011/09/14/apple-sandbox-guide-v1-0/) **to check more actions that could be allowed or denied.**
 <p>Note that in the compiled version of a profile the name of the operations are substituded by their entries in an array known by the dylib and the kext, making the compiled version shorter and more difficult to read.</p>
 </div>
@@ -492,18 +480,6 @@ sbtool &lt;pid&gt; all
 <ul>
 <li><a href="https://newosxbook.com/home.html"><strong>*OS Internals Volume III</strong></a></li>
 </ul>
-<div class='notice notice-success'><b>SUCCESS</b><br/>
-Learn & practice AWS Hacking:<img src="../../../../.gitbook/assets/arte.png" alt="" data-size="line">[**HackTricks Training AWS Red Team Expert (ARTE)**](https://training.hacktricks.xyz/courses/arte)<img src="../../../../.gitbook/assets/arte.png" alt="" data-size="line">\
-Learn & practice GCP Hacking: <img src="../../../../.gitbook/assets/grte.png" alt="" data-size="line">[**HackTricks Training GCP Red Team Expert (GRTE)**<img src="../../../../.gitbook/assets/grte.png" alt="" data-size="line">](https://training.hacktricks.xyz/courses/grte)
-<details>
-<summary>Support HackTricks</summary>
-<ul>
-<li>Check the <a href="https://github.com/sponsors/carlospolop"><strong>subscription plans</strong></a>!</li>
-<li><strong>Join the</strong> 💬 <a href="https://discord.gg/hRep4RUj7f"><strong>Discord group</strong></a> or the <a href="https://t.me/peass"><strong>telegram group</strong></a> or <strong>follow</strong> us on <strong>Twitter</strong> 🐦 <a href="https://twitter.com/hacktricks_live"><strong>@hacktricks_live</strong></a><strong>.</strong></li>
-<li><strong>Share hacking tricks by submitting PRs to the</strong> <a href="https://github.com/carlospolop/hacktricks"><strong>HackTricks</strong></a> and <a href="https://github.com/carlospolop/hacktricks-cloud"><strong>HackTricks Cloud</strong></a> github repos.</li>
-</ul>
-</details>
-</div>
 
                     </main>
 

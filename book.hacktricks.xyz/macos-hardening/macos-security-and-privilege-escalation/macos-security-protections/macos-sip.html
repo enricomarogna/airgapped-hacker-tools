@@ -175,18 +175,6 @@
                 <div id="content" class="content">
                     <main>
                         <h1 id="macos-sip"><a class="header" href="#macos-sip">macOS SIP</a></h1>
-<div class='notice notice-success'><b>SUCCESS</b><br/>
-Learn & practice AWS Hacking:<img src="../../../.gitbook/assets/arte.png" alt="" data-size="line">[**HackTricks Training AWS Red Team Expert (ARTE)**](https://training.hacktricks.xyz/courses/arte)<img src="../../../.gitbook/assets/arte.png" alt="" data-size="line">\
-Learn & practice GCP Hacking: <img src="../../../.gitbook/assets/grte.png" alt="" data-size="line">[**HackTricks Training GCP Red Team Expert (GRTE)**<img src="../../../.gitbook/assets/grte.png" alt="" data-size="line">](https://training.hacktricks.xyz/courses/grte)
-<details>
-<summary>Support HackTricks</summary>
-<ul>
-<li>Check the <a href="https://github.com/sponsors/carlospolop"><strong>subscription plans</strong></a>!</li>
-<li><strong>Join the</strong> 💬 <a href="https://discord.gg/hRep4RUj7f"><strong>Discord group</strong></a> or the <a href="https://t.me/peass"><strong>telegram group</strong></a> or <strong>follow</strong> us on <strong>Twitter</strong> 🐦 <a href="https://twitter.com/hacktricks_live"><strong>@hacktricks_live</strong></a><strong>.</strong></li>
-<li><strong>Share hacking tricks by submitting PRs to the</strong> <a href="https://github.com/carlospolop/hacktricks"><strong>HackTricks</strong></a> and <a href="https://github.com/carlospolop/hacktricks-cloud"><strong>HackTricks Cloud</strong></a> github repos.</li>
-</ul>
-</details>
-</div>
 <h2 id="basic-information"><a class="header" href="#basic-information"><strong>Basic Information</strong></a></h2>
 <p><strong>System Integrity Protection (SIP)</strong> in macOS is a mechanism designed to prevent even the most privileged users from making unauthorized changes to key system folders. This feature plays a crucial role in maintaining the integrity of the system by restricting actions like adding, modifying, or deleting files in protected areas. The primary folders shielded by SIP include:</p>
 <ul>
@@ -214,7 +202,7 @@ drwxr-xr-x  338 root  wheel  restricted 10816 May 13 00:29 /usr/libexec
 </code></pre>
 <p>Here, the <strong><code>restricted</code></strong> flag indicates that the <code>/usr/libexec</code> directory is protected by SIP. In a SIP-protected directory, files cannot be created, modified, or deleted.</p>
 <p>Moreover, if a file contains the attribute <strong><code>com.apple.rootless</code></strong> extended <strong>attribute</strong>, that file will also be <strong>protected by SIP</strong>.</p>
-<div class='notice notice-success'><b>SUCCESS</b><br/>
+<div class='notice notice-success'>
 Note that **Sandbox** hook **`hook_vnode_check_setextattr`** prevents any attempt to modify the extended attribute **`com.apple.rootless`.**
 </div>
 <p><strong>SIP also limits other root actions</strong> like:</p>
@@ -377,18 +365,6 @@ Authenticated Root status: enabled
 <pre><code class="language-bash">mount
 /dev/disk3s1s1 on / (apfs, sealed, local, read-only, journaled)
 </code></pre>
-<div class='notice notice-success'><b>SUCCESS</b><br/>
-Learn & practice AWS Hacking:<img src="../../../.gitbook/assets/arte.png" alt="" data-size="line">[**HackTricks Training AWS Red Team Expert (ARTE)**](https://training.hacktricks.xyz/courses/arte)<img src="../../../.gitbook/assets/arte.png" alt="" data-size="line">\
-Learn & practice GCP Hacking: <img src="../../../.gitbook/assets/grte.png" alt="" data-size="line">[**HackTricks Training GCP Red Team Expert (GRTE)**<img src="../../../.gitbook/assets/grte.png" alt="" data-size="line">](https://training.hacktricks.xyz/courses/grte)
-<details>
-<summary>Support HackTricks</summary>
-<ul>
-<li>Check the <a href="https://github.com/sponsors/carlospolop"><strong>subscription plans</strong></a>!</li>
-<li><strong>Join the</strong> 💬 <a href="https://discord.gg/hRep4RUj7f"><strong>Discord group</strong></a> or the <a href="https://t.me/peass"><strong>telegram group</strong></a> or <strong>follow</strong> us on <strong>Twitter</strong> 🐦 <a href="https://twitter.com/hacktricks_live"><strong>@hacktricks_live</strong></a><strong>.</strong></li>
-<li><strong>Share hacking tricks by submitting PRs to the</strong> <a href="https://github.com/carlospolop/hacktricks"><strong>HackTricks</strong></a> and <a href="https://github.com/carlospolop/hacktricks-cloud"><strong>HackTricks Cloud</strong></a> github repos.</li>
-</ul>
-</details>
-</div>
 
                     </main>
 

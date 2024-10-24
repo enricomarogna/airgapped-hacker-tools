@@ -308,7 +308,7 @@ MH_MAGIC_64    ARM64          E USR00     EXECUTE    19       1728   NOUNDEFS DY
 </code></pre>
 <p>There are about <strong>50 different types of load commands</strong> that the system handles differently. The most common ones are: <code>LC_SEGMENT_64</code>, <code>LC_LOAD_DYLINKER</code>, <code>LC_MAIN</code>, <code>LC_LOAD_DYLIB</code>, and <code>LC_CODE_SIGNATURE</code>.</p>
 <h3 id="lc_segmentlc_segment_64"><a class="header" href="#lc_segmentlc_segment_64"><strong>LC_SEGMENT/LC_SEGMENT_64</strong></a></h3>
-<div class='notice notice-success'><b>SUCCESS</b><br/>
+<div class='notice notice-success'>
 Basically, this type of Load Command define **how to load the \_\_TEXT** (executable code) **and \_\_DATA** (data for the process) **segments** according to the **offsets indicated in the Data section** when the binary is executed.
 </div>
 <p>These commands <strong>define segments</strong> that are <strong>mapped</strong> into the <strong>virtual memory space</strong> of a process when it is executed.</p>
@@ -481,7 +481,7 @@ The offsets of any constructors are held in the **\_\_mod\_init\_func** section 
 </div>
 <h2 id="mach-o-data"><a class="header" href="#mach-o-data"><strong>Mach-O Data</strong></a></h2>
 <p>At the core of the file lies the data region, which is composed of several segments as defined in the load-commands region. <strong>A variety of data sections can be housed within each segment</strong>, with each section <strong>holding code or data</strong> specific to a type.</p>
-<div class='notice notice-success'><b>SUCCESS</b><br/>
+<div class='notice notice-success'>
 The data is basically the part containing all the **information** that is loaded by the load commands **LC\_SEGMENTS\_64**
 </div>
 <p><img src="../../../.gitbook/assets/image%20(507)%20(3).png" alt="https://www.oreilly.com/api/v2/epubs/9781785883378/files/graphics/B05055_02_38.jpg" /></p>

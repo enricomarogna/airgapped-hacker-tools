@@ -211,7 +211,7 @@ The previous databases are also **TCC protected for read access**. So you **won'
 <li>The SIP protected file <strong><code>/Users/carlospolop/Downloads/MDMOverrides.plist</code></strong> (also protected from read access with TCC), contains more TCC granted permissions.</li>
 <li>The SIP protected file <strong><code>/Library/Apple/Library/Bundles/TCC_Compatibility.bundle/Contents/Resources/AllowApplicationsList.plist</code></strong> (bu readable by anyone) is an allow list of applications that require a TCC exception.</li>
 </ul>
-<div class='notice notice-success'><b>SUCCESS</b><br/>
+<div class='notice notice-success'>
 The TCC database in **iOS** is in **`/private/var/mobile/Library/TCC/TCC.db`**
 </div>
 <div class='notice notice-info'><b>INFO</b><br/>
@@ -259,7 +259,7 @@ sqlite&gt; select * from access where client LIKE "%telegram%" and auth_value=2;
 # Check user denied permissions for telegram
 sqlite&gt; select * from access where client LIKE "%telegram%" and auth_value=0;
 </code></pre>
-<div class='notice notice-success'><b>SUCCESS</b><br/>
+<div class='notice notice-success'>
 Checking both databases you can check the permissions an app has allowed, has forbidden, or doesn't have (it will ask for it).
 </div>
 <ul>
@@ -329,7 +329,7 @@ echo "X'$REQ_HEX'"
 <li>For more information about the <strong>other fields</strong> of the table <a href="https://www.rainforestqa.com/blog/macos-tcc-db-deep-dive"><strong>check this blog post</strong></a>.</li>
 </ul>
 <p>You could also check <strong>already given permissions</strong> to apps in <code>System Preferences --&gt; Security &amp; Privacy --&gt; Privacy --&gt; Files and Folders</code>.</p>
-<div class='notice notice-success'><b>SUCCESS</b><br/>
+<div class='notice notice-success'>
 Users _can_ **delete or query rules** using **`tccutil`** .
 </div>
 <h4 id="reset-tcc-permissions"><a class="header" href="#reset-tcc-permissions">Reset TCC permissions</a></h4>
@@ -369,7 +369,7 @@ For example <strong>Telegram</strong> has the entitlement <code>com.apple.securi
 &lt;/array&gt;
 </code></pre>
 <p>This will avoid Calendar ask the user to access reminders, calendar and the address book.</p>
-<div class='notice notice-success'><b>SUCCESS</b><br/>
+<div class='notice notice-success'>
 Apart from some official documentation about entitlements it's also possible to find unofficial **interesting information about entitlements in** [**https://newosxbook.com/ent.jl**](https://newosxbook.com/ent.jl)
 </div>
 <p>Some TCC permissions are: kTCCServiceAppleEvents, kTCCServiceCalendar, kTCCServicePhotos... There is no public list that defines all of them but you can check this <a href="https://www.rainforestqa.com/blog/macos-tcc-db-deep-dive#service"><strong>list of known ones</strong></a>.</p>

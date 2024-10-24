@@ -175,18 +175,6 @@
                 <div id="content" class="content">
                     <main>
                         <h1 id="macos-macf"><a class="header" href="#macos-macf">macOS MACF</a></h1>
-<div class='notice notice-success'><b>SUCCESS</b><br/>
-Learn & practice AWS Hacking:<img src="../../../.gitbook/assets/arte.png" alt="" data-size="line">[**HackTricks Training AWS Red Team Expert (ARTE)**](https://training.hacktricks.xyz/courses/arte)<img src="../../../.gitbook/assets/arte.png" alt="" data-size="line">\
-Learn & practice GCP Hacking: <img src="../../../.gitbook/assets/grte.png" alt="" data-size="line">[**HackTricks Training GCP Red Team Expert (GRTE)**<img src="../../../.gitbook/assets/grte.png" alt="" data-size="line">](https://training.hacktricks.xyz/courses/grte)
-<details>
-<summary>Support HackTricks</summary>
-<ul>
-<li>Check the <a href="https://github.com/sponsors/carlospolop"><strong>subscription plans</strong></a>!</li>
-<li><strong>Join the</strong> 💬 <a href="https://discord.gg/hRep4RUj7f"><strong>Discord group</strong></a> or the <a href="https://t.me/peass"><strong>telegram group</strong></a> or <strong>follow</strong> us on <strong>Twitter</strong> 🐦 <a href="https://twitter.com/hacktricks_live"><strong>@hacktricks_live</strong></a><strong>.</strong></li>
-<li><strong>Share hacking tricks by submitting PRs to the</strong> <a href="https://github.com/carlospolop/hacktricks"><strong>HackTricks</strong></a> and <a href="https://github.com/carlospolop/hacktricks-cloud"><strong>HackTricks Cloud</strong></a> github repos.</li>
-</ul>
-</details>
-</div>
 <h2 id="basic-information"><a class="header" href="#basic-information">Basic Information</a></h2>
 <p><strong>MACF</strong> stands for <strong>Mandatory Access Control Framework</strong>, which is a security system built into the operating system to help protect your computer. It works by setting <strong>strict rules about who or what can access certain parts of the system</strong>, such as files, applications, and system resources. By enforcing these rules automatically, MACF ensures that only authorized users and processes can perform specific actions, reducing the risk of unauthorized access or malicious activities.</p>
 <p>Note that MACF doesn't really make any decisions as it just <strong>intercepts</strong> actions, it leaves the decisions to the <strong>policy modules</strong> (kernel extensions) it calls like <code>AppleMobileFileIntegrity.kext</code>, <code>Quarantine.kext</code>, <code>Sandbox.kext</code>, <code>TMSafetyNet.kext</code> and <code>mcxalr.kext</code>.</p>
@@ -319,7 +307,7 @@ mmap(proc_t p, struct mmap_args *uap, user_addr_t *retval)
 } while (0)
 </code></pre>
 <p>Which will go over all the registered mac policies calling their functions and storing the output inside the error variable, which will only be overridable by <code>mac_error_select</code> by success codes so if any check fails the complete check will fail and the action won't be allowed.</p>
-<div class='notice notice-success'><b>SUCCESS</b><br/>
+<div class='notice notice-success'>
 However, remember that not all MACF callouts are used only to deny actions. For example, `mac_priv_grant` calls the macro [**MAC\_GRANT**](https://github.com/apple-oss-distributions/xnu/blob/94d3b452840153a99b38a3a9659680b2a006908e/security/mac\_internal.h#L274), which will grant the requested privilege if any policy answers with a 0:
 <pre><code class="language-c">/*
  * MAC_GRANT performs the designated check by walking the policy
@@ -388,18 +376,6 @@ __END_DECLS
 <ul>
 <li><a href="https://newosxbook.com/home.html"><strong>*OS Internals Volume III</strong></a></li>
 </ul>
-<div class='notice notice-success'><b>SUCCESS</b><br/>
-Learn & practice AWS Hacking:<img src="../../../.gitbook/assets/arte.png" alt="" data-size="line">[**HackTricks Training AWS Red Team Expert (ARTE)**](https://training.hacktricks.xyz/courses/arte)<img src="../../../.gitbook/assets/arte.png" alt="" data-size="line">\
-Learn & practice GCP Hacking: <img src="../../../.gitbook/assets/grte.png" alt="" data-size="line">[**HackTricks Training GCP Red Team Expert (GRTE)**<img src="../../../.gitbook/assets/grte.png" alt="" data-size="line">](https://training.hacktricks.xyz/courses/grte)
-<details>
-<summary>Support HackTricks</summary>
-<ul>
-<li>Check the <a href="https://github.com/sponsors/carlospolop"><strong>subscription plans</strong></a>!</li>
-<li><strong>Join the</strong> 💬 <a href="https://discord.gg/hRep4RUj7f"><strong>Discord group</strong></a> or the <a href="https://t.me/peass"><strong>telegram group</strong></a> or <strong>follow</strong> us on <strong>Twitter</strong> 🐦 <a href="https://twitter.com/hacktricks_live"><strong>@hacktricks_live</strong></a><strong>.</strong></li>
-<li><strong>Share hacking tricks by submitting PRs to the</strong> <a href="https://github.com/carlospolop/hacktricks"><strong>HackTricks</strong></a> and <a href="https://github.com/carlospolop/hacktricks-cloud"><strong>HackTricks Cloud</strong></a> github repos.</li>
-</ul>
-</details>
-</div>
 
                     </main>
 

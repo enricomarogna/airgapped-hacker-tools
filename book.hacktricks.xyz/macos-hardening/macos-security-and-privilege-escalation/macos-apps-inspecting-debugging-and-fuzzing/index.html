@@ -175,18 +175,6 @@
                 <div id="content" class="content">
                     <main>
                         <h1 id="macos-apps---inspecting-debugging-and-fuzzing"><a class="header" href="#macos-apps---inspecting-debugging-and-fuzzing">macOS Apps - Inspecting, debugging and Fuzzing</a></h1>
-<div class='notice notice-success'><b>SUCCESS</b><br/>
-Learn & practice AWS Hacking:<img src="../../../.gitbook/assets/arte.png" alt="" data-size="line">[**HackTricks Training AWS Red Team Expert (ARTE)**](https://training.hacktricks.xyz/courses/arte)<img src="../../../.gitbook/assets/arte.png" alt="" data-size="line">\
-Learn & practice GCP Hacking: <img src="../../../.gitbook/assets/grte.png" alt="" data-size="line">[**HackTricks Training GCP Red Team Expert (GRTE)**<img src="../../../.gitbook/assets/grte.png" alt="" data-size="line">](https://training.hacktricks.xyz/courses/grte)
-<details>
-<summary>Support HackTricks</summary>
-<ul>
-<li>Check the <a href="https://github.com/sponsors/carlospolop"><strong>subscription plans</strong></a>!</li>
-<li><strong>Join the</strong> 💬 <a href="https://discord.gg/hRep4RUj7f"><strong>Discord group</strong></a> or the <a href="https://t.me/peass"><strong>telegram group</strong></a> or <strong>follow</strong> us on <strong>Twitter</strong> 🐦 <a href="https://twitter.com/hacktricks_live"><strong>@hacktricks_live</strong></a><strong>.</strong></li>
-<li><strong>Share hacking tricks by submitting PRs to the</strong> <a href="https://github.com/carlospolop/hacktricks"><strong>HackTricks</strong></a> and <a href="https://github.com/carlospolop/hacktricks-cloud"><strong>HackTricks Cloud</strong></a> github repos.</li>
-</ul>
-</details>
-</div>
 <h2 id="static-analysis"><a class="header" href="#static-analysis">Static Analysis</a></h2>
 <h3 id="otool--objdump--nm"><a class="header" href="#otool--objdump--nm">otool &amp; objdump &amp; nm</a></h3>
 <pre><code class="language-bash">otool -L /bin/ls #List dynamically linked libraries
@@ -230,7 +218,7 @@ jtool2 -d __DATA.__const myipc_server | grep MIG
 **jtool is deprecated in favour of disarm**
 </div>
 <h3 id="codesign--ldid"><a class="header" href="#codesign--ldid">Codesign / ldid</a></h3>
-<div class='notice notice-success'><b>SUCCESS</b><br/>
+<div class='notice notice-success'>
 **`Codesign`** can be found in **macOS** while **`ldid`** can be found in **iOS**
 </div>
 <pre><code class="language-bash"># Get signer
@@ -389,7 +377,7 @@ Note that in order to **instrument system binaries**, (such as `cloudconfigurati
 <h3 id="dtrace"><a class="header" href="#dtrace">dtrace</a></h3>
 <p>It allows users access to applications at an extremely <strong>low level</strong> and provides a way for users to <strong>trace</strong> <strong>programs</strong> and even change their execution flow. Dtrace uses <strong>probes</strong> which are <strong>placed throughout the kernel</strong> and are at locations such as the beginning and end of system calls.</p>
 <p>DTrace uses the <strong><code>dtrace_probe_create</code></strong> function to create a probe for each system call. These probes can be fired in the <strong>entry and exit point of each system call</strong>. The interaction with DTrace occur through /dev/dtrace which is only available for the root user.</p>
-<div class='notice notice-success'><b>SUCCESS</b><br/>
+<div class='notice notice-success'>
 To enable Dtrace without fully disabling SIP protection you could execute on recovery mode: `csrutil enable --without dtrace`
 <p>You can also <strong><code>dtrace</code></strong> or <strong><code>dtruss</code></strong> binaries that <strong>you have compiled</strong>.</p>
 </div>
@@ -639,18 +627,6 @@ litefuzz -s -a tcp://localhost:5900 -i input/screenshared-session --reportcrash 
 <li><a href="https://taomm.org/vol1/analysis.html"><strong>https://taomm.org/vol1/analysis.html</strong></a></li>
 <li><a href="https://taomm.org/"><strong>The Art of Mac Malware: The Guide to Analyzing Malicious Software</strong></a></li>
 </ul>
-<div class='notice notice-success'><b>SUCCESS</b><br/>
-Learn & practice AWS Hacking:<img src="../../../.gitbook/assets/arte.png" alt="" data-size="line">[**HackTricks Training AWS Red Team Expert (ARTE)**](https://training.hacktricks.xyz/courses/arte)<img src="../../../.gitbook/assets/arte.png" alt="" data-size="line">\
-Learn & practice GCP Hacking: <img src="../../../.gitbook/assets/grte.png" alt="" data-size="line">[**HackTricks Training GCP Red Team Expert (GRTE)**<img src="../../../.gitbook/assets/grte.png" alt="" data-size="line">](https://training.hacktricks.xyz/courses/grte)
-<details>
-<summary>Support HackTricks</summary>
-<ul>
-<li>Check the <a href="https://github.com/sponsors/carlospolop"><strong>subscription plans</strong></a>!</li>
-<li><strong>Join the</strong> 💬 <a href="https://discord.gg/hRep4RUj7f"><strong>Discord group</strong></a> or the <a href="https://t.me/peass"><strong>telegram group</strong></a> or <strong>follow</strong> us on <strong>Twitter</strong> 🐦 <a href="https://twitter.com/hacktricks_live"><strong>@hacktricks_live</strong></a><strong>.</strong></li>
-<li><strong>Share hacking tricks by submitting PRs to the</strong> <a href="https://github.com/carlospolop/hacktricks"><strong>HackTricks</strong></a> and <a href="https://github.com/carlospolop/hacktricks-cloud"><strong>HackTricks Cloud</strong></a> github repos.</li>
-</ul>
-</details>
-</div>
 
                     </main>
 

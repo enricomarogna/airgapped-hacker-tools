@@ -177,7 +177,7 @@
                         <h1 id="macos-auto-start"><a class="header" href="#macos-auto-start">macOS Auto Start</a></h1>
 <p>This section is heavily based on the blog series <a href="https://theevilbit.github.io/beyond/"><strong>Beyond the good ol' LaunchAgents</strong></a>, the goal is to add <strong>more Autostart Locations</strong> (if possible), indicate <strong>which techniques are still working</strong> nowadays with latest version of macOS (13.4) and to specify the <strong>permissions</strong> needed.</p>
 <h2 id="sandbox-bypass"><a class="header" href="#sandbox-bypass">Sandbox Bypass</a></h2>
-<div class='notice notice-success'><b>SUCCESS</b><br/>
+<div class='notice notice-success'>
 Here you can find start locations useful for **sandbox bypass** that allows you to simply execute something by **writing it into a file** and **waiting** for a very **common** **action**, a determined **amount of time** or an **action you can usually perform** from inside a sandbox without needing root permissions.
 </div>
 <h3 id="launchd"><a class="header" href="#launchd">Launchd</a></h3>
@@ -222,7 +222,7 @@ Here you can find start locations useful for **sandbox bypass** that allows you 
 </ul>
 </li>
 </ul>
-<div class='notice notice-success'><b>SUCCESS</b><br/>
+<div class='notice notice-success'>
 As interesting fact, **`launchd`** has an embedded property list in a the Mach-o section `__Text.__config` which contains other well known services launchd must start. Moreover, these services can contain the `RequireSuccess`, `RequireRun` and `RebootOnSuccess` that means that they must be run and complete successfully.
 <p>Ofc, It cannot be modified because of code signing.</p>
 </div>
@@ -598,7 +598,7 @@ defaults delete com.apple.loginwindow LogoutHook
 </code></pre>
 <p>The root user one is stored in <strong><code>/private/var/root/Library/Preferences/com.apple.loginwindow.plist</code></strong></p>
 <h2 id="conditional-sandbox-bypass"><a class="header" href="#conditional-sandbox-bypass">Conditional Sandbox Bypass</a></h2>
-<div class='notice notice-success'><b>SUCCESS</b><br/>
+<div class='notice notice-success'>
 Here you can find start locations useful for **sandbox bypass** that allows you to simply execute something by **writing it into a file** and **expecting not super common conditions** like specific **programs installed, "uncommon" user** actions or environments.
 </div>
 <h3 id="cron"><a class="header" href="#cron">Cron</a></h3>
@@ -1428,7 +1428,7 @@ It doesn't look like this is working anymore.
 <h4 id="description-5"><a class="header" href="#description-5">Description</a></h4>
 <p>It doesn't look like this is working anymore.</p>
 <h2 id="root-sandbox-bypass"><a class="header" href="#root-sandbox-bypass">Root Sandbox Bypass</a></h2>
-<div class='notice notice-success'><b>SUCCESS</b><br/>
+<div class='notice notice-success'>
 Here you can find start locations useful for **sandbox bypass** that allows you to simply execute something by **writing it into a file** being **root** and/or requiring other **weird conditions.**
 </div>
 <h3 id="periodic"><a class="header" href="#periodic">Periodic</a></h3>

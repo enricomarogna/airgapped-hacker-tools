@@ -255,7 +255,7 @@ Disassembly of section __TEXT,__stubs:
 <p>you can see that we are <strong>jumping to the address of the GOT</strong>, which in this case is resolved non-lazy and will contain the address of the printf function.</p>
 <p>In other situations instead of directly jumping to the GOT, it could jump to <strong><code>__DATA.__la_symbol_ptr</code></strong> which will load a value that represents the function that it's trying to load, then jump to <strong><code>__TEXT.__stub_helper</code></strong> which jumps the <strong><code>__DATA.__nl_symbol_ptr</code></strong> which contains the address of <strong><code>dyld_stub_binder</code></strong> which takes as parameters the number of the function and an address.<br />
 This last function, after finding the address of the searched function writes it in the corresponding location in <strong><code>__TEXT.__stub_helper</code></strong> to avoid doing lookups in the future.</p>
-<div class='notice notice-success'><b>SUCCESS</b><br/>
+<div class='notice notice-success'>
 However notice taht current dyld versions load everything as non-lazy.
 </div>
 <h4 id="dyld-opcodes"><a class="header" href="#dyld-opcodes">Dyld opcodes</a></h4>
@@ -284,7 +284,7 @@ int main (int argc, char **argv, char **envp, char **apple)
 10: arm64e_abi=os
 11: th_port=
 </code></pre>
-<div class='notice notice-success'><b>SUCCESS</b><br/>
+<div class='notice notice-success'>
 By the time these values reaches the main function, sensitive information has already been removed from them or it would have been a data leak.
 </div>
 <p>it's possible to see all these interesting values debugging before getting into main with:</p>

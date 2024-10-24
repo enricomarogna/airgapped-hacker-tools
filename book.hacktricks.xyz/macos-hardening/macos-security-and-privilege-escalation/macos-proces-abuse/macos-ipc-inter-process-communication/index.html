@@ -277,7 +277,7 @@ Therefore, launchd should never crash or the whole sysem will crash.
 </code></pre>
 <p>For example, <code>MACH_MSG_TYPE_MAKE_SEND_ONCE</code> can be used to <strong>indicate</strong> that a <strong>send-once</strong> <strong>right</strong> should be derived and transferred for this port. It can also be specified <code>MACH_PORT_NULL</code> to prevent the recipient to be able to reply.</p>
 <p>In order to achieve an easy <strong>bi-directional communication</strong> a process can specify a <strong>mach port</strong> in the mach <strong>message header</strong> called the <em>reply port</em> (<strong><code>msgh_local_port</code></strong>) where the <strong>receiver</strong> of the message can <strong>send a reply</strong> to this message.</p>
-<div class='notice notice-success'><b>SUCCESS</b><br/>
+<div class='notice notice-success'>
 Note that this kind of bi-directional communication is used in XPC messages that expect a replay (`xpc_connection_send_message_with_reply` and `xpc_connection_send_message_with_reply_sync`). But **usually different ports are created** as explained previously to create the bi-directional communication.
 </div>
 <p>The other fields of the message header are:</p>
@@ -888,7 +888,7 @@ int main(int argc, const char * argv[]) {
 <pre><code class="language-bash">gcc -framework Foundation -framework Appkit sc_inject.m -o sc_inject
 ./inject &lt;pi or string&gt;
 </code></pre>
-<div class='notice notice-success'><b>SUCCESS</b><br/>
+<div class='notice notice-success'>
 For this to work on iOS you need the entitlement `dynamic-codesigning` in order to be able to make a writable memory executable.
 </div>
 <h3 id="dylib-injection-in-thread-via-task-port"><a class="header" href="#dylib-injection-in-thread-via-task-port">Dylib Injection in thread via Task port</a></h3>

@@ -177,7 +177,7 @@
                         <h1 id="3-token-embeddings"><a class="header" href="#3-token-embeddings">3. Token Embeddings</a></h1>
 <h2 id="token-embeddings"><a class="header" href="#token-embeddings">Token Embeddings</a></h2>
 <p>After tokenizing text data, the next critical step in preparing data for training large language models (LLMs) like GPT is creating <b>token embeddings</b>. Token embeddings transform discrete tokens (such as words or subwords) into continuous numerical vectors that the model can process and learn from. This explanation breaks down token embeddings, their initialization, usage, and the role of positional embeddings in enhancing model understanding of token sequences.</p>
-<div class='notice notice-success'><b>SUCCESS</b><br/>
+<div class='notice notice-success'>
 The goal of this third phase is very simple: <b>Assign each of the previous tokens in the vocabulary a vector of the desired dimensions to train the model.</b> Each word in the vocabulary will a point in a space of X dimensions.\
 Note that initially the position of each word in the space is just initialised "randomly" and these positions are trainable parameters (will be improved during the training).
 <p>Moreover, during the token embedding <b>another layer of embeddings is created</b> which represents (in this case) the <b>absolute possition of the word in the training sentence</b>. This way a word in different positions in the sentence will have a different representation (meaning).</p>
