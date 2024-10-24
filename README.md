@@ -10,6 +10,7 @@
 | [wadcoms.github.io](https://wadcoms.github.io/) | Jekyll |
 | [weakpass.com](https://weakpass.com/) | - |
 | [www.revshells.com](https://www.revshells.com/) | - |
+| [www.thehacker.recipes](https://www.thehacker.recipes/) | VitePress |
 
 ## Jekyll
 
@@ -27,6 +28,21 @@ bundle exec jekyll serve
 
 # Genera il sito e lo serve
 bundle exec jekyll serve --livereload
+```
+
+## VitePress
+
+### Comandi utili
+
+```bash
+# Installa le dipendenze
+npm install
+
+# Genera il sito
+npm run docs:build
+
+# Avvia il server locale
+npm run dev
 ```
 
 ## MDBook
