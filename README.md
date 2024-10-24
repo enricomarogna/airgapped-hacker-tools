@@ -4,12 +4,12 @@
 
 | Sito | Framework |
 | --- | --- |
-| book.hacktricks.xyz | MDBook (Gitbook) |
-| gtfobins.github.io | Jekyll |
-| lolbas-project.github.io | Jekyll |
-| wadcoms.github.io | Jekyll |
-| weakpass.com | - |
-| www.revshells.com | - |
+| [book.hacktricks.xyz](https://book.hacktricks.xyz) | MDBook (Gitbook) |
+| [gtfobins.github.io](https://gtfobins.github.io/) | Jekyll |
+| [lolbas-project.github.io](https://lolbas-project.github.io/) | Jekyll |
+| [wadcoms.github.io](https://wadcoms.github.io/) | Jekyll |
+| [weakpass.com](https://weakpass.com/) | - |
+| [www.revshells.com](https://www.revshells.com/) | - |
 
 ## Jekyll
 
