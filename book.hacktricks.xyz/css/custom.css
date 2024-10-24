@@ -1,0 +1,27 @@
+/* ========== */
+
+.notice {
+    border-radius: 0 5px 5px 0;
+    padding: 10px 10px;
+    color: #434242;
+}
+
+.notice.notice-danger {
+    border-left: 15px solid #f00;
+    background-color: rgb(254, 138, 138);
+}
+
+.notice.notice-warning {
+    border-left: 15px solid #ff0;
+    background-color: rgb(255, 255, 141);
+}
+
+.notice.notice-info {
+    border-left: 15px solid #00f;
+    background-color: rgb(159, 210, 255);
+}
+
+.notice.notice-success {
+    border-left: 15px solid #00cd41;
+    background-color: rgb(155, 255, 155);
+}
