@@ -225,6 +225,86 @@ Per convertirli in MDBook è necessario:
     <a href="$1" class="page-ref">$1</a>
     ```
 
+#### TABS
+- Eliminare prima i placeholders `{% tabs %}` e `{% endtabs %}`.
+- Regex per individuare le singole tab e modificarle da:
+
+    ```
+        {% tab title="Rust" %}
+        ```rust
+        fn main() {
+
+            let mut quantity = 2147483647;
+            
+            let (mul_result, _) = i32::overflowing_mul(32767, quantity);
+            let (add_result, _) = i32::overflowing_add(1, quantity);
+            
+            println!("{}", mul_result);
+            println!("{}", add_result);
+        }
+        ```
+        {% endtab %}
+    ```
+
+    a
+
+    ```
+        `Rust`
+        ```rust
+        fn main() {
+
+            let mut quantity = 2147483647;
+            
+            let (mul_result, _) = i32::overflowing_mul(32767, quantity);
+            let (add_result, _) = i32::overflowing_add(1, quantity);
+            
+            println!("{}", mul_result);
+            println!("{}", add_result);
+        }
+
+
+        {% endtab %}
+        ```
+    ```
+
+    Regex per la ricerca tramite VSCode
+
+    ```
+    \{% tab title="([^"]+)" %\}([\s\S]*?)\{% endtab %\}
+    ``` 
+
+    E stringa per la sostituzione
+    ```
+    `$1`
+    $2 
+    ```
+
+#### FILE
+- Regex per i placeholder di tipo `file`.
+
+    Da:
+
+    ```
+    {% file src="../../../.gitbook/assets/Reverse.tar (1).gz" %}
+    ```
+
+    A:
+
+    ```html
+    <a class="file-download" href="../../../.gitbook/assets/Reverse.tar (1).gz" download>../../../.gitbook/assets/Reverse.tar (1).gz</a>
+    ```
+
+    Regex per la ricerca tramite VSCode
+
+    ```
+    \{% file src="([^"]+)" %\}
+    ``` 
+
+    E stringa per la sostituzione
+    ```
+    <a class="file-download" href="$1" download>$1</a> 
+    ```
+
 #### HINT
 
 - Regex per individuare gli `hint` e modificare come da esempio:
